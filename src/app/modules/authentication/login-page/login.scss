@@ -1,0 +1,191 @@
+@import "../auth-css-config/auth-css-config.scss";
+
+.login-main-container {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: $--container-background-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-y: auto;
+  padding: 0 5.5% 0 3%;
+
+  @media screen and (max-width: $medium) {
+    padding: 30px;
+  }
+
+  @media screen and (max-width: $small) {
+    padding: 30px;
+  }
+
+  .login-logo-image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 42%;
+    min-height: 35.6875rem;
+    @media screen and (max-width: $medium) {
+      display: none;
+    }
+    @media screen and (max-width: $small) {
+      display: none;
+    }
+
+    .login-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 69px;
+      overflow: hidden;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .login-background-image {
+      display: flex;
+      justify-content: center;
+      height: 342px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .login-form-container {
+    border-radius: 0.5rem;
+    width: 53%;
+    min-height: 39.0625rem;
+    background-color: $--white-color;
+    box-shadow: 0px 4px 16px #00000026;
+
+    @media screen and (max-width: $medium) {
+      width: 100%;
+    }
+
+    @media screen and (max-width: $small) {
+      width: 100%;
+    }
+
+    .login-form-heading {
+      display: flex;
+      justify-content: flex-start;
+      padding: 4.94rem 3.12rem 0;
+
+      @media screen and (max-width: $small ) {
+        padding: 0.34rem 1rem 0;
+      }
+
+      h2 {
+        color: #000;
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: -0.01031rem;
+        @media screen and (max-width: 300px) {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .login-form-field {
+      display: flex;
+      padding: 0 3.12rem;
+      height: 8rem;
+      flex-direction: column;
+      gap: 1.25rem;
+      @media screen and (max-width:$small) {
+        padding: 0 1.12rem;
+      }
+
+      input {
+        color: #464646;
+        font-family: Poppins;
+        font-size: 1.125rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        &::placeholder {
+          color: #adadad;
+          font-size: 1.125rem;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+      }
+
+      .form-label {
+        display: flex;
+        align-items: center;
+        color: #464646;
+        font-size: 1.125rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        @media screen and (max-width: 300px) {
+          font-size: 0.8rem;
+        }
+        
+        img {
+          margin-right: 10px;
+          @media screen and (max-width: 300px) {
+            font-size: 0.8rem;
+            height: 0.8rem;
+            width: 0.8rem;
+          }
+        }
+      }
+    }
+
+    .form-button {
+      margin-top: 2.5rem;
+      height: 3.625rem;
+      padding: 0 3.12rem;
+      cursor: pointer;
+      @media screen and (max-width: $small) {
+        padding: 0 1.12rem;
+        margin-top: 1.5rem;
+      }
+
+      button {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        font-family: Poppins;
+        font-size: 1.125rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        border-radius: 0.625rem;
+        background: #58b1f9;
+        text-transform: none;
+        border: none;
+        @media screen and (max-width: 300px) {
+          font-size: 1rem;
+        }
+      }
+    }
+    .form-forgot {
+      height: 3.625rem;
+      margin: 2.25rem 0 4.87rem;
+      display: flex;
+      justify-content: center;
+
+      a {
+        color: #515357;
+        font-family: Poppins;
+        font-size: 1.125rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        @media screen and (max-width: 300px) {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
