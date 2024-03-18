@@ -11,7 +11,7 @@ export default function PrivateRouter() {
           <Outlet />
         </MainLayout>
       ) : (
-        <Navigate to={"/"} />
+        <Navigate to={"/login"} />
       )}
     </>
   );

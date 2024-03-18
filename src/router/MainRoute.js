@@ -10,7 +10,7 @@ function MainRoute() {
     <Routes>
       {/* public router  */}
       <Route path="/" element={<PublicRouter />}>
-        <Route index element={<Login />} />
+        <Route path ='/login' element={<Login />} />
         <Route path="*" element={<Navigate to={'/'}/>} />
       </Route>
 
