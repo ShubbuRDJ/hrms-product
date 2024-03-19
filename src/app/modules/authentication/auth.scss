@@ -1,0 +1,194 @@
+@import "./auth-css-config/auth-css-config.scss";
+
+.login-main-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: $--container-background-color;
+  display: flex;
+
+  .login-logo-image-container {
+    width: 52%;
+    height: 100%;
+    @media screen and (max-width: $medium) {
+      display: none;
+    }
+    @media screen and (max-width: $small) {
+      display: none;
+    }
+
+    .login-back-image {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .login-form-container {
+    width: 48%;
+    height: 100%;
+    background-color: $--white-color;
+    display: flex;
+    align-items: center;
+    padding-left: 120px;
+
+    @media screen and (max-width: $medium) {
+      width: 100%;
+    }
+    @media screen and (max-width: $small) {
+      width: 100%;
+    }
+
+    .login-form-wrapper {
+      min-height: 542px;
+      width: 350px;
+      // background-color: rgb(222, 215, 215);
+
+      .login-logo {
+        height: 43.69px;
+        width: 200px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .login-welcome-heading {
+        margin-top: 50px;
+
+        p {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: normal;
+          color: #2D3748;
+        }
+
+        .forgot-text{
+          margin-top: 15px;
+          color: #4A5568;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: normal;
+        }
+
+        h4 {
+          font-size: 30px;
+          font-weight: 700;
+          line-height: normal;
+          margin-top: 8px;
+          color: #1A202C;
+        }
+      }
+
+      .login-form-continer {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .login-form-input-field {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+
+          label {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 100%;
+            color: #4A5568;
+          }
+
+          .MuiInputBase-root{
+            border: none;
+            &:hover{
+              border: none;
+            }
+          }
+
+          input{
+            padding: 0;
+            height: 50px;
+            padding: 0 20px;
+            color: #2D3748;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: normal;
+            outline: none;
+
+             &::placeholder{
+              font-size: 14px;
+              font-weight: 400;
+             }
+          }
+        }
+
+        .login-remember-forgot{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          // margin-top: -14px;
+
+          .MuiFormControlLabel-root{
+            span{
+              color: #2D3748;
+              font-size: 14px;
+              font-weight: 400;
+              font-family: "Roboto", sans-serif;
+            }
+          }
+
+          p{
+            color: #2C5282;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: normal;
+            cursor: pointer;
+          }
+        }
+
+        .login-login-button{
+          height: 50px;
+          outline: none;
+          border: none;
+          background-color: #007BFF;
+          border-radius: 5px;
+          color: #FFFFFF;
+          font-size: 16px;
+          font-weight: 700;
+          line-height: normal;
+          margin-top: 27px;
+          cursor: pointer;
+        }
+
+        .forgot-login-button{
+          margin-top: 20px;
+        }
+
+
+        .login-google-button{
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          outline: none;
+          border: none;
+          border: 1px solid #D0D5DD;
+          border-radius: 5px;
+          background-color: #FFFFFF;
+          color: #2D3748;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: normal;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

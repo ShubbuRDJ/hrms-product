@@ -8,7 +8,7 @@ export default function PublicRouter() {
       {
         !isLoggedIn ? (
           <Outlet />
-        ) : (<Navigate to={"/dashboard"} />)
+        ) : (<Navigate to={"/"} />)
       }
     </>
   )
