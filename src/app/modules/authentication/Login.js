@@ -8,8 +8,12 @@ import { useFormik } from "formik";
 import { loginSchema } from "../../../services/yup-validation-schemas";
 import avLogo from '../../../assets/auth/av_with_text_logo.png';
 import googleLogo from '../../../assets/auth/google.svg';
+import backgroundImg from '../../../assets/auth/background_auth.png';
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import { signInWithPopup } from 'firebase/auth'
+import { auth, google } from "../../../services/firebase/firebase";
+import toaster from "../../../utility/toaster/toaster";
 
 const initialValues = {
   email: "",
@@ -41,12 +45,34 @@ export default function Login() {
   const handleLogin = async (credentials) => {
     console.log('Login success');
   }
+
+
+  const googleLogin = async ()=>{
+    try {
+      const result = await signInWithPopup(auth,google);
+      localStorage.setItem('ACCESS_TOKEN',result?.user?.accessToken)
+      toaster('success','Login successful!')
+      setTimeout(()=>{
+        navigate('/')
+      },[1000])
+
+    } catch (error) {
+      if (error?.message.includes('refuses to grant permission')) {
+        toaster('error','User refuses to grant permission')
+      }
+      if ('popup-closed-by-user') {
+        toaster('error','Popup closed by user')
+      }
+    }
+  }
+
+
   return (
     <>
       <Grid className="login-main-container">
         <Grid className="login-logo-image-container">
           <Grid className="login-back-image">
-            <img src="https://dashboard.appventurez.com/skin/hrsale_assets/img/bg/banner.jpg" alt="back-img" />
+            <img src={backgroundImg} alt="back-img" />
           </Grid>
         </Grid>
         <Grid className="login-form-container">
@@ -118,7 +144,7 @@ export default function Login() {
 
                 <button className="login-login-button" type="submit">Login</button>
 
-                <button className="login-google-button" type="button">
+                <button onClick={googleLogin} className="login-google-button" type="button">
                   <img src={googleLogo} alt="google" />
                   <span>Or sign-in with google</span>
                   </button>

@@ -5,6 +5,7 @@ import {
   import { useFormik } from "formik";
   import { forgotPasswordSchema } from "../../../services/yup-validation-schemas";
   import avLogo from '../../../assets/auth/av_with_text_logo.png';
+  import backgroundImg from '../../../assets/auth/background_auth.png';
 import { useNavigate } from "react-router-dom";
   
   const initialValues = {
@@ -30,7 +31,7 @@ import { useNavigate } from "react-router-dom";
         <Grid className="login-main-container">
           <Grid className="login-logo-image-container">
             <Grid className="login-back-image">
-              <img src="https://dashboard.appventurez.com/skin/hrsale_assets/img/bg/banner.jpg" alt="back-img" />
+              <img src={backgroundImg} alt="back-img" />
             </Grid>
           </Grid>
 

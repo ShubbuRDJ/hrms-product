@@ -9,12 +9,12 @@
   .login-logo-image-container {
     width: 52%;
     height: 100%;
-    @media screen and (max-width: $medium) {
+    @media screen and (max-width: $large) {
       display: none;
     }
-    @media screen and (max-width: $small) {
-      display: none;
-    }
+    // @media screen and (max-width: $small) {
+    //   display: none;
+    // }
 
     .login-back-image {
       width: 100%;
@@ -37,17 +37,42 @@
     align-items: center;
     padding-left: 120px;
 
-    @media screen and (max-width: $medium) {
+    @media screen and (max-width: $exLarge) {
+      padding-left: 60px;
+    }
+
+    @media screen and (max-width: $large) {
       width: 100%;
+      padding: 0 120px;
+      background-image: url("../../../assets/auth/background_auth.png");
+      background-repeat: no-repeat;
+      background-size:cover;
+    }
+    @media screen and (max-width: $medium) {
+      padding: 0 60px;
     }
     @media screen and (max-width: $small) {
       width: 100%;
+      padding: 0 30px;
+    }
+
+    @media screen and (max-width: $exSmall) {
+      width: 100%;
+      padding: 0 15px;
     }
 
     .login-form-wrapper {
       min-height: 542px;
       width: 350px;
-      // background-color: rgb(222, 215, 215);
+      background-color: $--white-color;
+
+      @media screen and (max-width: $large) {
+        width: 100%;
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+          rgba(0, 0, 0, 0.22) 0px 10px 10px;
+      }
 
       .login-logo {
         height: 43.69px;
@@ -66,15 +91,24 @@
           font-size: 16px;
           font-weight: 400;
           line-height: normal;
-          color: #2D3748;
+          color: #2d3748;
         }
 
-        .forgot-text{
+        .forgot-text {
           margin-top: 15px;
-          color: #4A5568;
+          color: #4a5568;
           font-size: 16px;
           font-weight: 400;
           line-height: normal;
+
+          @media screen and (max-width: $small) {
+            font-size: 14px;
+          }
+          @media screen and (max-width: $exSmall) {
+            font-size: 11px;
+          }
+
+
         }
 
         h4 {
@@ -82,7 +116,14 @@
           font-weight: 700;
           line-height: normal;
           margin-top: 8px;
-          color: #1A202C;
+          color: #1a202c;
+
+          @media screen and (max-width: $small) {
+            font-size: 25px;
+          }
+          @media screen and (max-width: $exSmall) {
+            font-size: 20px;
+          }
         }
       }
 
@@ -101,50 +142,50 @@
             font-size: 16px;
             font-weight: 700;
             line-height: 100%;
-            color: #4A5568;
+            color: #4a5568;
           }
 
-          .MuiInputBase-root{
+          .MuiInputBase-root {
             border: none;
-            &:hover{
+            &:hover {
               border: none;
             }
           }
 
-          input{
+          input {
             padding: 0;
             height: 50px;
             padding: 0 20px;
-            color: #2D3748;
+            color: #2d3748;
             font-size: 14px;
             font-weight: 600;
             line-height: normal;
             outline: none;
 
-             &::placeholder{
+            &::placeholder {
               font-size: 14px;
               font-weight: 400;
-             }
+            }
           }
         }
 
-        .login-remember-forgot{
+        .login-remember-forgot {
           display: flex;
           align-items: center;
           justify-content: space-between;
           // margin-top: -14px;
 
-          .MuiFormControlLabel-root{
-            span{
-              color: #2D3748;
+          .MuiFormControlLabel-root {
+            span {
+              color: #2d3748;
               font-size: 14px;
               font-weight: 400;
               font-family: "Roboto", sans-serif;
             }
           }
 
-          p{
-            color: #2C5282;
+          p {
+            color: #2c5282;
             font-size: 14px;
             font-weight: 400;
             line-height: normal;
@@ -152,13 +193,13 @@
           }
         }
 
-        .login-login-button{
+        .login-login-button {
           height: 50px;
           outline: none;
           border: none;
-          background-color: #007BFF;
+          background-color: #007bff;
           border-radius: 5px;
-          color: #FFFFFF;
+          color: #ffffff;
           font-size: 16px;
           font-weight: 700;
           line-height: normal;
@@ -166,12 +207,11 @@
           cursor: pointer;
         }
 
-        .forgot-login-button{
+        .forgot-login-button {
           margin-top: 20px;
         }
 
-
-        .login-google-button{
+        .login-google-button {
           height: 50px;
           display: flex;
           align-items: center;
@@ -179,10 +219,10 @@
           gap: 10px;
           outline: none;
           border: none;
-          border: 1px solid #D0D5DD;
+          border: 1px solid #d0d5dd;
           border-radius: 5px;
-          background-color: #FFFFFF;
-          color: #2D3748;
+          background-color: #ffffff;
+          color: #2d3748;
           font-size: 16px;
           font-weight: 400;
           line-height: normal;
