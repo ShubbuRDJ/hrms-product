@@ -1,16 +1,20 @@
 import { Grid } from '@mui/material'
 import './main-layout.scss'
+import { Outlet } from 'react-router-dom'
+import Sidebar from '../../components/Sidebar/Sidebar'
+import Topbar from '../../components/topbar/Topbar'
 
-export default function MainLayout({ children }) {
+export default function MainLayout() {
   return (
-    <div className='mainLayout-container' >
-      {/* <Topbar headingTopbar={heading} /> */}
+    <Grid className='mainLayout-container' >
+      <Sidebar/>
       <Grid className='main-container'>
-        {/* <Sidebar /> */}
+        <Topbar/>
         <Grid className='mainLayout-main-content'>
-          {children}
+          <Outlet/>
         </Grid>
+
       </Grid>
-    </div>
+    </Grid>
   )
 }
