@@ -6,6 +6,7 @@ import PrivateRouter from "./PrivateRouter";
 import Dashboard from "../app/modules/dashboard/Dashboard";
 import Forgot from "../app/modules/authentication/Forgot";
 import ResetPassword from "../app/modules/authentication/ResetPassword";
+import Profile from "../app/modules/profile/Profile";
 
 function MainRoute() {
   return (
@@ -21,6 +22,7 @@ function MainRoute() {
       {/* private router  */}
       <Route path="/" element={<PrivateRouter />}>
         <Route index element={<Dashboard/>} />
+        <Route path="profile" element={<Profile/>} />
         <Route path="*" element={<Navigate to={'/dashboard'} />} />
 
       </Route>
