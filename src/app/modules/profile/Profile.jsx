@@ -1,25 +1,35 @@
 import React from 'react'
 import './profile.scss'
 import { Grid } from '@mui/material'
-import { Outlet } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import BasicInfo from './basic-info/BasicInfo'
+import ChangePassword from './change-password/ChangePassword'
 
 const Profile = () => {
 
+    const location = useLocation();
+    const navigate = useNavigate();
+
     const profileSidebar = [
         {
-            menuName: 'Basic Information'
+            menuName: 'Basic Information',
+            navigateAddress: '/profile',
         },
         {
-            menuName: 'Profile Picture'
+            menuName: 'Profile Picture',
+            navigateAddress: '/profile/profile-pic',
         },
         {
-            menuName: 'Qualifications'
+            menuName: 'Qualifications',
+            navigateAddress: '/profile/qualifications',
         },
         {
-            menuName: 'Shift'
+            menuName: 'Shift',
+            navigateAddress: '/profile/shift',
         },
         {
-            menuName: 'Change Password'
+            menuName: 'Change Password',
+            navigateAddress: '/profile/change-password',
         },
     ]
 
@@ -68,7 +78,7 @@ const Profile = () => {
                         <Grid className='profile-sidebar'>
                             {
                                 profileSidebar?.map((menu, index) => (
-                                    <Grid className='profile-sidebar-menu'>
+                                    <Grid key={index} onClick={()=>navigate(menu?.navigateAddress)} className={`profile-sidebar-menu ${location.pathname === menu.navigateAddress ? 'profile-active' : ''}`}>
                                         <Grid className='profile-sidebar-menu-item'>
                                             <p>{menu?.menuName}</p>
                                         </Grid>
@@ -77,7 +87,11 @@ const Profile = () => {
                             }
                         </Grid>
                         <Grid className='profile-main-content-wrapper'>
-                            <Outlet />
+                            <Routes>
+                                <Route index element={<BasicInfo />} />
+                                <Route path="change-password" element={<ChangePassword />} />
+                                <Route path="*" element={<Navigate to={'/profile'} />} />
+                            </Routes>
                         </Grid>
                     </Grid>
                 </Grid>

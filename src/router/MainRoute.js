@@ -22,7 +22,7 @@ function MainRoute() {
       {/* private router  */}
       <Route path="/" element={<PrivateRouter />}>
         <Route index element={<Dashboard/>} />
-        <Route path="profile" element={<Profile/>} />
+        <Route path="profile/*" element={<Profile/>} />
         <Route path="*" element={<Navigate to={'/dashboard'} />} />
 
       </Route>

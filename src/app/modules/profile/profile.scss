@@ -85,12 +85,27 @@
             height: 100%;
             border-right: 1px solid #E6EFF5;
 
+            
+                .profile-sidebar-menu.profile-active{
+                    .profile-sidebar-menu-item{
+                        background-color: #007BFF;
+
+                        p{
+                            font-size: 14px;
+                            line-height: 16px;
+                            color: #FFFFFF;
+                            font-weight: 700;
+                        }
+                    }
+                }
+
             .profile-sidebar-menu{
                 height: 52px;
                 border-bottom: 1px solid #E6EFF5;
                 display: flex;
                 align-items: center;
                 padding: 0 5px;
+                cursor: pointer;
 
                 .profile-sidebar-menu-item{
                     height: 45px;

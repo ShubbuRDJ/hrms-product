@@ -4,8 +4,9 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Grid } from '@mui/material';
 import dayjs from 'dayjs';
+import './date-picker.scss';
 
-export default function DatePickerCustom({handleChange,value,name,id }) {
+export default function DatePickerCustom({handleChange,value,name,id,placeholder }) {
 
   const formatDate = (date) =>{
     const originalDate = new Date(date);
@@ -21,9 +22,9 @@ export default function DatePickerCustom({handleChange,value,name,id }) {
         {value?<DatePicker
           value={dayjs(value)}
           onChange={(value) => handleChange(name, formatDate(new Date(value)), true)}
-          slotProps={{ textField: { placeholder: 'Choose Date',name:{name} } }}/>:<DatePicker
+          slotProps={{ textField: { placeholder: `${placeholder}`,name:{name} } }}/>:<DatePicker
           onChange={(value) => handleChange(name, formatDate(new Date(value)), true)}
-          slotProps={{ textField: { placeholder: 'Choose Date',name:{name},id:{id} } }}/>}
+          slotProps={{ textField: { placeholder: `${placeholder}`,name:{name},id:{id} } }}/>}
       </Grid>
     </LocalizationProvider>
   );
