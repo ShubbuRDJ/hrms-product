@@ -1,7 +1,6 @@
 .MuiInputBase-root {
   height: 46px;
   border-radius: 8px !important;
-  // border: 1px solid #E9CFFF;
 
   input {
     padding: 0 20px;
@@ -10,4 +9,9 @@
 
 .MuiFormControl-root {
   width: 100%;
+}
+
+
+.MuiOutlinedInput-notchedOutline{
+  border-color:#E9CFFF !important ;
 }

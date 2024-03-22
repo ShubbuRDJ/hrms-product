@@ -34,6 +34,7 @@ const BasicInfo = () => {
 
                 <form onSubmit={handleSubmit}>
                     <Grid className='profile-basic-info-form-container'>
+
                         <Grid className='profile-basic-info-form-row'>
 
                             <Grid className='profile-basic-info-input-field'>
@@ -73,13 +74,76 @@ const BasicInfo = () => {
                             <Grid className='profile-basic-info-input-field'>
                                 <label htmlFor="email-login-form-control">Date of Birth</label>
                                 <DatePickerCustom
-                                placeholder={'Date of birth'}
+                                    placeholder={'Date of birth'}
                                 />
                                 {errors.email && touched.email ? (
                                     <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.email.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.email}</p></Grid>
                                 ) : null}
                             </Grid>
                         </Grid>
+
+                        <Grid className='profile-basic-info-form-row'>
+
+                            <Grid className='profile-basic-info-input-field profile-basic-info-input-field-second'>
+                                <label htmlFor="email-login-form-control">Total Working Experience</label>
+                                <DatePickerCustom
+                                    placeholder={'Month'}
+                                    type={'month'}
+                                />
+                                {errors.email && touched.email ? (
+                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.email.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.email}</p></Grid>
+                                ) : null}
+                            </Grid>
+
+                            <Grid className='profile-basic-info-input-field profile-basic-info-input-field-second'>
+                                <label style={{ visibility: "hidden" }} htmlFor="email-login-form-control">Date of Birth</label>
+                                <DatePickerCustom
+                                    placeholder={'Year'}
+                                    type={'year'}
+                                />
+                                {errors.email && touched.email ? (
+                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.email.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.email}</p></Grid>
+                                ) : null}
+                            </Grid>
+
+
+                            <Grid className='profile-basic-info-input-field profile-basic-info-input-field-second'>
+                                <label htmlFor="email-login-form-control">Relevant Working Experience</label>
+                                <DatePickerCustom
+                                    placeholder={'Month'}
+                                    type={'month'}
+                                />
+                                {errors.email && touched.email ? (
+                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.email.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.email}</p></Grid>
+                                ) : null}
+                            </Grid>
+
+                            <Grid className='profile-basic-info-input-field profile-basic-info-input-field-second'>
+                                <label style={{ visibility: "hidden" }} htmlFor="email-login-form-control">Date of Birth</label>
+                                <DatePickerCustom
+                                    placeholder={'Year'}
+                                    type={'year'}
+                                />
+                                {errors.email && touched.email ? (
+                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.email.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.email}</p></Grid>
+                                ) : null}
+                            </Grid>
+
+                        </Grid>
+
+                        <Grid className='profile-basic-info-form-row'>
+
+                            <Grid className='profile-basic-info-input-field profile-basic-info-textarea'>
+                                <label htmlFor="email-login-form-control">Address</label>
+                                <textarea id="address" name="address" rows="4" cols="50" placeholder='Address'> 
+                                </textarea>
+                                {errors.email && touched.email ? (
+                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.email.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.email}</p></Grid>
+                                ) : null}
+                            </Grid>
+
+                        </Grid>
+
                     </Grid>
                 </form>
             </Grid>

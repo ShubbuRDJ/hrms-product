@@ -6,9 +6,9 @@ import { Grid } from '@mui/material';
 import dayjs from 'dayjs';
 import './date-picker.scss';
 
-export default function DatePickerCustom({handleChange,value,name,id,placeholder }) {
+export default function DatePickerCustom({ handleChange, value, name, id, placeholder, type }) {
 
-  const formatDate = (date) =>{
+  const formatDate = (date) => {
     const originalDate = new Date(date);
     const month = (originalDate.getMonth() + 1).toString().padStart(2, '0');
     const day = originalDate.getDate().toString().padStart(2, '0');
@@ -19,12 +19,16 @@ export default function DatePickerCustom({handleChange,value,name,id,placeholder
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} >
       <Grid className='date-picker-custom'>
-        {value?<DatePicker
+        {value ? <DatePicker
           value={dayjs(value)}
+          openTo={type}
+          views={['year', 'month', 'day']}
           onChange={(value) => handleChange(name, formatDate(new Date(value)), true)}
-          slotProps={{ textField: { placeholder: `${placeholder}`,name:{name} } }}/>:<DatePicker
+          slotProps={{ textField: { placeholder: `${placeholder}`, name: { name } } }} /> : <DatePicker
           onChange={(value) => handleChange(name, formatDate(new Date(value)), true)}
-          slotProps={{ textField: { placeholder: `${placeholder}`,name:{name},id:{id} } }}/>}
+          openTo={type}
+          views={['year', 'month', 'day']}
+          slotProps={{ textField: { placeholder: `${placeholder}`, name: { name }, id: { id } } }} />}
       </Grid>
     </LocalizationProvider>
   );

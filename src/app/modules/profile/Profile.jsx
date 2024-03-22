@@ -4,6 +4,7 @@ import { Grid } from '@mui/material'
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import BasicInfo from './basic-info/BasicInfo'
 import ChangePassword from './change-password/ChangePassword'
+import ProfilePicture from './profile-picture/ProfilePicture'
 
 const Profile = () => {
 
@@ -17,7 +18,7 @@ const Profile = () => {
         },
         {
             menuName: 'Profile Picture',
-            navigateAddress: '/profile/profile-pic',
+            navigateAddress: '/profile/profile-picture',
         },
         {
             menuName: 'Qualifications',
@@ -90,6 +91,7 @@ const Profile = () => {
                             <Routes>
                                 <Route index element={<BasicInfo />} />
                                 <Route path="change-password" element={<ChangePassword />} />
+                                <Route path="profile-picture" element={<ProfilePicture />} />
                                 <Route path="*" element={<Navigate to={'/profile'} />} />
                             </Routes>
                         </Grid>
