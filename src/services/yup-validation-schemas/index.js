@@ -15,13 +15,13 @@ export const setNewPasswordSchema = Yup.object({
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/,
       "Password must have length of at least 8 characters including at least one uppercase letter, one lowercase, one numeric value and one special character"
     ),
-    confirmPass: Yup.string()
+  confirmPass: Yup.string()
     .required("Please enter the Confirm Password to move ahead")
     .oneOf([Yup.ref("password"), null], "The password does not match"),
 });
 
 export const changePasswordSchema = Yup.object({
-  old_password: Yup.string()
+  oldPass: Yup.string()
     .min(8, "Password too short should contain at least 8 characters.")
     .max(30, "Password too long should contain at most 30 characters.")
     .required("Please enter the Old Password to move ahead")
@@ -29,7 +29,7 @@ export const changePasswordSchema = Yup.object({
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/,
       "Password must have length of at least 8 characters including at least one uppercase letter, one lowercase, one numeric value and one special character"
     ),
-  new_password: Yup.string()
+  password: Yup.string()
     .min(8, "Password too short should contain at least 8 characters.")
     .max(30, "Password too long should contain at most 30 characters.")
     .required("Please enter the New Password to move ahead")
@@ -37,7 +37,7 @@ export const changePasswordSchema = Yup.object({
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/,
       "Password must have length of at least 8 characters including at least one uppercase letter, one lowercase, one numeric value and one special character"
     ),
-  confirm_password: Yup.string()
+  confirmPassword: Yup.string()
     .required("Please enter the Confirm Password to move ahead")
     .oneOf([Yup.ref("new_password"), null], "New password does not match"),
 });
