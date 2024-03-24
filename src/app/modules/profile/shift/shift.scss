@@ -1,0 +1,40 @@
+.profile-shift-container{
+
+    h4{
+        color: #007BFF;
+        font-size: 16px;
+        line-height: 16px;
+        font-weight: 700;
+        margin-top: 15px;
+        margin-left: 20px;
+    }
+
+    .profile-shift-list-container{
+        margin-top: 20px;
+        border-top: 1px solid #E6EFF5;
+
+        .profile-shift-list-item{
+            width: 100%;
+            height: 52px;
+            border-bottom: 1px solid #E6EFF5;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 30px;
+
+            p{
+                color: #1B1C57;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 16px;
+                min-width: 126px;
+            }
+            h3{
+                color: #1B1C57;
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 16px;
+            }
+        }
+    }
+}

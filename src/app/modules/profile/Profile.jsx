@@ -5,6 +5,8 @@ import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-
 import BasicInfo from './basic-info/BasicInfo'
 import ChangePassword from './change-password/ChangePassword'
 import ProfilePicture from './profile-picture/ProfilePicture'
+import Shift from './shift/Shift'
+import Qualification from './qualification/Qualification'
 
 const Profile = () => {
 
@@ -90,8 +92,10 @@ const Profile = () => {
                         <Grid className='profile-main-content-wrapper'>
                             <Routes>
                                 <Route index element={<BasicInfo />} />
-                                <Route path="change-password" element={<ChangePassword />} />
                                 <Route path="profile-picture" element={<ProfilePicture />} />
+                                <Route path="change-password" element={<ChangePassword />} />
+                                <Route path="shift" element={<Shift />} />
+                                <Route path="qualifications" element={<Qualification />} />
                                 <Route path="*" element={<Navigate to={'/profile'} />} />
                             </Routes>
                         </Grid>
