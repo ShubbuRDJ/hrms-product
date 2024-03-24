@@ -3,29 +3,35 @@ import React from 'react';
 import './basic-info.scss';
 import { useFormik } from 'formik';
 import DatePickerCustom from '../../../components/date_picker/DatePickerCustom';
+import { profileBasicDetailSchema } from '../../../../services/yup-validation-schemas';
 
 
 
 const initialValues = {
     fName: "",
     lName: "",
+    dob: '',
+    totalWorkingMonth: '',
+    totalWorkingYear: '',
+    relevantWorkingMonth: '',
+    relevantWorkingYear: '',
+    address: ''
 };
 
 const BasicInfo = () => {
 
 
-    const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
+    const { values, handleChange, handleBlur, handleSubmit, setFieldValue, errors, touched } =
         useFormik({
             initialValues,
-            // validationSchema: loginSchema,
+            validationSchema: profileBasicDetailSchema,
             onSubmit: (values, action) => {
                 handleSave(values);
-                // action.resetForm();
             },
         });
 
     const handleSave = async (credentials) => {
-        console.log('Login success');
+        console.log(credentials, 'jhsbdwuyduweydweu');
     }
     return (
         <>
@@ -50,7 +56,7 @@ const BasicInfo = () => {
                                     value={values.fName}
                                 />
                                 {errors.fName && touched.fName ? (
-                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.fName.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.fName}</p></Grid>
+                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.fName.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.fName}</p></Grid>
                                 ) : null}
                             </Grid>
 
@@ -67,7 +73,7 @@ const BasicInfo = () => {
                                     value={values.lName}
                                 />
                                 {errors.lName && touched.lName ? (
-                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.lName.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.lName}</p></Grid>
+                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.lName.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.lName}</p></Grid>
                                 ) : null}
                             </Grid>
 
@@ -75,9 +81,13 @@ const BasicInfo = () => {
                                 <label htmlFor="email-login-form-control">Date of Birth</label>
                                 <DatePickerCustom
                                     placeholder={'Date of birth'}
+                                    value={values.dob}
+                                    handleChange={setFieldValue}
+                                    name={'dob'}
+                                    id={'profile-basic-detail-dob'}
                                 />
-                                {errors.email && touched.email ? (
-                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.email.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.email}</p></Grid>
+                                {errors?.dob && touched?.dob ? (
+                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors?.dob?.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors?.dob}</p></Grid>
                                 ) : null}
                             </Grid>
                         </Grid>
@@ -89,9 +99,14 @@ const BasicInfo = () => {
                                 <DatePickerCustom
                                     placeholder={'Month'}
                                     type={'month'}
+                                    value={values?.totalWorkingMonth}
+                                    handleChange={setFieldValue}
+                                    name={'totalWorkingMonth'}
+                                    id={'profile-basic-detail-totalWorkingMonth'}
+
                                 />
-                                {errors.email && touched.email ? (
-                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.email.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.email}</p></Grid>
+                                {errors.totalWorkingMonth && touched.totalWorkingMonth ? (
+                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.totalWorkingMonth.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.totalWorkingMonth}</p></Grid>
                                 ) : null}
                             </Grid>
 
@@ -100,9 +115,13 @@ const BasicInfo = () => {
                                 <DatePickerCustom
                                     placeholder={'Year'}
                                     type={'year'}
+                                    value={values?.totalWorkingYear}
+                                    handleChange={setFieldValue}
+                                    name={'totalWorkingYear'}
+                                    id={'profile-basic-detail-totalWorkingYear'}
                                 />
-                                {errors.email && touched.email ? (
-                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.email.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.email}</p></Grid>
+                                {errors.totalWorkingYear && touched.totalWorkingYear ? (
+                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.totalWorkingYear.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.totalWorkingYear}</p></Grid>
                                 ) : null}
                             </Grid>
 
@@ -112,9 +131,13 @@ const BasicInfo = () => {
                                 <DatePickerCustom
                                     placeholder={'Month'}
                                     type={'month'}
+                                    value={values?.relevantWorkingMonth}
+                                    handleChange={setFieldValue}
+                                    name={'relevantWorkingMonth'}
+                                    id={'profile-basic-detail-relevantWorkingMonth'}
                                 />
-                                {errors.email && touched.email ? (
-                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.email.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.email}</p></Grid>
+                                {errors.relevantWorkingMonth && touched.relevantWorkingMonth ? (
+                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.relevantWorkingMonth.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.relevantWorkingMonth}</p></Grid>
                                 ) : null}
                             </Grid>
 
@@ -123,9 +146,13 @@ const BasicInfo = () => {
                                 <DatePickerCustom
                                     placeholder={'Year'}
                                     type={'year'}
+                                    value={values?.relevantWorkingYear}
+                                    handleChange={setFieldValue}
+                                    name={'relevantWorkingYear'}
+                                    id={'profile-basic-detail-relevantWorkingYear'}
                                 />
-                                {errors.email && touched.email ? (
-                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.email.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.email}</p></Grid>
+                                {errors.relevantWorkingYear && touched.relevantWorkingYear ? (
+                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.relevantWorkingYear.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.relevantWorkingYear}</p></Grid>
                                 ) : null}
                             </Grid>
 
@@ -135,14 +162,21 @@ const BasicInfo = () => {
 
                             <Grid className='profile-basic-info-input-field profile-basic-info-textarea'>
                                 <label htmlFor="email-login-form-control">Address</label>
-                                <textarea id="address" name="address" rows="4" cols="50" placeholder='Address'> 
+                                <textarea id="address" name="address" rows="4" cols="50"
+                                    placeholder='Address'
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.address}
+                                >
                                 </textarea>
-                                {errors.email && touched.email ? (
-                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.email.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.email}</p></Grid>
+                                {errors.address && touched.address ? (
+                                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.address.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.address}</p></Grid>
                                 ) : null}
                             </Grid>
 
                         </Grid>
+
+                        <button className='profile-basic-info-btn' type="submit">Save</button>
 
                     </Grid>
                 </form>

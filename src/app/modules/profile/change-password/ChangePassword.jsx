@@ -71,7 +71,7 @@ const ChangePassword = () => {
                 />
               </FormControl>
               {errors.oldPass && touched.oldPass ? (
-                <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.oldPass.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.oldPass}</p></Grid>
+                <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.oldPass.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.oldPass}</p></Grid>
               ) : null}
             </Grid>
 
@@ -104,7 +104,7 @@ const ChangePassword = () => {
                 />
               </FormControl>
               {errors.password && touched.password ? (
-                <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.password.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.password}</p></Grid>
+                <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.password.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.password}</p></Grid>
               ) : null}
             </Grid>
 
@@ -137,7 +137,7 @@ const ChangePassword = () => {
                 />
               </FormControl>
               {errors.confirmPassword && touched.confirmPassword ? (
-                <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.confirmPassword.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.confirmPassword}</p></Grid>
+                <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.confirmPassword.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.confirmPassword}</p></Grid>
               ) : null}
             </Grid>
 

@@ -245,6 +245,7 @@ export const addRequestSchema = Yup.object({
   project: Yup.string().required("Please select the Project to move ahead"),
 });
 
+
 export const profileSchema = Yup.object({
   name: Yup.string()
     .required("Please enter Name")
@@ -277,6 +278,38 @@ export const profileSchema = Yup.object({
     "Please select the Designation to move ahead"
   ),
 });
+
+
+export const profileBasicDetailSchema = Yup.object({
+  fName: Yup.string()
+    .required("Please enter First Name")
+    .matches(/^[a-zA-Z ]*$/, "First Name should contain only alphabets")
+    .max(20),
+  lName: Yup.string()
+    .required("Please enter Last Name")
+    .matches(/^[a-zA-Z ]*$/, "Last Name should contain only alphabets")
+    .max(20),
+  dob: Yup.string().required(
+    "Please enter DOB to move ahead"
+  ),
+  totalWorkingMonth: Yup.string().required(
+    "Please enter Total Working Month to move ahead"
+  ),
+  totalWorkingYear: Yup.string().required(
+    "Please enter Total Working Year to move ahead"
+  ),
+  relevantWorkingMonth: Yup.string().required(
+    "Please enter Relevant Working Month to move ahead"
+  ),
+  relevantWorkingYear: Yup.string().required(
+    "Please enter Relevant Working Year to move ahead"
+  ),
+  address: Yup.string().required(
+    "Please enter address to move ahead"
+  ),
+});
+
+
 
 export const addIndirectExpenseSchema = Yup.object({
   description: Yup.string()

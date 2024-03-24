@@ -75,8 +75,20 @@
             font-weight: 400;
           }
         }
-        
       }
+    }
+
+    .profile-basic-info-btn {
+      width: 96px;
+      height: 40px;
+      border: none;
+      background-color: #219653;
+      border-radius: 4px;
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 600;
+      cursor: pointer;
     }
   }
 }
