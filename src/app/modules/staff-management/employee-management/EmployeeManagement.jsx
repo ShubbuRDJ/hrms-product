@@ -4,15 +4,121 @@ import './employee-management.scss'
 import FilterCustom from '../../../components/filter-custom/FilterCustom'
 import SearchCustom from '../../../components/search-custom/SearchCustom'
 import FilterTableLimit from '../../../components/filter-custom/FilterTableLimit'
+import TableCustom from '../../../components/tableCustom/TableCustom'
+import PaginationCustom from '../../../components/pagination/PaginationCustom'
 
 
 const tableLimitArr = ['10', '25', '50', '100']
+
+
+const columns = [
+    { id: 'column1', label: 'S No.', minWidth: 100 },
+    { id: 'column2', label: 'ID', minWidth: 150 },
+    { id: 'column3', label: 'Name', minWidth: 150 },
+    { id: 'column3', label: 'Email', minWidth: 100 },
+    { id: 'column3', label: 'Account Manager', minWidth: 100 },
+    { id: 'column3', label: 'Role', minWidth: 100 },
+    { id: 'column3', label: 'Designation', minWidth: 100 },
+    { id: 'column3', label: 'Employee Type', minWidth: 100 },
+    { id: 'column3', label: 'Status', minWidth: 100 },
+];
+
+const dataKey = ['serialNum', 'id', 'name', 'email', 'accountManager', 'role', 'designation', 'emp_type', 'status'];
+
+const actionKey = [
+    {
+        actionName: 'view'
+    },
+    {
+        actionName: 'delete'
+    },
+    {
+        actionName: 'edit'
+    },
+    {
+        actionName: 'add'
+    },
+]
+
+
+const dummyData = [
+    {
+        id: 'AV23591',
+        name: 'Jatin Sharma',
+        email: 'prabhash@appventurez.com',
+        accountManager: 'Ajay Gupta',
+        role: 'Employee',
+        designation: 'Software Developer (Angular)',
+        emp_type: 'Permanent',
+        status: 1,
+    },
+    {
+        id: 'AV23591',
+        name: 'Jatin Sharma',
+        email: 'prabhash@appventurez.com',
+        accountManager: 'Ajay Gupta',
+        role: 'Employee',
+        designation: 'Software Developer (Angular)',
+        emp_type: 'Permanent',
+        status: 1,
+    },
+    {
+        id: 'AV23591',
+        name: 'Jatin Sharma',
+        email: 'prabhash@appventurez.com',
+        accountManager: 'Ajay Gupta',
+        role: 'Employee',
+        designation: 'Software Developer (Angular)',
+        emp_type: 'Permanent',
+        status: 1,
+    },
+    {
+        id: 'AV23591',
+        name: 'Jatin Sharma',
+        email: 'prabhash@appventurez.com',
+        accountManager: 'Ajay Gupta',
+        role: 'Employee',
+        designation: 'Software Developer (Angular)',
+        emp_type: 'Permanent',
+        status: 1,
+    },
+    {
+        id: 'AV23591',
+        name: 'Jatin Sharma',
+        email: 'prabhash@appventurez.com',
+        accountManager: 'Ajay Gupta',
+        role: 'Employee',
+        designation: 'Software Developer (Angular)',
+        emp_type: 'Permanent',
+        status: 1,
+    },
+    {
+        id: 'AV23591',
+        name: 'Jatin Sharma',
+        email: 'prabhash@appventurez.com',
+        accountManager: 'Ajay Gupta',
+        role: 'Employee',
+        designation: 'Software Developer (Angular)',
+        emp_type: 'Permanent',
+        status: 1,
+    },
+    {
+        id: 'AV23591',
+        name: 'Jatin Sharma',
+        email: 'prabhash@appventurez.com',
+        accountManager: 'Ajay Gupta',
+        role: 'Employee',
+        designation: 'Software Developer (Angular)',
+        emp_type: 'Permanent',
+        status: 1,
+    },
+]
 
 const EmployeeManagement = () => {
     const [locationFilter, setLocationFilter] = useState('');
     const [searchKey, setSearchKey] = useState('');
 
-    console.log(searchKey,'vdvnfeiwodweidwedo')
+    console.log(searchKey, 'vdvnfeiwodweidwedo')
     return (
         <>
             <Grid className='employee-management-main-container'>
@@ -82,7 +188,18 @@ const EmployeeManagement = () => {
                     </Grid>
 
                     <Grid className='employee-management-table-container'>
-                        
+                        <TableCustom
+                            columns={columns}
+                            datas={dummyData}
+                            dataKey={dataKey}
+                            actionKey={actionKey}
+                            align="center"
+                            tableContainerMaxHeight={330}
+                        />
+                    </Grid>
+                    <Grid className='employee-management-pagination-container'>
+                        <p>Showing <span>1</span> to <span>6</span> of <span>6</span> entries</p>
+                        <PaginationCustom totalRecords={100} />
                     </Grid>
                 </Grid>
 

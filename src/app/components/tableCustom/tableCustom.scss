@@ -1,0 +1,74 @@
+.MuiTableHead-root {
+  tr {
+    th {
+      border: none;
+      color: #2E2E2E;
+      background-color: #FFFFFF;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 16px;
+      border-bottom: 1px solid #E6EFF5;
+      border-right: 1px solid #E6EFF5;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
+
+.MuiTableRow-root {
+    &:hover {
+      background-color: #f2f8f7 !important;
+    }
+
+  
+  td {
+    border: none;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #1B1C57;
+    border-right: 1px solid #E9EAEC;
+
+    &:last-child {
+      border: none;
+    }
+  }
+}
+
+.MuiTableContainer-root {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #68bbc6;
+    border-radius: 10px;
+  }
+}
+
+
+
+
+.table-custom-status-container-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .table-custom-status-container {
+    height: 24px;
+    width: fit-content;
+    background-color: rgba(33, 150, 83, 0.1);
+    border-radius: 4px;
+    padding: 0 15px;
+
+
+    span {
+      color: #219653;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 22px;
+    }
+  }
+}

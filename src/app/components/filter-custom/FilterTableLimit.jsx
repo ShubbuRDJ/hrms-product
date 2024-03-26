@@ -9,7 +9,7 @@ export default function FilterTableLimit({ filterListArray, filterKeysArray, set
     const [open, setOpen] = useState(false);
     return (
         <Grid className="filter-table-limit-container">
-            <FormControl sx={{ width: '100%', height: "100%", border: 'none' }} >
+            <FormControl sx={{ width: '100%',  border: 'none' }} >
                 {!filterKey && <InputLabel className="dropdown-label" shrink={false} id="demo-multiple-name-label">{label}</InputLabel>}
                 <Select
 
@@ -20,7 +20,7 @@ export default function FilterTableLimit({ filterListArray, filterKeysArray, set
                     id="demo-multiple-name"
                     value={filterKey}
                     onChange={(e) => setFilterKey(e.target.value)}
-                    style={{ backgroundColor: '#ffffff', cursor: 'pointer',height:'100%' }}
+                    style={{ backgroundColor: '#ffffff', cursor: 'pointer',height:'30px' }}
                     IconComponent={() => <DropDownArrow open={open} setOpen={setOpen} />}
                     MenuProps={{
                         classes: {
