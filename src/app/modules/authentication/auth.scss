@@ -7,14 +7,11 @@
   display: flex;
 
   .login-logo-image-container {
-    width: 52%;
+    width: 65%;
     height: 100%;
-    @media screen and (max-width: $large) {
+    @media screen and (max-width: $exLarge) {
       display: none;
     }
-    // @media screen and (max-width: $small) {
-    //   display: none;
-    // }
 
     .login-back-image {
       width: 100%;
@@ -30,18 +27,14 @@
   }
 
   .login-form-container {
-    width: 48%;
+    width: 35%;
     height: 100%;
     background-color: $--white-color;
     display: flex;
     align-items: center;
-    padding-left: 120px;
+    justify-content: center;
 
     @media screen and (max-width: $exLarge) {
-      padding-left: 60px;
-    }
-
-    @media screen and (max-width: $large) {
       width: 100%;
       padding: 0 120px;
       background-image: url("../../../assets/auth/background_auth.png");
@@ -66,7 +59,7 @@
       width: 350px;
       background-color: $--white-color;
 
-      @media screen and (max-width: $large) {
+      @media screen and (max-width: $exLarge) {
         width: 100%;
         padding: 30px;
         border-radius: 5px;
