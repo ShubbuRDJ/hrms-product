@@ -11,6 +11,8 @@ const tableLimitArr = ['10', '25', '50', '100']
 const EmployeeManagement = () => {
     const [locationFilter, setLocationFilter] = useState('');
     const [searchKey, setSearchKey] = useState('');
+
+    console.log(searchKey,'vdvnfeiwodweidwedo')
     return (
         <>
             <Grid className='employee-management-main-container'>
