@@ -118,6 +118,25 @@
           }
         }
       }
+
+      .active {
+        .sidebar-sub-menu-item {
+          height: 44px;
+          background-color: unset;
+          border-left: unset;
+          padding-left: 20px;
+
+          .sidebar-menu-item-logo-text {
+            p {
+              font-weight: 700;
+            }
+          }
+
+          .sidebar-sub-menu-icon {
+            background-image: url("../../../assets/sidebar/circle_bold.svg");
+          }
+        }
+      }
     }
 
     .sidebar-logout {

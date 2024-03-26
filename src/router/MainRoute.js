@@ -7,6 +7,7 @@ import Dashboard from "../app/modules/dashboard/Dashboard";
 import Forgot from "../app/modules/authentication/Forgot";
 import ResetPassword from "../app/modules/authentication/ResetPassword";
 import Profile from "../app/modules/profile/Profile";
+import EmployeeManagement from "../app/modules/staff-management/employee-management/EmployeeManagement";
 
 function MainRoute() {
   return (
@@ -23,6 +24,7 @@ function MainRoute() {
       <Route path="/" element={<PrivateRouter />}>
         <Route index element={<Dashboard/>} />
         <Route path="profile/*" element={<Profile/>} />
+        <Route path="employee-management" element={<EmployeeManagement/>} />
         <Route path="*" element={<Navigate to={'/dashboard'} />} />
 
       </Route>

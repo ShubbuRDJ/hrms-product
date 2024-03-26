@@ -27,3 +27,19 @@
     padding-right: 0;
   }
   
+
+  .dropdown-svg-rotate-2{
+    transform: rotate(180deg);
+  }
+
+  .dropdown-svg-rotate{
+    cursor: pointer;
+    margin-right: 20px;
+  }
+
+  .dropdown-label{
+    font-size: 14px !important;
+    line-height: 16px !important;
+    color: #919499 !important;
+    font-weight: 400 !important;
+  }

@@ -1,0 +1,45 @@
+.employee-management-main-container{
+    padding: 10px;
+    display: flex;
+    flex-direction: column !important;
+    gap: 10px;
+
+
+    .add-new-employee-btn-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        padding: 0 15px;
+
+        h4{
+            color: #007BFF;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        button{
+            height: 40px;
+            border: none;
+            background-color: #007BFF;
+            width: 144px;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #FFFFFF;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+        }
+    }
+
+    .add-new-employee-filter-container{
+        height: 170px;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+    }
+}

@@ -1,71 +1,189 @@
 .profile-qualification-container {
-    width: 100%;
+  width: 100%;
 
-    .profile-qualification-heading-btn-container{
-        height: 52px;
-        padding: 0 20px;
+  .profile-qualification-heading-btn-container {
+    height: 52px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e6eff5;
+    padding-bottom: 15px;
+
+    h4 {
+      color: #007bff;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 16px;
+    }
+
+    .profile-qualification-btns {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+
+      .profile-qualification-btn {
+        height: 40px;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 600;
+        padding: 0 25px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        border-bottom: 1px solid #E6EFF5;
-        padding-bottom: 15px;
+        justify-content: center;
+        background-color: rgba(0, 123, 255, 0.1);
+        border: 1px solid #e9cfff;
 
-        h4{
-            color: #007BFF;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 16px;
+        span {
+          color: #007bff;
+          padding-left: 7px;
         }
-        
-
-        .profile-qualification-btns{
-            display: flex;
-            align-items: center;
-            gap: 22px;
-
-            .profile-qualification-btn{
-                height: 40px;
-                border: none;
-                cursor: pointer;
-                border-radius: 4px;
-                font-size: 14px;
-                line-height: 22px;
-                font-weight: 600;
-                padding: 0 25px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background-color: rgba(0, 123, 255, 0.1);
-                border: 1px solid #E9CFFF;
-
-                span{
-                    color: #007BFF;
-                    padding-left: 7px;
-                }
-            }
-            .profile-qualification-btn-2{
-                width: 96px;
-                background-color: #219653;
-                color: #FFFFFF;
-                border: none;
-                padding: 0;
-            }
-        }
-    }
-  
-    .profile-qualification-form-container-wrapper{
-        display: flex;
-        flex-direction: column;
-        row-gap: 15px;
-        padding: 10px 15px;
-
-        .profile-qualification-form-container{
-            height: 400px;
-            width: 100%;
-            border: 1px solid #E9CFFF;
-            background-color: rgba(0, 123, 255, 0.06);
-            border-radius: 10px;
-        }
+      }
+      .profile-qualification-btn-2 {
+        width: 96px;
+        background-color: #219653;
+        color: #ffffff;
+        border: none;
+        padding: 0;
+      }
     }
   }
-  
+
+  .profile-qualification-form-container-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    padding: 10px 15px;
+    max-height: 555px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #007BFF;
+      border-radius: 6px;
+    }
+
+    .profile-qualification-form-container {
+      width: 100%;
+      border: 1px solid #e9cfff;
+      background-color: rgba(0, 123, 255, 0.06);
+      border-radius: 10px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+
+      .profile-qualification-form-row {
+        width: 100%;
+        display: flex;
+        gap: 35px;
+        flex-wrap: wrap;
+        .profile-qualification-form-input-container {
+          display: flex;
+          flex-direction: column;
+          width: calc((100% - 70px) / 3);
+          min-width: 260px;
+          gap: 8px;
+
+          label {
+            color: #111827;
+            font-size: 14px;
+            font-weight: 600;
+          }
+
+          .profile-qualification-input-tag {
+            padding: 0 20px;
+            height: 46px;
+            border: 1px solid #e9cfff;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: #212121;
+
+            &::placeholder {
+              color: #919499;
+              font-size: 14px;
+              line-height: 16px;
+              font-weight: 400;
+            }
+          }
+        }
+        .profile-qualification-file-input-container {
+          width: 65.4%;
+
+          button {
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            height: 46px;
+            border: 1px solid #e9cfff;
+            border-radius: 8px;
+            outline: none;
+            padding: 0 9px;
+            gap: 10px;
+            cursor: pointer;
+            position: relative;
+
+            .qualification-file-upload-btn {
+              height: 34px;
+              background-color: rgba(0, 123, 255, 0.1);
+              border-radius: 4px;
+              display: flex;
+              align-items: center;
+              padding: 0 15px;
+              span {
+                color: #1b1c57;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 16px;
+              }
+            }
+
+            span {
+              color: #919499;
+              font-size: 14px;
+              line-height: 16px;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+
+      .qualification-delete-btn-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        button {
+          background-color: rgba(220, 38, 38, 0.1);
+          height: 36px;
+          width: 91px;
+          border-radius: 4px;
+          border: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          gap: 8px;
+
+          span {
+            color: #dc2626;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 22px;
+          }
+        }
+      }
+    }
+  }
+}

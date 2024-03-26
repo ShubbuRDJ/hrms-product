@@ -310,6 +310,33 @@ export const profileBasicDetailSchema = Yup.object({
 });
 
 
+export const profileQualificationSchema = Yup.object({
+  university: Yup.string()
+    .required("Please enter First Name")
+    .matches(/^[a-zA-Z ]*$/, "First Name should contain only alphabets")
+    .max(20),
+  educationLevel: Yup.string()
+    .required("Please enter Last Name")
+    .matches(/^[a-zA-Z ]*$/, "Last Name should contain only alphabets")
+    .max(20),
+  specialization: Yup.string().required(
+    "Please enter DOB to move ahead"
+  ),
+  timePeriodFrom: Yup.string().required(
+    "Please enter Total Working Month to move ahead"
+  ),
+  timePeriodTo: Yup.string().required(
+    "Please enter Total Working Year to move ahead"
+  ),
+  scoreObtain: Yup.string().required(
+    "Please enter Relevant Working Month to move ahead"
+  ),
+  totalScore: Yup.string().required(
+    "Please enter Relevant Working Year to move ahead"
+  ),
+});
+
+
 
 export const addIndirectExpenseSchema = Yup.object({
   description: Yup.string()
