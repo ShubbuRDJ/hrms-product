@@ -1,202 +1,255 @@
-import { Grid } from '@mui/material'
-import React, { useState } from 'react'
-import './employee-management.scss'
-import FilterCustom from '../../../components/filter-custom/FilterCustom'
-import SearchCustom from '../../../components/search-custom/SearchCustom'
-import FilterTableLimit from '../../../components/filter-custom/FilterTableLimit'
-import TableCustom from '../../../components/tableCustom/TableCustom'
-import PaginationCustom from '../../../components/pagination/PaginationCustom'
+import { Checkbox, FormControlLabel, Grid } from '@mui/material'
+import './add-employee.scss';
+import { useFormik } from 'formik';
+import DropownCustom from '../../../components/Dropdown-custom/DropdownCustom';
 
 
-const tableLimitArr = ['10', '25', '50', '100']
+const initialValues = {
+    location: ''
+}
 
-
-const columns = [
-    { id: 'column1', label: 'S No.', minWidth: 100 },
-    { id: 'column2', label: 'ID', minWidth: 150 },
-    { id: 'column3', label: 'Name', minWidth: 150 },
-    { id: 'column3', label: 'Email', minWidth: 100 },
-    { id: 'column3', label: 'Account Manager', minWidth: 100 },
-    { id: 'column3', label: 'Role', minWidth: 100 },
-    { id: 'column3', label: 'Designation', minWidth: 100 },
-    { id: 'column3', label: 'Employee Type', minWidth: 100 },
-    { id: 'column3', label: 'Status', minWidth: 100 },
-];
-
-const dataKey = ['serialNum', 'id', 'name', 'email', 'accountManager', 'role', 'designation', 'emp_type', 'status'];
-
-const actionKey = [
-    {
-        actionName: 'view'
-    },
-    {
-        actionName: 'delete'
-    },
-    {
-        actionName: 'edit'
-    },
-    {
-        actionName: 'add'
-    },
-]
-
-
-const dummyData = [
-    {
-        id: 'AV23591',
-        name: 'Jatin Sharma',
-        email: 'prabhash@appventurez.com',
-        accountManager: 'Ajay Gupta',
-        role: 'Employee',
-        designation: 'Software Developer (Angular)',
-        emp_type: 'Permanent',
-        status: 1,
-    },
-    {
-        id: 'AV23591',
-        name: 'Jatin Sharma',
-        email: 'prabhash@appventurez.com',
-        accountManager: 'Ajay Gupta',
-        role: 'Employee',
-        designation: 'Software Developer (Angular)',
-        emp_type: 'Permanent',
-        status: 1,
-    },
-    {
-        id: 'AV23591',
-        name: 'Jatin Sharma',
-        email: 'prabhash@appventurez.com',
-        accountManager: 'Ajay Gupta',
-        role: 'Employee',
-        designation: 'Software Developer (Angular)',
-        emp_type: 'Permanent',
-        status: 1,
-    },
-    {
-        id: 'AV23591',
-        name: 'Jatin Sharma',
-        email: 'prabhash@appventurez.com',
-        accountManager: 'Ajay Gupta',
-        role: 'Employee',
-        designation: 'Software Developer (Angular)',
-        emp_type: 'Permanent',
-        status: 1,
-    },
-    {
-        id: 'AV23591',
-        name: 'Jatin Sharma',
-        email: 'prabhash@appventurez.com',
-        accountManager: 'Ajay Gupta',
-        role: 'Employee',
-        designation: 'Software Developer (Angular)',
-        emp_type: 'Permanent',
-        status: 1,
-    },
-    {
-        id: 'AV23591',
-        name: 'Jatin Sharma',
-        email: 'prabhash@appventurez.com',
-        accountManager: 'Ajay Gupta',
-        role: 'Employee',
-        designation: 'Software Developer (Angular)',
-        emp_type: 'Permanent',
-        status: 1,
-    },
-    {
-        id: 'AV23591',
-        name: 'Jatin Sharma',
-        email: 'prabhash@appventurez.com',
-        accountManager: 'Ajay Gupta',
-        role: 'Employee',
-        designation: 'Software Developer (Angular)',
-        emp_type: 'Permanent',
-        status: 1,
-    },
-]
 
 const AddEmployee = () => {
-    const [locationFilter, setLocationFilter] = useState('');
-    const [searchKey, setSearchKey] = useState('');
 
-    console.log(searchKey, 'vdvnfeiwodweidwedo')
+
+
+    const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
+        useFormik({
+            initialValues,
+            // validationSchema: profileQualificationSchema,
+            onSubmit: (values, action) => {
+                handleSave(values);
+            },
+        });
+
+    const handleSave = async (credentials) => {
+        console.log(credentials, 'jhsbdwuyduweydweu');
+    }
+
     return (
         <>
-            <Grid className='employee-management-main-container'>
+            <Grid className='employee-add-main-container'>
 
-                <Grid className='add-new-employee-btn-container'>
-                    <h4>Add New Employee</h4>
-                    
-                </Grid>
+                <form className='employee-add-main-wrapper' onSubmit={handleSubmit}>
+                    <Grid className='employee-add-top-btn-container'>
+                        <h4>Add New Employee</h4>
 
-                <Grid className='add-new-employee-filter-container'>
-                    <Grid className='add-new-employee-filter-wrapper'>
-                        <Grid className='add-new-employee-filter'>
-                            <p>Select Location</p>
-                            <FilterCustom
-                                label={'All'}
-                                filterKey={locationFilter}
-                                setFilterKey={setLocationFilter}
-                            />
+                        <Grid className='add-new-employee-btns'>
+                            <button type="button">Close</button>
+                            <button type="submit">Save</button>
                         </Grid>
 
-                        <Grid className='add-new-employee-filter'>
-                            <p>Employee Status</p>
-                            <FilterCustom
-                                label={'Active'}
-                                filterKey={locationFilter}
-                                setFilterKey={setLocationFilter}
-                            />
-                        </Grid>
-
-                        <Grid className='add-new-employee-reset-btn'>
-                            <p style={{ visibility: 'hidden' }}>Reset</p>
-                            <button type="button">Reset</button>
-                        </Grid>
                     </Grid>
-                </Grid>
 
-                <Grid className='employee-management-list-main-container'>
-                    <Grid className='list-heading-export-btn-container'>
-                        <h4>List All Employee</h4>
-                        <button type="button">
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.1019 4.11391L7.44021 1.83272C7.31594 1.72378 7.15906 1.66805 7.00136 1.66797C6.89345 1.66791 6.78515 1.69391 6.68666 1.74675C6.64276 1.77023 6.60106 1.79892 6.5625 1.83272L3.90081 4.11391C3.62125 4.35351 3.58885 4.77437 3.82845 5.05394C4.06805 5.3335 4.48892 5.3659 4.76848 5.1263L6.33464 3.78402V8.94712C6.33464 9.31531 6.63312 9.61378 7.00131 9.61378C7.3695 9.61378 7.66798 9.31531 7.66798 8.94712L7.66798 3.78395L9.23423 5.1263C9.51379 5.3659 9.93466 5.3335 10.1743 5.05394C10.4139 4.77437 10.3815 4.35351 10.1019 4.11391ZM3.0013 8.33464C3.0013 7.96645 3.29978 7.66797 3.66797 7.66797H4.66797C5.03616 7.66797 5.33464 7.36949 5.33464 7.0013C5.33464 6.63311 5.03616 6.33464 4.66797 6.33464H3.66797C2.5634 6.33464 1.66797 7.23007 1.66797 8.33464V10.3346C1.66797 11.4392 2.5634 12.3346 3.66797 12.3346H10.3346C11.4392 12.3346 12.3346 11.4392 12.3346 10.3346V8.33464C12.3346 7.23007 11.4392 6.33464 10.3346 6.33464H9.33464C8.96645 6.33464 8.66797 6.63311 8.66797 7.0013C8.66797 7.36949 8.96645 7.66797 9.33464 7.66797H10.3346C10.7028 7.66797 11.0013 7.96645 11.0013 8.33464V10.3346C11.0013 10.7028 10.7028 11.0013 10.3346 11.0013H3.66797C3.29978 11.0013 3.0013 10.7028 3.0013 10.3346V8.33464Z" fill="#0F3659" />
-                            </svg>
-                            <span>Export</span>
-                        </button>
-                    </Grid>
-                    <Grid className='list-heading-export-btn-container'>
-                        <Grid className='list-pagination-limit'>
-                            <span>Show</span>
-                            <Grid className='employee-management-table-limit-filter'>
-                                <FilterTableLimit
-                                    filterListArray={tableLimitArr}
-                                    filterKeysArray={tableLimitArr}
-                                    label={'Select'}
-                                />
+                    <Grid className='employee-add-form-container-wrapper'>
+                        <Grid className='employee-add-form-container'>
+
+
+                            <Grid className='employee-add-form-row'>
+
+                                <Grid className="employee-add-form-field">
+                                    <p>Select Location</p>
+                                    <DropownCustom
+                                        label={'Select location'}
+                                        value={values.expenseType}
+                                        handleBlur={handleBlur}
+                                        name={'location'}
+                                        handleChange={handleChange}
+                                    />
+                                    {errors.location && touched.location ? (
+                                        <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.location.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.location}</p></Grid>
+                                    ) : null}
+                                </Grid>
+
+                                <Grid className="employee-add-form-field">
+                                    <p>Select Location</p>
+                                    <DropownCustom
+                                        label={'Select location'}
+                                        value={values.expenseType}
+                                        handleBlur={handleBlur}
+                                        name={'location'}
+                                        handleChange={handleChange}
+                                    />
+                                    {errors.location && touched.location ? (
+                                        <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.location.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.location}</p></Grid>
+                                    ) : null}
+                                </Grid>
+
+                                <Grid className="employee-add-form-field">
+                                    <p>Select Location</p>
+                                    <DropownCustom
+                                        label={'Select location'}
+                                        value={values.expenseType}
+                                        handleBlur={handleBlur}
+                                        name={'location'}
+                                        handleChange={handleChange}
+                                    />
+                                    {errors.location && touched.location ? (
+                                        <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.location.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.location}</p></Grid>
+                                    ) : null}
+                                </Grid>
+
+                                <Grid className="employee-add-form-field">
+                                    <p>Select Location</p>
+                                    <DropownCustom
+                                        label={'Select location'}
+                                        value={values.expenseType}
+                                        handleBlur={handleBlur}
+                                        name={'location'}
+                                        handleChange={handleChange}
+                                    />
+                                    {errors.location && touched.location ? (
+                                        <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.location.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.location}</p></Grid>
+                                    ) : null}
+                                </Grid>
+
+
+
                             </Grid>
-                            <span>Entries</span>
-                        </Grid>
-                        <Grid className='list-search-box'>
-                            <SearchCustom setSearchKey={setSearchKey} />
-                        </Grid>
-                    </Grid>
 
-                    <Grid className='employee-management-table-container'>
-                        <TableCustom
-                            columns={columns}
-                            datas={dummyData}
-                            dataKey={dataKey}
-                            actionKey={actionKey}
-                            align="center"
-                            tableContainerMaxHeight={330}
-                        />
+                            <Grid className='employee-add-form-row'>
+
+                                <Grid className="employee-add-form-field">
+                                    <p>Select Location</p>
+                                    <DropownCustom
+                                        label={'Select location'}
+                                        value={values.expenseType}
+                                        handleBlur={handleBlur}
+                                        name={'location'}
+                                        handleChange={handleChange}
+                                    />
+                                    {errors.location && touched.location ? (
+                                        <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.location.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.location}</p></Grid>
+                                    ) : null}
+                                </Grid>
+
+                                <Grid className="employee-add-form-field">
+                                    <p>Select Location</p>
+                                    <DropownCustom
+                                        label={'Select location'}
+                                        value={values.expenseType}
+                                        handleBlur={handleBlur}
+                                        name={'location'}
+                                        handleChange={handleChange}
+                                    />
+                                    {errors.location && touched.location ? (
+                                        <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.location.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.location}</p></Grid>
+                                    ) : null}
+                                </Grid>
+
+                                <Grid className="employee-add-form-field">
+                                    <p>Select Location</p>
+                                    <DropownCustom
+                                        label={'Select location'}
+                                        value={values.expenseType}
+                                        handleBlur={handleBlur}
+                                        name={'location'}
+                                        handleChange={handleChange}
+                                    />
+                                    {errors.location && touched.location ? (
+                                        <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.location.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.location}</p></Grid>
+                                    ) : null}
+                                </Grid>
+
+                                <Grid className="employee-add-form-field">
+                                    <p>Select Location</p>
+                                    <input
+                                        type='text'
+                                        className='add-employee-form-input-tag'
+                                        name="specialization"
+                                        id="qualification-form-control-3"
+                                        placeholder="Specialization"
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        value={values.specialization}
+                                    />
+                                    {errors.location && touched.location ? (
+                                        <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.location.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.location}</p></Grid>
+                                    ) : null}
+                                </Grid>
+
+
+
+                            </Grid>
+
+
+                            <Grid className='employee-add-form-row'>
+
+                                <Grid className="employee-add-form-field">
+                                    <p>Select Location</p>
+                                    <DropownCustom
+                                        label={'Select location'}
+                                        value={values.expenseType}
+                                        handleBlur={handleBlur}
+                                        name={'location'}
+                                        handleChange={handleChange}
+                                    />
+                                    {errors.location && touched.location ? (
+                                        <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.location.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.location}</p></Grid>
+                                    ) : null}
+                                </Grid>
+
+
+                                <Grid className="employee-add-form-field employee-add-form-field-checkbox ">
+                                    <p>Weekly Day Off(s)</p>
+                                    <Grid className='employee-add-form-checkbox'>
+                                        <FormControlLabel
+                                            value="top"
+                                            control={<Checkbox icon={<AddEmployeeCheckbox />} />}
+                                            label="Sunday"
+                                            labelPlacement="top"
+                                        />
+                                        <FormControlLabel
+                                            value="top"
+                                            control={<Checkbox icon={<AddEmployeeCheckbox />} />}
+                                            label="Monday"
+                                            labelPlacement="top"
+                                        />
+                                        <FormControlLabel
+                                            value="top"
+                                            control={<Checkbox icon={<AddEmployeeCheckbox />} />}
+                                            label="Tuesday"
+                                            labelPlacement="top"
+                                        />
+                                        <FormControlLabel
+                                            value="top"
+                                            control={<Checkbox icon={<AddEmployeeCheckbox />} />}
+                                            label="Wednesday"
+                                            labelPlacement="top"
+                                        />
+                                        <FormControlLabel
+                                            value="top"
+                                            control={<Checkbox icon={<AddEmployeeCheckbox />} />}
+                                            label="Thursday"
+                                            labelPlacement="top"
+                                        />
+                                        <FormControlLabel
+                                            value="top"
+                                            control={<Checkbox icon={<AddEmployeeCheckbox />} />}
+                                            label="Friday"
+                                            labelPlacement="top"
+                                        />
+                                        <FormControlLabel
+                                            value="top"
+                                            control={<Checkbox icon={<AddEmployeeCheckbox />} />}
+                                            label="Saturday"
+                                            labelPlacement="top"
+                                        />
+                                    </Grid>
+                                </Grid>
+
+
+
+
+                            </Grid>
+
+
+
+                        </Grid>
                     </Grid>
-                    <Grid className='employee-management-pagination-container'>
-                        <p>Showing <span>1</span> to <span>6</span> of <span>6</span> entries</p>
-                        <PaginationCustom totalRecords={100} />
-                    </Grid>
-                </Grid>
+                </form>
+
+
 
             </Grid>
         </>
@@ -204,3 +257,14 @@ const AddEmployee = () => {
 }
 
 export default AddEmployee
+
+
+
+
+const AddEmployeeCheckbox = () => {
+    return (
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="15" height="15" rx="3.5" fill="white" stroke="#CF97FF" />
+        </svg>
+    )
+}

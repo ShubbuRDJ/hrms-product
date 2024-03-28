@@ -1,0 +1,127 @@
+.employee-add-main-container {
+  padding: 10px;
+  // height:calc(100vh - 84px);
+  display: flex;
+  flex-direction: column !important;
+  gap: 10px;
+  background-color: #f4efff;
+
+  .employee-add-main-wrapper {
+    width: 100%;
+
+    .employee-add-top-btn-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+      background-color: #ffffff;
+      border-radius: 10px 10px 0 0;
+      padding: 0 20px;
+      border-bottom: 1px solid #e6eff5;
+
+      h4 {
+        color: #007bff;
+        font-weight: 700;
+        font-size: 18px;
+      }
+      .add-new-employee-btns {
+        display: flex;
+        gap: 20px;
+
+        button {
+          width: 96px;
+          height: 40px;
+          border: none;
+          background-color: rgba(220, 38, 38, 0.1);
+          border-radius: 4px;
+          color: #dc2626;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 22px;
+          &:last-child {
+            background-color: #219653;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+
+    .employee-add-form-container-wrapper {
+      width: 100%;
+      padding: 20px;
+      background-color: #ffffff;
+      .employee-add-form-container {
+        background-color: rgba(0, 123, 255, 0.06);
+        width: 100%;
+        border-radius: 10px;
+        padding: 30px 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        .employee-add-form-row {
+          display: flex;
+          column-gap: 35px;
+          row-gap: 30px;
+          flex-wrap: wrap;
+
+          .employee-add-form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 232px;
+            width: calc((100% - 105px) / 4);
+
+            p {
+              color: #111827;
+              font-size: 14px;
+              font-weight: 600;
+            }
+
+            .add-employee-form-input-tag {
+              padding: 0 20px;
+              height: 46px;
+              border: 1px solid #e9cfff;
+              border-radius: 8px;
+              outline: none;
+              font-size: 14px;
+              font-weight: 500;
+              color: #212121;
+
+              &::placeholder {
+                color: #919499;
+                font-size: 14px;
+                line-height: 16px;
+                font-weight: 400;
+              }
+            }
+
+
+            .employee-add-form-checkbox{
+              margin-top: 15px;
+              display: flex;
+              gap: 50px;
+
+
+
+              .MuiFormControlLabel-root{
+                margin: 0;
+              }
+
+              .MuiTypography-root{
+                color: #787C82;
+                font-size: 14px;
+                font-weight: 600;
+              }
+            }
+
+          }
+
+          .employee-add-form-field-checkbox{
+            width: 74.3%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -6,8 +6,7 @@ import SearchCustom from '../../../components/search-custom/SearchCustom'
 import FilterTableLimit from '../../../components/filter-custom/FilterTableLimit'
 import TableCustom from '../../../components/tableCustom/TableCustom'
 import PaginationCustom from '../../../components/pagination/PaginationCustom'
-import { Navigate, Route, Routes, useNavigate } from 'react-router-dom'
-import AddEmployee from './AddEmployee'
+import { useNavigate } from 'react-router-dom'
 
 
 const tableLimitArr = ['10', '25', '50', '100']
