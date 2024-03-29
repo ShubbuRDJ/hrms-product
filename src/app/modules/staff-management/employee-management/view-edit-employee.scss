@@ -1,0 +1,93 @@
+.edit-employee-container-wrapper {
+  background-color: rgba(0, 123, 255, 0.06);
+  padding: 10px 15px;
+  width: 100%;
+  height: calc(100vh - 84px);
+
+  .edit-employee-container {
+    display: flex;
+    flex-direction: column !important;
+
+    .edit-employee-heading {
+      height: 60px;
+      width: 100%;
+      background-color: #ffffff;
+      border-bottom: 1px solid #E6EFF5;
+      border-radius: 10px 10px 0 0;
+      display: flex;
+      align-items: center;
+      padding: 0 25px;
+
+      h4{
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+
+    .profile-container-main {
+      width: 100%;
+      display: flex;
+
+      .profile-sidebar {
+        width: 233px;
+        background-color: #ffffff;
+        height: 100%;
+        border-right: 1px solid #e6eff5;
+
+        .profile-sidebar-menu.profile-active {
+          .profile-sidebar-menu-item {
+            background-color: #007bff;
+
+            p {
+              font-size: 14px;
+              line-height: 16px;
+              color: #ffffff;
+              font-weight: 700;
+            }
+          }
+        }
+
+        .profile-sidebar-menu {
+          height: 52px;
+          border-bottom: 1px solid #e6eff5;
+          display: flex;
+          align-items: center;
+          padding: 0 5px;
+          cursor: pointer;
+
+          .profile-sidebar-menu-item {
+            height: 45px;
+            width: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            p {
+              font-size: 14px;
+              line-height: 16px;
+              color: #1b1c57;
+              font-weight: 500;
+            }
+
+            &:hover {
+              background-color: #007bff;
+
+              p {
+                font-size: 14px;
+                line-height: 16px;
+                color: #ffffff;
+                font-weight: 700;
+              }
+            }
+          }
+        }
+      }
+      .profile-main-content-wrapper {
+        width: calc(100% - 233px);
+        height: 100%;
+        background-color: #ffffff;
+      }
+    }
+  }
+}

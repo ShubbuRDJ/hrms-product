@@ -28,7 +28,8 @@ const dataKey = ['serialNum', 'id', 'name', 'email', 'accountManager', 'role', '
 
 const actionKey = [
     {
-        actionName: 'view'
+        actionName: 'view',
+        navigateAddress:'employee-management/edit-employee'
     },
     {
         actionName: 'delete'

@@ -9,6 +9,7 @@ import ResetPassword from "../app/modules/authentication/ResetPassword";
 import Profile from "../app/modules/profile/Profile";
 import EmployeeManagement from "../app/modules/staff-management/employee-management/EmployeeManagement";
 import AddEmployee from "../app/modules/staff-management/employee-management/AddEmployee";
+import ViewEditEmployee from "../app/modules/staff-management/employee-management/ViewEditEmployee";
 
 function MainRoute() {
   return (
@@ -27,6 +28,7 @@ function MainRoute() {
         <Route path="profile/*" element={<Profile/>} />
         <Route path="employee-management" element={<EmployeeManagement/>} />
         <Route path="employee-management/add-employee" element={<AddEmployee/>} />
+        <Route path="employee-management/edit-employee/*" element={<ViewEditEmployee/>} />
         <Route path="*" element={<Navigate to={'/dashboard'} />} />
 
       </Route>
