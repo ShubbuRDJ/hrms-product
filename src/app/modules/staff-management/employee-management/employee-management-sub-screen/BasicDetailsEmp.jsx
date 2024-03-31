@@ -1,24 +1,15 @@
-import React, { useState } from 'react'
 import './basic-detail-employee.scss'
 import DropownCustom from '../../../../components/Dropdown-custom/DropdownCustom'
 import { useFormik } from 'formik';
 import DatePickerCustom from '../../../../components/date_picker/DatePickerCustom';
-import { Checkbox, FormControl, FormControlLabel, Grid, IconButton, InputAdornment, OutlinedInput } from '@mui/material';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
-
+import { Checkbox, FormControlLabel, Grid } from '@mui/material';
 
 const initialValues = {
 
 }
 
 const BasicDetailsEmp = () => {
-    const [showPassword, setShowPassword] = useState(false);
-    const handleClickShowPassword = () => setShowPassword((show) => !show);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const handleClickShowConfirmPassword = () => setShowConfirmPassword((show) => !show);
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
+    
 
     const { values, handleChange, handleBlur, handleSubmit, setFieldValue, errors, touched } =
         useFormik({
@@ -36,7 +27,7 @@ const BasicDetailsEmp = () => {
     return (
         <>
             <Grid className='employee-edit-basic-detail-form-container-wrapper'>
-                <Grid className='employee-edit-basic-detail-container'>
+                <form onSubmit={handleSubmit} className='employee-edit-basic-detail-container'>
 
 
                     <Grid className='employee-edit-basic-detail-row'>
@@ -340,7 +331,14 @@ const BasicDetailsEmp = () => {
                         </Grid>
 
 
-                        <Grid className="employee-edit-basic-detail-field" style={{ width: '48.78%' }}>
+                    </Grid>
+
+
+
+
+                    <Grid className='employee-edit-basic-detail-row'>
+
+                        <Grid className="employee-edit-basic-detail-field" style={{ width: '65.69%' }}>
                             <p>Address</p>
                             <input
                                 type='text'
@@ -357,12 +355,28 @@ const BasicDetailsEmp = () => {
                             ) : null}
                         </Grid>
 
+                        <Grid className="employee-edit-basic-detail-field">
+                            <p>Employee Shift</p>
+                            <input
+                                type='text'
+                                className='add-employee-form-input-tag'
+                                name="specialization"
+                                id="qualification-form-control-3"
+                                placeholder="Employee Shift~"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.specialization}
+                            />
+                            {errors.location && touched.location ? (
+                                <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.location.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.location}</p></Grid>
+                            ) : null}
+                        </Grid>
+
 
                     </Grid>
 
 
                     <Grid className='employee-edit-basic-detail-row'>
-
                         <Grid className="employee-edit-basic-detail-field employee-edit-basic-detail-field-checkbox ">
                             <p>Weekly Day Off(s)</p>
                             <Grid className='employee-edit-basic-detail-checkbox'>
@@ -410,12 +424,13 @@ const BasicDetailsEmp = () => {
                                 />
                             </Grid>
                         </Grid>
-
                     </Grid>
 
+                    <button className='edit-employee-save-btn' type="submit">Save</button>
 
 
-                </Grid>
+
+                </form>
             </Grid>
         </>
     )

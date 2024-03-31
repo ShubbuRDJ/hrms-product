@@ -5,14 +5,18 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import './tableCustom.scss'
-import { Clear, ModeEdit, Visibility } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import { Grid, Tooltip } from '@mui/material';
+import { Grid } from '@mui/material';
 
 export default function TableCustom({ columns, datas, dataKey, actionKey, align, tableContainerMaxHeight }) {
   const handleActionButton = (action, data) => {
-    action?.setOpen(!action?.open)
-    action?.setCallback(data)
+    if (action?.navigateAddress) {
+      navigate(action?.navigateAddress)
+    }
+    else {
+      action?.setOpen(!action?.open)
+      action?.setCallback(data)
+    }
   }
 
   const navigate = useNavigate();
@@ -58,20 +62,20 @@ export default function TableCustom({ columns, datas, dataKey, actionKey, align,
                         if (key === 'status') {
                           return (<TableCell align={align} key={index + 1000}>
                             <Grid className='table-custom-status-container-wrapper'>
-                            <Grid className='table-custom-status-container'>
-                              <span>
-                              {data[key] ? 'Active' : 'Deactive'}
-                              </span>
+                              <Grid className='table-custom-status-container'>
+                                <span>
+                                  {data[key] ? 'Active' : 'Deactive'}
+                                </span>
+                              </Grid>
                             </Grid>
-                            </Grid>
-                            </TableCell>)
+                          </TableCell>)
                         }
                         else {
                           return (<TableCell style={{ maxHeight: '100px', overflow: "auto" }} align={align} key={index + 1000}>{data[key] ? data[key] : "N/A"}</TableCell>)
                         }
                       }
 
-                      else{
+                      else {
                         return null
                       }
                     })
@@ -79,7 +83,7 @@ export default function TableCustom({ columns, datas, dataKey, actionKey, align,
                     {
                       (actionKey?.length) ?
                         (<TableCell align={align} >
-                          <Grid style={{ display: 'flex', width: '100%', justifyContent: 'center', gap: '7px' }}>
+                          <Grid className='table-custom-action-btn-container' style={{ display: 'flex', width: '100%', justifyContent: 'center', gap: '7px' }}>
                             {
                               actionKey?.map((action) => {
                                 if (action?.actionName === 'edit') {
@@ -102,8 +106,7 @@ export default function TableCustom({ columns, datas, dataKey, actionKey, align,
                                   </svg>)
                                 }
                                 else if (action?.actionName === 'view') {
-                                  // return (<Visibility onClick={() => handleActionButton(action, data)} style={{ cursor: 'pointer' }} />)
-                                  return (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  return (<svg onClick={() => handleActionButton(action, data)} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="24" height="24" rx="4" fill="#1565C0" fill-opacity="0.1" />
                                     <path d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z" stroke="#1565C0" />
                                     <path d="M17.4596 11.2893C17.7183 11.604 17.8476 11.7607 17.8476 12C17.8476 12.2393 17.7183 12.396 17.4596 12.7107C16.513 13.86 14.425 16 12.001 16C9.57696 16 7.48896 13.86 6.5423 12.7107C6.28363 12.396 6.1543 12.2393 6.1543 12C6.1543 11.7607 6.28363 11.604 6.5423 11.2893C7.48896 10.14 9.57696 8 12.001 8C14.425 8 16.513 10.14 17.4596 11.2893Z" stroke="#1565C0" />

@@ -8,7 +8,6 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #e6eff5;
-    padding-bottom: 15px;
 
     h4 {
       color: #007bff;
@@ -57,21 +56,7 @@
     flex-direction: column;
     row-gap: 15px;
     padding: 10px 15px;
-    max-height: 555px;
-    overflow: auto;
 
-    &::-webkit-scrollbar {
-      width: 3px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: #007BFF;
-      border-radius: 6px;
-    }
 
     .profile-qualification-form-container {
       width: 100%;

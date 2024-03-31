@@ -2,7 +2,10 @@ import React from 'react'
 import './view-edit-employee.scss'
 import { Grid } from '@mui/material'
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
-import BasicDetailsEmp from './basic-detail/BasicDetailsEmp'
+import BasicDetailsEmp from './employee-management-sub-screen/BasicDetailsEmp'
+import ProfilePicture from '../../profile/profile-picture/ProfilePicture'
+import ChangePassword from '../../profile/change-password/ChangePassword'
+import Qualification from '../../profile/qualification/Qualification'
 
 const ViewEditEmployee = () => {
 
@@ -35,35 +38,35 @@ const ViewEditEmployee = () => {
     return (
         <Grid className='edit-employee-container-wrapper'>
             <Grid className='edit-employee-container'>
+
                 <Grid className='edit-employee-heading'>
                     <h4>Employee Details</h4>
                 </Grid>
 
-                <Grid className='profile-container-main'>
-                    <Grid className='profile-container-main'>
-                        <Grid className='profile-sidebar'>
-                            {
-                                profileSidebar?.map((menu, index) => (
-                                    <Grid key={index} onClick={() => navigate(menu?.navigateAddress)} className={`profile-sidebar-menu ${location.pathname === menu.navigateAddress ? 'profile-active' : ''}`}>
-                                        <Grid className='profile-sidebar-menu-item'>
-                                            <p>{menu?.menuName}</p>
-                                        </Grid>
+                <Grid className='employee-edit-container-main'>
+                    <Grid className='employee-edit-sidebar'>
+                        {
+                            profileSidebar?.map((menu, index) => (
+                                <Grid key={index} onClick={() => navigate(menu?.navigateAddress)} className={`employee-edit-sidebar-menu ${location.pathname === menu.navigateAddress ? 'employee-edit-active' : ''}`}>
+                                    <Grid className='employee-edit-sidebar-menu-item'>
+                                        <p>{menu?.menuName}</p>
                                     </Grid>
-                                ))
-                            }
-                        </Grid>
-                        <Grid className='profile-main-content-wrapper'>
-                            <Routes>
-                                <Route index element={<BasicDetailsEmp />} />
-                                {/* <Route path="profile-picture" element={<ProfilePicture />} />
-                                <Route path="change-password" element={<ChangePassword />} />
-                                <Route path="shift" element={<Shift />} />
-                                <Route path="qualifications" element={<Qualification />} /> */}
-                                <Route path="*" element={<Navigate to={'/employee-management'} />} />
-                            </Routes>
-                        </Grid>
+                                </Grid>
+                            ))
+                        }
+                    </Grid>
+                    <Grid className='employee-edit-main-content-wrapper'>
+                        <Routes>
+                            <Route index element={<BasicDetailsEmp />} />
+                            <Route path="profile-picture" element={<ProfilePicture />} />
+                            <Route path="change-password" element={<ChangePassword />} />
+                            {/* <Route path="shift" element={<Shift />} /> */}
+                            <Route path="qualifications" element={<Qualification />} />
+                            <Route path="*" element={<Navigate to={'/employee-management'} />} />
+                        </Routes>
                     </Grid>
                 </Grid>
+
             </Grid>
         </Grid>
     )
