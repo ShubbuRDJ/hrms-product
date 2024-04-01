@@ -38,12 +38,16 @@
 
 .MuiTableContainer-root {
   &::-webkit-scrollbar {
-    width: 5px;
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #68bbc6;
-    border-radius: 10px;
+    background: #007bff;
+    border-radius: 6px;
   }
 }
 
@@ -68,9 +72,8 @@
   }
 }
 
-.table-custom-action-btn-container{
-  
-  svg{
+.table-custom-action-btn-container {
+  svg {
     cursor: pointer;
   }
 }

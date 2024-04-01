@@ -6,6 +6,8 @@ import BasicDetailsEmp from './employee-management-sub-screen/BasicDetailsEmp'
 import ProfilePicture from '../../profile/profile-picture/ProfilePicture'
 import ChangePassword from '../../profile/change-password/ChangePassword'
 import Qualification from '../../profile/qualification/Qualification'
+import Leave from './employee-management-sub-screen/Leave'
+import QualificationListing from './employee-management-sub-screen/QualificationListing'
 
 const ViewEditEmployee = () => {
 
@@ -47,7 +49,7 @@ const ViewEditEmployee = () => {
                     <Grid className='employee-edit-sidebar'>
                         {
                             profileSidebar?.map((menu, index) => (
-                                <Grid key={index} onClick={() => navigate(menu?.navigateAddress)} className={`employee-edit-sidebar-menu ${location.pathname === menu.navigateAddress ? 'employee-edit-active' : ''}`}>
+                                <Grid key={index} onClick={() => navigate(menu?.navigateAddress)} className={`employee-edit-sidebar-menu ${(location.pathname === menu.navigateAddress || location.pathname.includes(menu?.menuName?.toLowerCase())) ? 'employee-edit-active' : ''}`}>
                                     <Grid className='employee-edit-sidebar-menu-item'>
                                         <p>{menu?.menuName}</p>
                                     </Grid>
@@ -60,8 +62,10 @@ const ViewEditEmployee = () => {
                             <Route index element={<BasicDetailsEmp />} />
                             <Route path="profile-picture" element={<ProfilePicture />} />
                             <Route path="change-password" element={<ChangePassword />} />
-                            {/* <Route path="shift" element={<Shift />} /> */}
-                            <Route path="qualifications" element={<Qualification />} />
+                            <Route path="leave" element={<Leave />} />
+                            <Route path="qualifications" element={<QualificationListing tableHeighLimit={385} editNavigateAddress={'/employee-management/edit-employee/qualifications/edit-qualification'} addNavigateAddress={'/employee-management/edit-employee/qualifications/add-qualification'} />} />
+                            <Route path="qualifications/add-qualification" element={<Qualification heading = {'Add New Qualification'} />} />
+                            <Route path="qualifications/edit-qualification" element={<Qualification heading={'Edit New Qualification'} />} />
                             <Route path="*" element={<Navigate to={'/employee-management'} />} />
                         </Routes>
                     </Grid>

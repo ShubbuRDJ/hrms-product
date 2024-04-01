@@ -1,0 +1,38 @@
+.leave-progress-container{
+    height: 35px;
+    max-width: 366px;
+
+    .leave-progress-text{
+        height: 31px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        align-items: center;
+        border-radius: 4px 4px 0 0;
+
+        p{
+            color: #1B1C57;
+            font-size: 14px;
+            line-height: 16px;
+            font-weight: 400;
+        }
+        span{
+            color: #1B1C57;
+            font-size: 14px;
+            line-height: 16px;
+            font-weight: 700;
+        }
+    }
+    .leave-progress-progress-bar{
+        height: 4px;
+        width: 100%;
+        background-color: #C3DBF6;
+        border-radius: 0 0 8px 8px;
+
+        .leave-progress-progress{
+            height: 100%;
+            border-radius: 0 0 0 8px;
+        }
+    }
+}

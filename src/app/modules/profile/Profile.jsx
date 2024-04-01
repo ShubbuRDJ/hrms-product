@@ -7,6 +7,7 @@ import ChangePassword from './change-password/ChangePassword'
 import ProfilePicture from './profile-picture/ProfilePicture'
 import Shift from './shift/Shift'
 import Qualification from './qualification/Qualification'
+import QualificationListing from '../staff-management/employee-management/employee-management-sub-screen/QualificationListing'
 
 const Profile = () => {
 
@@ -81,7 +82,7 @@ const Profile = () => {
                         <Grid className='profile-sidebar'>
                             {
                                 profileSidebar?.map((menu, index) => (
-                                    <Grid key={index} onClick={()=>navigate(menu?.navigateAddress)} className={`profile-sidebar-menu ${location.pathname === menu.navigateAddress ? 'profile-active' : ''}`}>
+                                    <Grid key={index} onClick={()=>navigate(menu?.navigateAddress)} className={`profile-sidebar-menu ${(location.pathname === menu.navigateAddress || location.pathname.includes(menu?.menuName?.toLowerCase())) ? 'profile-active' : ''}`}>
                                         <Grid className='profile-sidebar-menu-item'>
                                             <p>{menu?.menuName}</p>
                                         </Grid>
@@ -95,7 +96,9 @@ const Profile = () => {
                                 <Route path="profile-picture" element={<ProfilePicture />} />
                                 <Route path="change-password" element={<ChangePassword />} />
                                 <Route path="shift" element={<Shift />} />
-                                <Route path="qualifications" element={<Qualification />} />
+                                <Route path="qualifications" element={<QualificationListing editNavigateAddress={'/profile/qualifications/edit-qualification'} addNavigateAddress={'/profile/qualifications/add-qualification'} />} />
+                                <Route path="qualifications/add-qualification" element={<Qualification heading={'Add New Qualification'} />} />
+                                <Route path="qualifications/edit-qualification" element={<Qualification heading={'Edit New Qualification'} />} />
                                 <Route path="*" element={<Navigate to={'/profile'} />} />
                             </Routes>
                         </Grid>

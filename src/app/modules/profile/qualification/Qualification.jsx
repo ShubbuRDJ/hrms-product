@@ -17,7 +17,7 @@ const initialValues = {
     totalScore: ''
 };
 
-const Qualification = () => {
+const Qualification = ({heading}) => {
     const qualificationFormContainer = useRef(null);
 
     const [qualificationFormCount, setQualificationFormCount] = useState(['1']);
@@ -65,7 +65,7 @@ const Qualification = () => {
             <Grid className='profile-qualification-container'>
                 <form onSubmit={handleSubmit}>
                     <Grid className='profile-qualification-heading-btn-container'>
-                        <h4>Add New Qualification</h4>
+                        <h4>{heading}</h4>
                         <Grid className='profile-qualification-btns'>
                             <button className='profile-qualification-btn' type="button" onClick={handleMoreQualification}>
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

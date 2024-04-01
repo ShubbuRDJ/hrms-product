@@ -1,0 +1,93 @@
+.leave-container{
+
+    .leave-heading{
+        height: 52px;
+        border-bottom: 1px solid #E6EFF5;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 40px;
+
+        h4{
+            color: #007BFF;
+            font-size: 16px;
+            font-weight: 700;
+        }
+    }
+    .leave-list-heading{
+        height: 52px;
+        border-bottom: 1px solid #E6EFF5;
+        width: 100%;
+        display: flex;
+
+        .leave-list-heading-first-col{
+            width: 92px;
+            height: 100%;
+            border-right: 1px solid #E6EFF5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            h4{
+                color: #2E2E2E;
+                font-size: 14px;
+                font-weight: 600;
+            }
+        }
+
+        .leave-list-heading-second-col{
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 25px;
+            width: 366px;
+
+            h4{
+                color: #2E2E2E;
+                font-size: 14px;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .leave-list-items-container{
+        height: 100%;
+        width: 100%;
+        display: flex;
+
+        .leave-list-sl-no-container{
+            width: 92px;
+            border-right: 1px solid #E6EFF5;
+            border-bottom: 1px solid #E6EFF5;
+            padding-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+
+            .leave-list-sl-no{
+                height: 35px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                p{
+                    color: #1B1C57;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 16px;
+                }
+            }
+        }
+        .leave-list-items{
+            width: calc(100% - 92px);
+            padding: 0 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            padding-top: 8px;
+            padding-bottom:25px;
+            border-bottom: 1px solid #E6EFF5;
+        }
+    }
+}
