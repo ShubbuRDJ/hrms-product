@@ -31,9 +31,15 @@ export default function TableCustom({ columns, datas, dataKey, actionKey, align,
                 <TableCell
                   key={index}
                   align={align}
-                  style={{ minWidth: column.minWidth }}
+                  style={{ minWidth: column?.minWidth }}
                 >
-                  {column.label}
+                  <Grid className='table-custom-head-container'>
+                    <span>{column?.label}</span>
+                    <svg style={{display:`${(column?.filter)?'':'none'}`}} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M11.8232 7.79224C12.0729 8.14008 12.0561 8.68236 11.7855 9.00345L9.45222 11.7727C9.19684 12.0758 8.80322 12.0758 8.54784 11.7727L6.21449 9.00346C5.94394 8.68237 5.92706 8.14009 6.1768 7.79224C6.42653 7.4444 6.8483 7.4227 7.11885 7.74379L8.33336 9.18517L8.33336 0.857143C8.33336 0.383756 8.63184 -4.50477e-08 9.00003 -1.31133e-07C9.36821 -2.17218e-07 9.66669 0.383756 9.66669 0.857143L9.66669 9.18514L10.8811 7.7438C11.1517 7.42271 11.5735 7.44439 11.8232 7.79224Z" fill="#B6B7BC" />
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M5.8232 4.20776C6.07293 3.85992 6.05607 3.31764 5.78552 2.99655L3.45222 0.227315C3.19684 -0.0757695 2.80322 -0.0757723 2.54784 0.227308L0.214486 2.99654C-0.0560626 3.31763 -0.0729355 3.85991 0.176798 4.20776C0.426532 4.5556 0.848304 4.5773 1.11885 4.25621L2.33336 2.81483L2.33336 11.1429C2.33336 11.6162 2.63184 12 3.00002 12C3.36821 12 3.66669 11.6162 3.66669 11.1429L3.66669 2.81486L4.88114 4.2562C5.15169 4.57729 5.57346 4.55561 5.8232 4.20776Z" fill="#B6B7BC" />
+                    </svg>
+                  </Grid>
                 </TableCell>
               ))}
               {
@@ -114,16 +120,16 @@ export default function TableCustom({ columns, datas, dataKey, actionKey, align,
                                 }
                                 else if (action?.actionName === 'edit') {
                                   return (<svg onClick={() => handleActionButton(action, data)} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <rect width="24" height="24" rx="4" fill="#F4EFFF"/>
-                                  <path d="M12.8396 6.40006L7.36624 12.1934C7.15958 12.4134 6.95958 12.8467 6.91958 13.1467L6.67291 15.3067C6.58624 16.0867 7.14624 16.6201 7.91958 16.4867L10.0662 16.1201C10.3662 16.0667 10.7862 15.8467 10.9929 15.6201L16.4662 9.82673C17.4129 8.82673 17.8396 7.68673 16.3662 6.2934C14.8996 4.9134 13.7862 5.40006 12.8396 6.40006Z" stroke="#8C62FF" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                  <path d="M11.9258 7.3667C12.2124 9.2067 13.7058 10.6134 15.5591 10.8" stroke="#8C62FF" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                  <path d="M6 18.6667H18" stroke="#8C62FF" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <rect width="24" height="24" rx="4" fill="#F4EFFF" />
+                                    <path d="M12.8396 6.40006L7.36624 12.1934C7.15958 12.4134 6.95958 12.8467 6.91958 13.1467L6.67291 15.3067C6.58624 16.0867 7.14624 16.6201 7.91958 16.4867L10.0662 16.1201C10.3662 16.0667 10.7862 15.8467 10.9929 15.6201L16.4662 9.82673C17.4129 8.82673 17.8396 7.68673 16.3662 6.2934C14.8996 4.9134 13.7862 5.40006 12.8396 6.40006Z" stroke="#8C62FF" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M11.9258 7.3667C12.2124 9.2067 13.7058 10.6134 15.5591 10.8" stroke="#8C62FF" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M6 18.6667H18" stroke="#8C62FF" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                                   </svg>)
                                 }
                                 else if (action?.actionName === 'delete') {
                                   return (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <rect width="24" height="24" rx="4" fill="#FF0000" fill-opacity="0.1"/>
-                                  <path d="M16.6673 6.66667H14.334L13.6673 6H10.334L9.66732 6.66667H7.33398V8H16.6673M8.00065 16.6667C8.00065 17.0203 8.14113 17.3594 8.39118 17.6095C8.64122 17.8595 8.98036 18 9.33398 18H14.6673C15.0209 18 15.3601 17.8595 15.6101 17.6095C15.8602 17.3594 16.0007 17.0203 16.0007 16.6667V8.66667H8.00065V16.6667Z" fill="#FF0000"/>
+                                    <rect width="24" height="24" rx="4" fill="#FF0000" fill-opacity="0.1" />
+                                    <path d="M16.6673 6.66667H14.334L13.6673 6H10.334L9.66732 6.66667H7.33398V8H16.6673M8.00065 16.6667C8.00065 17.0203 8.14113 17.3594 8.39118 17.6095C8.64122 17.8595 8.98036 18 9.33398 18H14.6673C15.0209 18 15.3601 17.8595 15.6101 17.6095C15.8602 17.3594 16.0007 17.0203 16.0007 16.6667V8.66667H8.00065V16.6667Z" fill="#FF0000" />
                                   </svg>)
                                 }
 

@@ -1,0 +1,39 @@
+.checkbox-dropdown-container-wrapper {
+  width: fit-content;
+  .checkbox-dropdown-container {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .MuiFormControlLabel-root {
+    margin: 0;
+  }
+
+  .MuiTypography-root {
+    color: #1b1c57;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+  }
+
+  .sub-checkbox-dropdown-container {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    padding-top: 10px;
+  }
+
+
+
+  .checkbox-dropdown-icon{
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+}
