@@ -12,6 +12,13 @@ import AddEmployee from "../app/modules/staff-management/employee-management/Add
 import ViewEditEmployee from "../app/modules/staff-management/employee-management/ViewEditEmployee";
 import RoleManagement from "../app/modules/staff-management/role-management/RoleManagement";
 import AddNewRole from "../app/modules/staff-management/role-management/AddNewRole";
+import Department from "../app/modules/organisation/department/Department";
+import AddDepartment from "../app/modules/organisation/department/AddDepartment";
+import Designation from "../app/modules/organisation/designation/Designation";
+import AddDesigantion from "../app/modules/organisation/designation/AddDesignation";
+import Location from "../app/modules/organisation/location/Location";
+import AddLocation from "../app/modules/organisation/location/AddLocation";
+import ViewLocation from "../app/modules/organisation/location/ViewLocation";
 
 function MainRoute() {
   return (
@@ -33,6 +40,16 @@ function MainRoute() {
         <Route path="employee-management/edit-employee/*" element={<ViewEditEmployee/>} />
         <Route path="role-management" element={<RoleManagement/>} />
         <Route path="role-management/add-role" element={<AddNewRole/>} />
+        <Route path="department" element={<Department/>} />
+        <Route path="department/add-department" element={<AddDepartment type ={'add'}/>} />
+        <Route path="department/edit-department" element={<AddDepartment type = {'edit'}/>} />
+        <Route path="designation" element={<Designation/>} />
+        <Route path="designation/add-designation" element={<AddDesigantion type ={'add'}/>} />
+        <Route path="designation/edit-designation" element={<AddDesigantion type ={'edit'}/>} />
+        <Route path="location" element={<Location/>} />
+        <Route path="location/view-location" element={<ViewLocation/>} />
+        <Route path="location/add-location" element={<AddLocation type ={'add'}/>} />
+        <Route path="location/edit-location" element={<AddLocation type ={'edit'}/>} />
         <Route path="*" element={<Navigate to={'/dashboard'} />} />
 
       </Route>

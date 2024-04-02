@@ -197,7 +197,7 @@ const EmployeeManagement = () => {
                             dataKey={dataKey}
                             actionKey={actionKey}
                             align="center"
-                            tableContainerMaxHeight={330}
+                            tableContainerMaxHeight={385}
                         />
                     </Grid>
                     <Grid className='employee-management-pagination-container'>

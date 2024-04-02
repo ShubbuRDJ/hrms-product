@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './sidebar.scss';
 import { Collapse, Grid, } from '@mui/material';
 import av_logo from '../../../assets/sidebar/AV-Logo_sidebar.svg';
@@ -19,6 +19,8 @@ import toaster from '../../../utility/toaster/toaster';
 
 const Sidebar = () => {
   const navigate = useNavigate();
+  const [openStaff, setOpenStaff] = useState(false);
+  const [openOrganisation, setOpenOrganisation] = useState(false);
 
   const sidebarMenuItems = [
     {
@@ -44,15 +46,15 @@ const Sidebar = () => {
       iconPath: staffManagementIcon,
       menuName: 'Staff Management',
       isArrow: true,
+      open:openStaff,
+      setOpen:setOpenStaff,
       subMenu: [
         {
           menuName: 'Employee Management',
-          isArrow: false,
           navigateAddress: '/employee-management'
         },
         {
           menuName: 'Role Management',
-          isArrow: false,
           navigateAddress: '/role-management'
         },
       ]
@@ -60,8 +62,27 @@ const Sidebar = () => {
     {
       iconPath: organisationIcon,
       menuName: 'Organization',
-      isArrow: false,
-      navigateAddress: '/organisation'
+      isArrow: true,
+      open:openOrganisation,
+      setOpen:setOpenOrganisation,
+      subMenu: [
+        {
+          menuName: 'Company Policy',
+          navigateAddress: '/company-policy'
+        },
+        {
+          menuName: 'Department',
+          navigateAddress: '/department'
+        },
+        {
+          menuName: 'Designation',
+          navigateAddress: '/designation'
+        },
+        {
+          menuName: 'Location',
+          navigateAddress: '/location'
+        },
+      ]
     },
     {
       iconPath: timeSheetIcon,
@@ -107,12 +128,6 @@ const Sidebar = () => {
     },
   ]
 
-
-  const [open, setOpen] = React.useState(false);
-  const handleClick = () => {
-    setOpen(!open);
-  };
-
   const handleLogout = () => {
     localStorage.clear();
     toaster('success', 'Logged out successfully!')
@@ -139,70 +154,70 @@ const Sidebar = () => {
 
         <Grid className='sidebar-main-container-wrapper'>
 
-        <Grid className='sidebar-menu-container'>
-          {
-            sidebarMenuItems?.map((menuItem, index) => {
+          <Grid className='sidebar-menu-container'>
+            {
+              sidebarMenuItems?.map((menuItem, index) => {
 
-              if (menuItem?.isArrow) {
-                return <div key={index}>
-                  <Grid onClick={handleClick} className='sidebar-menu-item'>
+                if (menuItem?.isArrow) {
+                  return <div key={index}>
+                    <Grid onClick={() => menuItem?.setOpen(!menuItem?.open)} className='sidebar-menu-item'>
+                      <Grid className='sidebar-menu-item-logo-text'>
+                        <Grid className='sidebar-menu-icon'>
+                          <img src={menuItem?.iconPath} alt={menuItem?.menuName} />
+                        </Grid>
+                        <p>{menuItem?.menuName}</p>
+                      </Grid>
+                      {
+                        !menuItem?.open ?
+                          <svg width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.75 1.5L5.25 6L0.75 10.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg> :
+                          <svg width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.5 0.75L6 5.25L1.5 0.75" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                      }
+                    </Grid>
+                    <Collapse in={menuItem?.open} timeout="auto" unmountOnExit>
+                      <Grid className='sidebar-sub-menu-container'>
+                        {
+                          menuItem?.subMenu?.map((subMenuItem, index) => (
+                            <NavLink to={subMenuItem?.navigateAddress} key={index}>
+                              <Grid className='sidebar-menu-item sidebar-sub-menu-item'>
+                                <Grid className='sidebar-menu-item-logo-text'>
+                                  <Grid className='sidebar-menu-icon sidebar-sub-menu-icon'>
+                                  </Grid>
+                                  <p>{subMenuItem?.menuName}</p>
+                                </Grid>
+                              </Grid>
+                            </NavLink>
+                          ))
+                        }
+                      </Grid>
+                    </Collapse>
+                  </div>
+                }
+                return <NavLink to={menuItem?.navigateAddress} key={index}>
+                  <Grid className='sidebar-menu-item'>
                     <Grid className='sidebar-menu-item-logo-text'>
                       <Grid className='sidebar-menu-icon'>
                         <img src={menuItem?.iconPath} alt={menuItem?.menuName} />
                       </Grid>
                       <p>{menuItem?.menuName}</p>
                     </Grid>
-                    {
-                      !open ?
-                        <svg width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M0.75 1.5L5.25 6L0.75 10.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg> :
-                        <svg width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M10.5 0.75L6 5.25L1.5 0.75" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    }
                   </Grid>
-                  <Collapse in={open} timeout="auto" unmountOnExit>
-                    <Grid className='sidebar-sub-menu-container'>
-                      {
-                        menuItem?.subMenu?.map((subMenuItem, index) => (
-                          <NavLink to={subMenuItem?.navigateAddress} key={index}>
-                            <Grid className='sidebar-menu-item sidebar-sub-menu-item'>
-                              <Grid className='sidebar-menu-item-logo-text'>
-                                <Grid className='sidebar-menu-icon sidebar-sub-menu-icon'>
-                                </Grid>
-                                <p>{subMenuItem?.menuName}</p>
-                              </Grid>
-                            </Grid>
-                          </NavLink>
-                        ))
-                      }
-                    </Grid>
-                  </Collapse>
-                </div>
-              }
-              return <NavLink to={menuItem?.navigateAddress} key={index}>
-                <Grid className='sidebar-menu-item'>
-                  <Grid className='sidebar-menu-item-logo-text'>
-                    <Grid className='sidebar-menu-icon'>
-                      <img src={menuItem?.iconPath} alt={menuItem?.menuName} />
-                    </Grid>
-                    <p>{menuItem?.menuName}</p>
-                  </Grid>
-                </Grid>
-              </NavLink>
-            })
-          }
-        </Grid>
+                </NavLink>
+              })
+            }
+          </Grid>
 
-        <Grid className='sidebar-logout'>
-          <button onClick={handleLogout} type="button">
-            <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13.7695 0.158966C17.2323 0.158966 20.0565 2.93476 20.0565 6.3522V13.0336H11.5413C10.9311 13.0336 10.4485 13.5079 10.4485 14.1077C10.4485 14.6935 10.9311 15.1817 11.5413 15.1817H20.0565V21.8492C20.0565 25.2667 17.2323 28.0564 13.7411 28.0564H6.82957C3.35253 28.0564 0.52832 25.2806 0.52832 21.8632V6.36615C0.52832 2.93476 3.36672 0.158966 6.84376 0.158966H13.7695ZM23.5998 9.29566C24.0182 8.86325 24.7017 8.86325 25.1202 9.28171L29.1932 13.3408C29.4024 13.55 29.514 13.815 29.514 14.108C29.514 14.3869 29.4024 14.6659 29.1932 14.8612L25.1202 18.9203C24.911 19.1295 24.632 19.2411 24.367 19.2411C24.088 19.2411 23.809 19.1295 23.5998 18.9203C23.1813 18.5018 23.1813 17.8183 23.5998 17.3999L25.8316 15.182H20.0568V13.0339H25.8316L23.5998 10.8161C23.1813 10.3976 23.1813 9.71412 23.5998 9.29566Z" fill="#007BFF" />
-            </svg>
-            <span>Logout</span>
-          </button>
-        </Grid>
+          <Grid className='sidebar-logout'>
+            <button onClick={handleLogout} type="button">
+              <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.7695 0.158966C17.2323 0.158966 20.0565 2.93476 20.0565 6.3522V13.0336H11.5413C10.9311 13.0336 10.4485 13.5079 10.4485 14.1077C10.4485 14.6935 10.9311 15.1817 11.5413 15.1817H20.0565V21.8492C20.0565 25.2667 17.2323 28.0564 13.7411 28.0564H6.82957C3.35253 28.0564 0.52832 25.2806 0.52832 21.8632V6.36615C0.52832 2.93476 3.36672 0.158966 6.84376 0.158966H13.7695ZM23.5998 9.29566C24.0182 8.86325 24.7017 8.86325 25.1202 9.28171L29.1932 13.3408C29.4024 13.55 29.514 13.815 29.514 14.108C29.514 14.3869 29.4024 14.6659 29.1932 14.8612L25.1202 18.9203C24.911 19.1295 24.632 19.2411 24.367 19.2411C24.088 19.2411 23.809 19.1295 23.5998 18.9203C23.1813 18.5018 23.1813 17.8183 23.5998 17.3999L25.8316 15.182H20.0568V13.0339H25.8316L23.5998 10.8161C23.1813 10.3976 23.1813 9.71412 23.5998 9.29566Z" fill="#007BFF" />
+              </svg>
+              <span>Logout</span>
+            </button>
+          </Grid>
 
         </Grid>
 

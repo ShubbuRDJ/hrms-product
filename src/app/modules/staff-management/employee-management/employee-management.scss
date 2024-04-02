@@ -1,6 +1,6 @@
 .employee-management-main-container {
   padding: 10px;
-  // height:calc(100vh - 84px);
+  height:calc(100vh - 84px);
   display: flex;
   flex-direction: column !important;
   gap: 10px;
@@ -91,6 +91,7 @@
           font-size: 14px;
           font-weight: 600;
           line-height: 18px;
+          cursor: pointer;
         }
       }
     }
