@@ -77,7 +77,7 @@ export default function TableCustom({ columns, datas, dataKey, actionKey, align,
                           </TableCell>)
                         }
                         else {
-                          return (<TableCell style={{ maxHeight: '100px', overflow: "auto" }} align={align} key={index + 1000}>{data[key] ? data[key] : "N/A"}</TableCell>)
+                          return (<TableCell style={{ maxHeight: '100px', overflow: "auto" }} align={align} key={index + 1000}>{data[key] ? data[key] : "-"}</TableCell>)
                         }
                       }
 

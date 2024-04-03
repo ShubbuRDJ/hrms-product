@@ -19,6 +19,11 @@ import AddDesigantion from "../app/modules/organisation/designation/AddDesignati
 import Location from "../app/modules/organisation/location/Location";
 import AddLocation from "../app/modules/organisation/location/AddLocation";
 import ViewLocation from "../app/modules/organisation/location/ViewLocation";
+import CompanyPolicy from "../app/modules/organisation/company-policy/CompanyPolicy";
+import MyAttendance from "../app/modules/timesheet/myAttendance/MyAttendance";
+import AttendanceManagement from "../app/modules/timesheet/attendanceManagement/AttendanceManagement";
+import ShiftManagement from "../app/modules/timesheet/shiftManagement/ShiftManagement";
+import HolidayManagement from "../app/modules/timesheet/holidayManagement/HolidayManagement";
 
 function MainRoute() {
   return (
@@ -40,6 +45,7 @@ function MainRoute() {
         <Route path="employee-management/edit-employee/*" element={<ViewEditEmployee/>} />
         <Route path="role-management" element={<RoleManagement/>} />
         <Route path="role-management/add-role" element={<AddNewRole/>} />
+        <Route path="company-policy" element={<CompanyPolicy/>} />
         <Route path="department" element={<Department/>} />
         <Route path="department/add-department" element={<AddDepartment type ={'add'}/>} />
         <Route path="department/edit-department" element={<AddDepartment type = {'edit'}/>} />
@@ -50,6 +56,10 @@ function MainRoute() {
         <Route path="location/view-location" element={<ViewLocation/>} />
         <Route path="location/add-location" element={<AddLocation type ={'add'}/>} />
         <Route path="location/edit-location" element={<AddLocation type ={'edit'}/>} />
+        <Route path="my-attendance" element={<MyAttendance/>} />
+        <Route path="attendance-management" element={<AttendanceManagement/>} />
+        <Route path="shift-management" element={<ShiftManagement/>} />
+        <Route path="holiday-management" element={<HolidayManagement/>} />
         <Route path="*" element={<Navigate to={'/dashboard'} />} />
 
       </Route>

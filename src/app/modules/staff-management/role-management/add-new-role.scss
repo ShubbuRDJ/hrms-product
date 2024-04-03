@@ -22,6 +22,14 @@
         font-weight: 700;
         font-size: 18px;
       }
+
+      .add-new-role-select-resource-text {
+        color: #111827;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 600;
+      }
+
       .add-new-employee-btns {
         display: flex;
         gap: 20px;
@@ -30,16 +38,16 @@
           width: 96px;
           height: 40px;
           border: none;
-          background-color: rgba(220, 38, 38, 0.1);
           border-radius: 4px;
-          color: #dc2626;
+          background-color: #219653;
+          color: #ffffff;
           font-size: 16px;
           font-weight: 600;
           line-height: 22px;
           cursor: pointer;
           &:last-child {
-            background-color: #219653;
-            color: #ffffff;
+            background-color: rgba(220, 38, 38, 0.1);
+            color: #dc2626;
           }
         }
 
@@ -61,14 +69,13 @@
       padding: 15px 20px;
       background-color: #ffffff;
       .add-new-role-save-cancel {
-        height: 133px;
         width: 100%;
         border-radius: 10px;
         background-color: rgba(0, 123, 255, 0.06);
         border: 1px solid rgba(0, 123, 255, 0.1);
         display: flex;
-        align-items: center;
-        padding: 0 45px;
+        flex-direction: column;
+        padding: 30px 45px;
 
         .add-new-role-save-cancel-row {
           display: flex;
@@ -174,26 +181,19 @@
     }
 
     .add-new-role-checkbox-container-wrapper {
-      height: 500px;
       width: 100%;
-      background-color: #ffffff;
-      padding: 20px;
-
       .add-new-role-checkbox-container {
-        height: 100%;
         width: 100%;
-        border: 1px solid #e6eff5;
-        border-bottom: none;
         display: flex;
+        gap: 30px;
+
 
         .add-new-role-checkbox {
-          width: 25%;
-          height: 100%;
-          border-right: 1px solid #e6eff5;
+          width: 30%;
+          max-height: 500px;
           display: flex;
           flex-direction: column;
           gap: 10px;
-          padding: 25px 35px;
           overflow-y: auto;
 
           &::-webkit-scrollbar {

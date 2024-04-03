@@ -2,11 +2,7 @@ import { Checkbox, Collapse, FormControlLabel, Grid } from "@mui/material";
 import './checkbox-dropdown.scss';
 import { useEffect, useState } from "react";
 
-
-
-const arr = ['Staff', 'Shubham', 'Ajay', 'Simran']
-
-const CheckboxDropdown = ({ handleChange }) => {
+const CheckboxDropdown = ({ handleChange,name,value,label,subCheckboxArray }) => {
 
     const [open, setOpen] = useState(false);
     const [parentChecked, setParentChecked] = useState(false);
@@ -44,9 +40,9 @@ const CheckboxDropdown = ({ handleChange }) => {
             <Grid className="checkbox-dropdown-container-wrapper">
                 <Grid className="checkbox-dropdown-container">
                     <FormControlLabel
-                        value="Insurance"
-                        control={<Checkbox name="Insurance" onChange={handleParentCheckboxChange} className="dropdown-parent-checkbox" icon={<AddEmployeeCheckbox />} checkedIcon={<AddEmployeeCheckboxChecked />} />}
-                        label="Insurance"
+                        value={value}
+                        control={<Checkbox name={name} onChange={handleParentCheckboxChange} className="dropdown-parent-checkbox" icon={<AddEmployeeCheckbox />} checkedIcon={<AddEmployeeCheckboxChecked />} />}
+                        label={label}
                         labelPlacement="end"
                     />
                     <Grid className="checkbox-dropdown-icon" onClick={(e) => handleClick(e)}>
@@ -60,12 +56,12 @@ const CheckboxDropdown = ({ handleChange }) => {
                 <Collapse in={open} timeout="auto" unmountOnExit>
                     <Grid className='sub-checkbox-dropdown-container'>
                         {
-                            arr?.map((item, index) => (
+                            subCheckboxArray?.map((item, index) => (
                                 <FormControlLabel
-                                    value={item}
+                                    value={item?.value}
                                     key={index}
-                                    control={<Checkbox className="child-checkbox" onChange={handleChange} name={item} icon={<AddEmployeeCheckbox />} checkedIcon={<AddEmployeeCheckboxChecked />} />}
-                                    label={item}
+                                    control={<Checkbox className="child-checkbox" onChange={handleChange} name={item?.name} icon={<AddEmployeeCheckbox />} checkedIcon={<AddEmployeeCheckboxChecked />} />}
+                                    label={item?.label}
                                     labelPlacement="end"
                                 />
                             ))

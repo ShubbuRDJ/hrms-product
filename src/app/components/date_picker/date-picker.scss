@@ -4,6 +4,14 @@
 
   input {
     padding: 0 20px;
+
+    &::placeholder{
+      color: #919499;
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 400;
+      opacity: 1;
+    }
   }
 }
 

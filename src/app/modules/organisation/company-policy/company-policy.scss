@@ -1,4 +1,4 @@
-.role-management-main-container {
+.organisation-company-policy-main-container {
     padding: 10px;
     height:calc(100vh - 84px);
     display: flex;
@@ -38,7 +38,65 @@
       }
     }
   
-    .employee-management-list-main-container {
+    .add-new-employee-filter-container {
+      height: 170px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 21px;
+  
+      .add-new-employee-filter-wrapper {
+        width: 100%;
+        height: 128px;
+        border: 1px solid #e9cfff;
+        border-radius: 10px;
+        display: flex;
+        gap: 30px;
+        padding: 0 45px;
+        align-items: center;
+  
+        .add-new-employee-filter {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          min-width: 288px;
+  
+          p {
+            color: #111827;
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+  
+        .add-new-employee-reset-btn {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          width: 72px;
+  
+          p {
+            color: #111827;
+            font-size: 14px;
+            font-weight: 600;
+          }
+  
+          button {
+            height: 40px;
+            border-radius: 4px;
+            background-color: rgba(21, 101, 192, 0.16);
+            border: none;
+            color: #1565c0;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+  
+    .organisation-company-policy-list-main-container {
       background-color: #ffffff;
       border-radius: 10px;
   
@@ -86,7 +144,7 @@
               line-height: 24px;
           }
   
-          .employee-management-table-limit-filter {
+          .organisation-company-policy-table-limit-filter {
             height: 30px;
             width: 76px;
             margin-top: -10px;
@@ -101,12 +159,12 @@
         }
       }
   
-      .employee-management-table-container {
+      .organisation-company-policy-table-container {
         width: 100%;
         border-bottom: 1px solid #e9eaec;
       }
   
-      .employee-management-pagination-container {
+      .organisation-company-policy-pagination-container {
         height: 100px;
         display: flex;
         align-items: center;

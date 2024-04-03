@@ -21,6 +21,7 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const [openStaff, setOpenStaff] = useState(false);
   const [openOrganisation, setOpenOrganisation] = useState(false);
+  const [openTimesheet, setOpenTimesheet] = useState(false);
 
   const sidebarMenuItems = [
     {
@@ -46,8 +47,8 @@ const Sidebar = () => {
       iconPath: staffManagementIcon,
       menuName: 'Staff Management',
       isArrow: true,
-      open:openStaff,
-      setOpen:setOpenStaff,
+      open: openStaff,
+      setOpen: setOpenStaff,
       subMenu: [
         {
           menuName: 'Employee Management',
@@ -63,8 +64,8 @@ const Sidebar = () => {
       iconPath: organisationIcon,
       menuName: 'Organization',
       isArrow: true,
-      open:openOrganisation,
-      setOpen:setOpenOrganisation,
+      open: openOrganisation,
+      setOpen: setOpenOrganisation,
       subMenu: [
         {
           menuName: 'Company Policy',
@@ -87,8 +88,27 @@ const Sidebar = () => {
     {
       iconPath: timeSheetIcon,
       menuName: 'Timesheet',
-      isArrow: false,
-      navigateAddress: '/timesheet'
+      isArrow: true,
+      open: openTimesheet,
+      setOpen: setOpenTimesheet,
+      subMenu: [
+        {
+          menuName: 'My Attendance',
+          navigateAddress: '/my-attendance'
+        },
+        {
+          menuName: 'Attendance Management',
+          navigateAddress: '/attendance-management'
+        },
+        {
+          menuName: 'Shift Management',
+          navigateAddress: '/shift-management'
+        },
+        {
+          menuName: 'Holiday Management',
+          navigateAddress: '/holiday-management'
+        },
+      ]
     },
     {
       iconPath: projectManagementIcon,
