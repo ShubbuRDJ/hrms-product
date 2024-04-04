@@ -27,7 +27,7 @@ const actionKey = [
     },
     {
         actionName: 'edit',
-        // navigateAddress: '/employee-management/edit-employee'
+        navigateAddress: '/shift-management/edit-shift'
     },
     {
         actionName: 'delete'

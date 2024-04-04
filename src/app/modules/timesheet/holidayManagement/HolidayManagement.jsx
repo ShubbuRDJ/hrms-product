@@ -6,6 +6,7 @@ import FilterTableLimit from '../../../components/filter-custom/FilterTableLimit
 import TableCustom from '../../../components/tableCustom/TableCustom'
 import PaginationCustom from '../../../components/pagination/PaginationCustom'
 import { useNavigate } from 'react-router-dom'
+import ResponsiveDialog from '../../../components/dialog_box/ResponsiveDialog'
 
 
 const tableLimitArr = ['10', '25', '50', '100']
@@ -20,21 +21,37 @@ const columns = [
     { id: 'column3', label: 'End Date', minWidth: 100 },
 ];
 
-const dataKey = ['serialNum', 'event_name', 'holiday_type', 'holiday_status','start_date','end_date'];
+const dataKey = ['serialNum', 'event_name', 'holiday_type', 'holiday_status', 'start_date', 'end_date'];
 
-const actionKey = [
+
+const dialogArrayData = [
     {
-        actionName: 'view',
-        // navigateAddress: '/employee-management/edit-employee'
+        heading:'Event Name',
+        content:'Independence Day',
     },
     {
-        actionName: 'edit',
-        // navigateAddress: '/employee-management/edit-employee'
+        heading:'Holiday Type',
+        content:'Fixed Holiday',
     },
     {
-        actionName: 'delete'
+        heading:'Start Date',
+        content:'Aug 15, 2022',
+    },
+    {
+        heading:'End Date',
+        content:'Aug 15, 2022',
+    },
+    {
+        heading:'Status',
+        content:'Published',
+    },
+    {
+        heading:'Description',
+        content:'Text',
     },
 ]
+
+
 
 const dummyData = [
     {
@@ -98,8 +115,28 @@ const dummyData = [
 const HolidayManagement = () => {
     const navigate = useNavigate();
     const [searchKey, setSearchKey] = useState('');
+    const [openViewHoliday, setOpenViewHoliday] = useState(false);
+    const [viewHolidayCallback, setViewHolidayCallback] = useState('');
+
+
+    const actionKey = [
+        {
+            actionName: 'view',
+            open:openViewHoliday,
+            setOpen:setOpenViewHoliday,
+            setCallback:setViewHolidayCallback
+        },
+        {
+            actionName: 'edit',
+            navigateAddress: '/holiday-management/edit-holiday'
+        },
+        {
+            actionName: 'delete'
+        },
+    ]
 
     console.log(searchKey, 'vdvnfeiwodweidwedo')
+    console.log(viewHolidayCallback, 'vdvnfeiwodweidwedo')
     return (
         <>
             <Grid className='timesheet-shift-management-main-container'>
@@ -107,7 +144,7 @@ const HolidayManagement = () => {
                 <Grid className='timesheet-shift-management-list-main-container'>
                     <Grid className='add-new-employee-btn-container'>
                         <h4>Add New Holiday</h4>
-                        <button type="button" onClick={() => navigate('/shift-management/add-shift')}>
+                        <button type="button" onClick={() => navigate('/holiday-management/add-holiday')}>
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path opacity="0.8" d="M15 7H9V1C9 0.4 8.6 0 8 0C7.4 0 7 0.4 7 1V7H1C0.4 7 0 7.4 0 8C0 8.6 0.4 9 1 9H7V15C7 15.6 7.4 16 8 16C8.6 16 9 15.6 9 15V9H15C15.6 9 16 8.6 16 8C16 7.4 15.6 7 15 7Z" fill="#C7D2FE" />
                             </svg>
@@ -159,6 +196,10 @@ const HolidayManagement = () => {
                 </Grid>
 
             </Grid>
+
+            {
+                openViewHoliday && <ResponsiveDialog heading={'View Holiday'} open={openViewHoliday} setOpen={setOpenViewHoliday} dialogArray={dialogArrayData} />
+            }
         </>
     )
 }

@@ -13,10 +13,10 @@ export default function TableCustom({ columns, datas, dataKey, actionKey, align,
     if (action?.navigateAddress) {
       navigate(action?.navigateAddress)
     }
-    // else {
-    //   action?.setOpen(!action?.open)
-    //   action?.setCallback(data)
-    // }
+    else {
+      action?.setOpen(!action?.open)
+      action?.setCallback(data)
+    }
   }
 
   const navigate = useNavigate();

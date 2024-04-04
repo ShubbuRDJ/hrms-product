@@ -28,7 +28,7 @@ const dataKey = ['serialNum', 'employee','mode_of_work','date', 'clock_in', 'clo
 const actionKey = [
     {
         actionName: 'edit',
-        // navigateAddress: '/employee-management/edit-employee'
+        navigateAddress: '/attendance-management/edit-attendance'
     },
     {
         actionName: 'delete'

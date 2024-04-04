@@ -93,8 +93,6 @@ const MyAttendance = () => {
                 <Grid className='timesheet-my-attendance-list-main-container'>
                     <Grid className='add-new-employee-btn-container'>
                         <h4>My Attendance</h4>
-
-
                     </Grid>
 
                     <Grid className='list-heading-export-btn-container' style={{ height: 'unset', flexDirection: 'column', alignItems: 'flex-start', gap: '30px' }} >

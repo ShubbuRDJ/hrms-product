@@ -24,6 +24,10 @@ import MyAttendance from "../app/modules/timesheet/myAttendance/MyAttendance";
 import AttendanceManagement from "../app/modules/timesheet/attendanceManagement/AttendanceManagement";
 import ShiftManagement from "../app/modules/timesheet/shiftManagement/ShiftManagement";
 import HolidayManagement from "../app/modules/timesheet/holidayManagement/HolidayManagement";
+import AddCompanyPolicy from "../app/modules/organisation/company-policy/AddCompanyPolicy";
+import AddAttendance from "../app/modules/timesheet/attendanceManagement/AddAttendance";
+import AddShift from "../app/modules/timesheet/shiftManagement/AddShift";
+import AddHoliday from "../app/modules/timesheet/holidayManagement/AddHoliday";
 
 function MainRoute() {
   return (
@@ -46,6 +50,8 @@ function MainRoute() {
         <Route path="role-management" element={<RoleManagement/>} />
         <Route path="role-management/add-role" element={<AddNewRole/>} />
         <Route path="company-policy" element={<CompanyPolicy/>} />
+        <Route path="company-policy/add-company-policy" element={<AddCompanyPolicy type={'add'}/>} />
+        <Route path="company-policy/edit-company-policy" element={<AddCompanyPolicy type={'edit'}/>} />
         <Route path="department" element={<Department/>} />
         <Route path="department/add-department" element={<AddDepartment type ={'add'}/>} />
         <Route path="department/edit-department" element={<AddDepartment type = {'edit'}/>} />
@@ -58,8 +64,14 @@ function MainRoute() {
         <Route path="location/edit-location" element={<AddLocation type ={'edit'}/>} />
         <Route path="my-attendance" element={<MyAttendance/>} />
         <Route path="attendance-management" element={<AttendanceManagement/>} />
+        <Route path="attendance-management/add-attendance" element={<AddAttendance type={'add'}/>} />
+        <Route path="attendance-management/edit-attendance" element={<AddAttendance type={'edit'}/>} />
         <Route path="shift-management" element={<ShiftManagement/>} />
+        <Route path="shift-management/add-shift" element={<AddShift type={'add'}/>} />
+        <Route path="shift-management/edit-shift" element={<AddShift type={'edit'}/>} />
         <Route path="holiday-management" element={<HolidayManagement/>} />
+        <Route path="holiday-management/add-holiday" element={<AddHoliday type={'add'}/>} />
+        <Route path="holiday-management/edit-holiday" element={<AddHoliday type={'edit'}/>} />
         <Route path="*" element={<Navigate to={'/dashboard'} />} />
 
       </Route>
