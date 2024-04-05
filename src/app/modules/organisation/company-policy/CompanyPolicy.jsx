@@ -7,6 +7,7 @@ import TableCustom from '../../../components/tableCustom/TableCustom'
 import PaginationCustom from '../../../components/pagination/PaginationCustom'
 import { useNavigate } from 'react-router-dom'
 import ResponsiveDialog from '../../../components/dialog_box/ResponsiveDialog'
+import ConfirmationDialog from '../../../components/ConfirmationDialog./ConfirmationDialog'
 
 
 const tableLimitArr = ['10', '25', '50', '100']
@@ -81,6 +82,7 @@ const CompanyPolicy = () => {
     const [openViewPolicy, setOpenViewPolicy] = useState(false);
     const [openViewPolicyCallback, setOpenViewPolicyCallback] = useState('');
     const [searchKey, setSearchKey] = useState('');
+    const [openConfirmationBox, setOpenConfirmationBox] = useState(false);
 
 
     const actionKey = [
@@ -95,7 +97,9 @@ const CompanyPolicy = () => {
             navigateAddress: '/company-policy/edit-company-policy'
         },
         {
-            actionName: 'delete'
+            actionName: 'delete',
+            open: openConfirmationBox,
+            setOpen: setOpenConfirmationBox,
         },
     ]
 
@@ -155,6 +159,9 @@ const CompanyPolicy = () => {
 
             {
                 openViewPolicy && <ResponsiveDialog open={openViewPolicy} setOpen={setOpenViewPolicy} heading={'List All Policies'} dialogArray={dialogArrayData} />
+            }
+            {
+                openConfirmationBox && <ConfirmationDialog heading={'Are you sure you want to delete ?'} open={openConfirmationBox} setOpen={setOpenConfirmationBox} />
             }
         </>
     )

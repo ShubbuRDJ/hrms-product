@@ -6,6 +6,7 @@ import FilterTableLimit from '../../../components/filter-custom/FilterTableLimit
 import TableCustom from '../../../components/tableCustom/TableCustom'
 import PaginationCustom from '../../../components/pagination/PaginationCustom'
 import { useNavigate } from 'react-router-dom'
+import ConfirmationDialog from '../../../components/ConfirmationDialog./ConfirmationDialog'
 
 
 const tableLimitArr = ['10', '25', '50', '100']
@@ -20,22 +21,7 @@ const columns = [
     { id: 'column3', label: 'Added by', minWidth: 100 },
 ];
 
-const dataKey = ['serialNum', 'location', 'location_head', 'city','country','added_by'];
-
-const actionKey = [
-    {
-        actionName: 'view',
-        navigateAddress: '/location/view-location'
-    },
-    {
-        actionName: 'edit',
-        navigateAddress: '/location/edit-location'
-    },
-    {
-        actionName: 'delete'
-    },
-]
-
+const dataKey = ['serialNum', 'location', 'location_head', 'city', 'country', 'added_by'];
 
 const dummyData = [
     {
@@ -94,18 +80,35 @@ const dummyData = [
         country: 'Text',
         added_by: 'Text',
     },
-        {
-            location: 'Text',
-            location_head: 'Text',
-            city: 'Text',
-            country: 'Text',
-            added_by: 'Text',
-        },
+    {
+        location: 'Text',
+        location_head: 'Text',
+        city: 'Text',
+        country: 'Text',
+        added_by: 'Text',
+    },
 ]
 
 const Location = () => {
     const navigate = useNavigate();
     const [searchKey, setSearchKey] = useState('');
+    const [openConfirmationBox, setOpenConfirmationBox] = useState(false);
+
+    const actionKey = [
+        {
+            actionName: 'view',
+            navigateAddress: '/location/view-location'
+        },
+        {
+            actionName: 'edit',
+            navigateAddress: '/location/edit-location'
+        },
+        {
+            actionName: 'delete',
+            open: openConfirmationBox,
+            setOpen: setOpenConfirmationBox,
+        },
+    ]
 
     console.log(searchKey, 'vdvnfeiwodweidwedo')
     return (
@@ -166,6 +169,10 @@ const Location = () => {
                 </Grid>
 
             </Grid>
+
+            {
+                openConfirmationBox && <ConfirmationDialog heading={'Are you sure you want to delete ?'} open={openConfirmationBox} setOpen={setOpenConfirmationBox} />
+            }
         </>
     )
 }

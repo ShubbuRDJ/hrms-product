@@ -19,6 +19,15 @@ export default function TableCustom({ columns, datas, dataKey, actionKey, align,
     }
   }
 
+  const handleDeleteAction = (action) => {
+    if (action?.navigateAddress) {
+      navigate(action?.navigateAddress)
+    }
+    else {
+      action?.setOpen(!action?.open)
+    }
+  }
+
   const navigate = useNavigate();
   let serialNumber = 0;
   return (
@@ -127,7 +136,7 @@ export default function TableCustom({ columns, datas, dataKey, actionKey, align,
                                   </svg>)
                                 }
                                 else if (action?.actionName === 'delete') {
-                                  return (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  return (<svg onClick={() => handleDeleteAction(action)} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="24" height="24" rx="4" fill="#FF0000" fill-opacity="0.1" />
                                     <path d="M16.6673 6.66667H14.334L13.6673 6H10.334L9.66732 6.66667H7.33398V8H16.6673M8.00065 16.6667C8.00065 17.0203 8.14113 17.3594 8.39118 17.6095C8.64122 17.8595 8.98036 18 9.33398 18H14.6673C15.0209 18 15.3601 17.8595 15.6101 17.6095C15.8602 17.3594 16.0007 17.0203 16.0007 16.6667V8.66667H8.00065V16.6667Z" fill="#FF0000" />
                                   </svg>)

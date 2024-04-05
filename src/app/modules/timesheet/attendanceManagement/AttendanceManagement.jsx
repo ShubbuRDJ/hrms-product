@@ -8,6 +8,7 @@ import TableCustom from '../../../components/tableCustom/TableCustom'
 import PaginationCustom from '../../../components/pagination/PaginationCustom'
 import { useNavigate } from 'react-router-dom'
 import DatePickerCustom from '../../../components/date_picker/DatePickerCustom'
+import ConfirmationDialog from '../../../components/ConfirmationDialog./ConfirmationDialog'
 
 
 const tableLimitArr = ['10', '25', '50', '100']
@@ -24,16 +25,6 @@ const columns = [
 ];
 
 const dataKey = ['serialNum', 'employee','mode_of_work','date', 'clock_in', 'clock_out', 'total_work',];
-
-const actionKey = [
-    {
-        actionName: 'edit',
-        navigateAddress: '/attendance-management/edit-attendance'
-    },
-    {
-        actionName: 'delete'
-    },
-]
 
 const dummyData = [
     {
@@ -106,6 +97,19 @@ const AttendanceManagement = () => {
     const navigate = useNavigate();
     const [locationFilter, setLocationFilter] = useState('');
     const [searchKey, setSearchKey] = useState('');
+    const [openConfirmationBox, setOpenConfirmationBox] = useState(false);
+
+    const actionKey = [
+        {
+            actionName: 'edit',
+            navigateAddress: '/attendance-management/edit-attendance'
+        },
+        {
+            actionName: 'delete',
+            open: openConfirmationBox,
+            setOpen: setOpenConfirmationBox,
+        },
+    ]
 
     console.log(searchKey, 'vdvnfeiwodweidwedo')
     return (
@@ -203,6 +207,10 @@ const AttendanceManagement = () => {
                 </Grid>
 
             </Grid>
+
+            {
+                openConfirmationBox && <ConfirmationDialog heading={'Are you sure you want to delete ?'} open={openConfirmationBox} setOpen={setOpenConfirmationBox} />
+            }
         </>
     )
 }

@@ -170,7 +170,7 @@ const WFHArray = [
 ]
 
 
-const AddNewRole = () => {
+const AddNewRole = ({type}) => {
     const navigate = useNavigate();
     const [checked, setChecked] = useState([]);
     const [allChecked, setAllChecked] = useState(false);
@@ -210,9 +210,9 @@ const AddNewRole = () => {
 
                 <form className='add-new-role-main-wrapper' onSubmit={handleSave}>
                     <Grid className='add-new-role-top-btn-container'>
-                        <h4>Add New Role</h4>
+                        <h4>{(type==='add')?'Add New Role':'Edit Role'}</h4>
                         <Grid className='add-new-employee-btns'>
-                            <button type="submit">Save</button>
+                            <button type="submit">{(type==='add')?'Save':'Update'}</button>
                             <button onClick={() => navigate(-1)} type="button">Cancel</button>
                         </Grid>
                     </Grid>

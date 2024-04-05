@@ -7,6 +7,7 @@ import TableCustom from '../../../components/tableCustom/TableCustom'
 import PaginationCustom from '../../../components/pagination/PaginationCustom'
 import { useNavigate } from 'react-router-dom'
 import ResponsiveDialog from '../../../components/dialog_box/ResponsiveDialog'
+import ConfirmationDialog from '../../../components/ConfirmationDialog./ConfirmationDialog'
 
 
 const tableLimitArr = ['10', '25', '50', '100']
@@ -116,6 +117,7 @@ const HolidayManagement = () => {
     const navigate = useNavigate();
     const [searchKey, setSearchKey] = useState('');
     const [openViewHoliday, setOpenViewHoliday] = useState(false);
+    const [openConfirmationBox, setOpenConfirmationBox] = useState(false);
     const [viewHolidayCallback, setViewHolidayCallback] = useState('');
 
 
@@ -131,7 +133,9 @@ const HolidayManagement = () => {
             navigateAddress: '/holiday-management/edit-holiday'
         },
         {
-            actionName: 'delete'
+            actionName: 'delete',
+            open:openConfirmationBox,
+            setOpen:setOpenConfirmationBox,
         },
     ]
 
@@ -199,6 +203,9 @@ const HolidayManagement = () => {
 
             {
                 openViewHoliday && <ResponsiveDialog heading={'View Holiday'} open={openViewHoliday} setOpen={setOpenViewHoliday} dialogArray={dialogArrayData} />
+            }
+            {
+                openConfirmationBox && <ConfirmationDialog heading={'Are you sure you want to delete ?'} open={openConfirmationBox} setOpen={setOpenConfirmationBox} />
             }
         </>
     )

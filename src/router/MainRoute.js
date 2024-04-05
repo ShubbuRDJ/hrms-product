@@ -48,7 +48,8 @@ function MainRoute() {
         <Route path="employee-management/add-employee" element={<AddEmployee/>} />
         <Route path="employee-management/edit-employee/*" element={<ViewEditEmployee/>} />
         <Route path="role-management" element={<RoleManagement/>} />
-        <Route path="role-management/add-role" element={<AddNewRole/>} />
+        <Route path="role-management/add-role" element={<AddNewRole type={'add'}/>} />
+        <Route path="role-management/edit-role" element={<AddNewRole type={'edit'}/>} />
         <Route path="company-policy" element={<CompanyPolicy/>} />
         <Route path="company-policy/add-company-policy" element={<AddCompanyPolicy type={'add'}/>} />
         <Route path="company-policy/edit-company-policy" element={<AddCompanyPolicy type={'edit'}/>} />

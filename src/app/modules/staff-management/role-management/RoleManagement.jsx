@@ -6,6 +6,7 @@ import FilterTableLimit from '../../../components/filter-custom/FilterTableLimit
 import TableCustom from '../../../components/tableCustom/TableCustom'
 import PaginationCustom from '../../../components/pagination/PaginationCustom'
 import { useNavigate } from 'react-router-dom'
+import ConfirmationDialog from '../../../components/ConfirmationDialog./ConfirmationDialog'
 
 
 const tableLimitArr = ['10', '25', '50', '100']
@@ -13,22 +14,13 @@ const tableLimitArr = ['10', '25', '50', '100']
 
 const columns = [
     { id: 'column1', label: 'S No.', minWidth: 100 },
-    { id: 'column2', label: 'Role Id', minWidth: 150,filter:true },
-    { id: 'column3', label: 'Role Name', minWidth: 150,filter:true },
+    { id: 'column2', label: 'Role Id', minWidth: 150, filter: true },
+    { id: 'column3', label: 'Role Name', minWidth: 150, filter: true },
     { id: 'column3', label: 'Menu Permission', minWidth: 100 },
     { id: 'column3', label: 'Added Date', minWidth: 100 },
 ];
 
 const dataKey = ['serialNum', 'role_id', 'role_name', 'menu_permission', 'added_date'];
-
-const actionKey = [
-    {
-        actionName: 'edit'
-    },
-    {
-        actionName: 'delete'
-    },
-]
 
 
 const dummyData = [
@@ -79,6 +71,19 @@ const dummyData = [
 const RoleManagement = () => {
     const navigate = useNavigate();
     const [searchKey, setSearchKey] = useState('');
+    const [openConfirmationBox, setOpenConfirmationBox] = useState(false);
+
+    const actionKey = [
+        {
+            actionName: 'edit',
+            navigateAddress: '/role-management/edit-role'
+        },
+        {
+            actionName: 'delete',
+            open: openConfirmationBox,
+            setOpen: setOpenConfirmationBox,
+        },
+    ]
 
     console.log(searchKey, 'vdvnfeiwodweidwedo')
     return (
@@ -139,6 +144,10 @@ const RoleManagement = () => {
                 </Grid>
 
             </Grid>
+
+            {
+                openConfirmationBox && <ConfirmationDialog heading={'Are you sure you want to delete ?'} open={openConfirmationBox} setOpen={setOpenConfirmationBox} />
+            }
         </>
     )
 }

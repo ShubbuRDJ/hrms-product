@@ -6,6 +6,7 @@ import FilterTableLimit from '../../../../components/filter-custom/FilterTableLi
 import SearchCustom from '../../../../components/search-custom/SearchCustom'
 import PaginationCustom from '../../../../components/pagination/PaginationCustom'
 import TableCustom from '../../../../components/tableCustom/TableCustom'
+import ConfirmationDialog from '../../../../components/ConfirmationDialog./ConfirmationDialog'
 
 
 const tableLimitArr = ['10', '25', '50', '100']
@@ -61,14 +62,17 @@ const dummyData = [
 
 
 
-const QualificationListing = ({ tableHeighLimit,editNavigateAddress,addNavigateAddress }) => {
+const QualificationListing = ({ tableHeighLimit, editNavigateAddress, addNavigateAddress }) => {
+    const [openConfirmationBox, setOpenConfirmationBox] = useState(false);
     const actionKey = [
         {
             actionName: 'edit',
             navigateAddress: editNavigateAddress
         },
         {
-            actionName: 'delete'
+            actionName: 'delete',
+            open: openConfirmationBox,
+            setOpen: setOpenConfirmationBox,
         },
     ]
     const navigate = useNavigate();
@@ -128,6 +132,10 @@ const QualificationListing = ({ tableHeighLimit,editNavigateAddress,addNavigateA
                 </Grid>
 
             </Grid>
+
+            {
+                openConfirmationBox && <ConfirmationDialog heading={'Are you sure you want to delete ?'} open={openConfirmationBox} setOpen={setOpenConfirmationBox} />
+            }
         </>
     )
 }

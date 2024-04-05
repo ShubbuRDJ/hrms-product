@@ -6,6 +6,7 @@ import FilterTableLimit from '../../../components/filter-custom/FilterTableLimit
 import TableCustom from '../../../components/tableCustom/TableCustom'
 import PaginationCustom from '../../../components/pagination/PaginationCustom'
 import { useNavigate } from 'react-router-dom'
+import ConfirmationDialog from '../../../components/ConfirmationDialog./ConfirmationDialog'
 
 
 const tableLimitArr = ['10', '25', '50', '100']
@@ -19,20 +20,6 @@ const columns = [
 ];
 
 const dataKey = ['serialNum', 'shift_name', 'in_time', 'out_time'];
-
-const actionKey = [
-    {
-        actionName: 'view',
-        // navigateAddress: '/employee-management/edit-employee'
-    },
-    {
-        actionName: 'edit',
-        navigateAddress: '/shift-management/edit-shift'
-    },
-    {
-        actionName: 'delete'
-    },
-]
 
 const dummyData = [
     {
@@ -80,6 +67,24 @@ const dummyData = [
 const ShiftManagement = () => {
     const navigate = useNavigate();
     const [searchKey, setSearchKey] = useState('');
+    const [openConfirmationBox, setOpenConfirmationBox] = useState(false);
+
+
+    const actionKey = [
+        {
+            actionName: 'view',
+            // navigateAddress: '/employee-management/edit-employee'
+        },
+        {
+            actionName: 'edit',
+            navigateAddress: '/shift-management/edit-shift'
+        },
+        {
+            actionName: 'delete',
+            open: openConfirmationBox,
+            setOpen: setOpenConfirmationBox,
+        },
+    ]
 
     console.log(searchKey, 'vdvnfeiwodweidwedo')
     return (
@@ -141,6 +146,10 @@ const ShiftManagement = () => {
                 </Grid>
 
             </Grid>
+
+            {
+                openConfirmationBox && <ConfirmationDialog heading={'Are you sure you want to delete ?'} open={openConfirmationBox} setOpen={setOpenConfirmationBox} />
+            }
         </>
     )
 }
