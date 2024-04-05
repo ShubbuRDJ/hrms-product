@@ -28,6 +28,11 @@ import AddCompanyPolicy from "../app/modules/organisation/company-policy/AddComp
 import AddAttendance from "../app/modules/timesheet/attendanceManagement/AddAttendance";
 import AddShift from "../app/modules/timesheet/shiftManagement/AddShift";
 import AddHoliday from "../app/modules/timesheet/holidayManagement/AddHoliday";
+import MyLeave from "../app/modules/leaves/my leaves/MyLeaves";
+import AddLeave from "../app/modules/leaves/my leaves/AddLeave";
+import CompOffManagement from "../app/modules/leaves/comp off management/CompOffManagement";
+import LeavesToAcknowledge from "../app/modules/leaves/leaves to acknowledge/LeavesToAcknowledge";
+import LeavesToApprove from "../app/modules/leaves/leaves to approve/LeavesToApprove";
 
 function MainRoute() {
   return (
@@ -73,6 +78,11 @@ function MainRoute() {
         <Route path="holiday-management" element={<HolidayManagement/>} />
         <Route path="holiday-management/add-holiday" element={<AddHoliday type={'add'}/>} />
         <Route path="holiday-management/edit-holiday" element={<AddHoliday type={'edit'}/>} />
+        <Route path="my-leaves" element={<MyLeave/>} />
+        <Route path="my-leaves/add-leave" element={<AddLeave type={'add'}/>} />
+        <Route path="comp-off-management" element={<CompOffManagement/>} />
+        <Route path="leaves-to-acknowledge" element={<LeavesToAcknowledge/>} />
+        <Route path="leaves-to-approve" element={<LeavesToApprove/>} />
         <Route path="*" element={<Navigate to={'/dashboard'} />} />
 
       </Route>

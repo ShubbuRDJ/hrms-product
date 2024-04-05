@@ -1,0 +1,34 @@
+.leaves-card-container{
+    height: 80px;
+    min-width: 274px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    gap: 10px;
+
+    .leaves-card-icon-container{
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .leaves-card-text{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        h4{
+            color: #718EBF;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        p{
+            color: #232323;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+}

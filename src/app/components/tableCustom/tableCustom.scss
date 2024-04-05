@@ -19,7 +19,7 @@
 
 .MuiTableRow-root {
   &:hover {
-    background-color: #f2f8f7 !important;
+    background-color: #ffffff !important;
   }
 
   td {
@@ -59,12 +59,10 @@
   .table-custom-status-container {
     height: 24px;
     width: fit-content;
-    background-color: rgba(33, 150, 83, 0.1);
     border-radius: 4px;
     padding: 0 15px;
 
     span {
-      color: #219653;
       font-size: 12px;
       font-weight: 600;
       line-height: 22px;
@@ -90,4 +88,26 @@
   svg{
     cursor: pointer;
   }
+}
+
+
+.table-custom-approval-container{
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  button{
+    height: 24px;
+    width: 56px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #05CD99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
 }

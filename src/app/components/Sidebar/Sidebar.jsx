@@ -22,6 +22,7 @@ const Sidebar = () => {
   const [openStaff, setOpenStaff] = useState(false);
   const [openOrganisation, setOpenOrganisation] = useState(false);
   const [openTimesheet, setOpenTimesheet] = useState(false);
+  const [openLeave, setOpenLeave] = useState(false);
 
   const sidebarMenuItems = [
     {
@@ -131,8 +132,31 @@ const Sidebar = () => {
     {
       iconPath: leaveIcon,
       menuName: 'Leave',
-      isArrow: false,
-      navigateAddress: '/leave'
+      isArrow: true,
+      open: openLeave,
+      setOpen: setOpenLeave,
+      subMenu: [
+        {
+          menuName: 'My Leaves',
+          navigateAddress: '/my-leaves'
+        },
+        {
+          menuName: 'Restricted Leaves',
+          navigateAddress: '/restricted-leaves'
+        },
+        {
+          menuName: 'Leaves to Approve',
+          navigateAddress: '/leaves-to-approve'
+        },
+        {
+          menuName: 'Leaves to Acknowledge',
+          navigateAddress: '/leaves-to-acknowledge'
+        },
+        {
+          menuName: 'Comp Off Management',
+          navigateAddress: '/comp-off-management'
+        },
+      ]
     },
     {
       iconPath: wfhIcon,

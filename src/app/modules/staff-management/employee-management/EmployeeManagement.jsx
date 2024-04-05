@@ -72,7 +72,7 @@ const dummyData = [
         role: 'Employee',
         designation: 'Software Developer (Angular)',
         emp_type: 'Permanent',
-        status: 1,
+        status: 0,
     },
     {
         id: 'AV23591',
@@ -92,7 +92,7 @@ const dummyData = [
         role: 'Employee',
         designation: 'Software Developer (Angular)',
         emp_type: 'Permanent',
-        status: 1,
+        status: 0,
     },
     {
         id: 'AV23591',
