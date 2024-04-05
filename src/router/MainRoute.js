@@ -33,6 +33,7 @@ import AddLeave from "../app/modules/leaves/my leaves/AddLeave";
 import CompOffManagement from "../app/modules/leaves/comp off management/CompOffManagement";
 import LeavesToAcknowledge from "../app/modules/leaves/leaves to acknowledge/LeavesToAcknowledge";
 import LeavesToApprove from "../app/modules/leaves/leaves to approve/LeavesToApprove";
+import AddCompOff from "../app/modules/leaves/comp off management/AddCompOff";
 
 function MainRoute() {
   return (
@@ -81,6 +82,8 @@ function MainRoute() {
         <Route path="my-leaves" element={<MyLeave/>} />
         <Route path="my-leaves/add-leave" element={<AddLeave type={'add'}/>} />
         <Route path="comp-off-management" element={<CompOffManagement/>} />
+        <Route path="comp-off-management/add-comp-off" element={<AddCompOff type={'add'}/>} />
+        <Route path="comp-off-management/edit-comp-off" element={<AddCompOff type={'edit'}/>} />
         <Route path="leaves-to-acknowledge" element={<LeavesToAcknowledge/>} />
         <Route path="leaves-to-approve" element={<LeavesToApprove/>} />
         <Route path="*" element={<Navigate to={'/dashboard'} />} />

@@ -1,13 +1,13 @@
-.department-add-main-container {
+.comp-off-add-main-container {
     padding: 10px;
     height: calc(100vh - 84px);
     background-color: #f4efff;
   
-    .department-add-main-wrapper {
+    .comp-off-add-main-wrapper {
       width: 100%;
       height: 100%;
   
-      .department-add-top-btn-container {
+      .comp-off-add-top-btn-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -44,12 +44,12 @@
         }
       }
   
-      .department-add-form-container-wrapper {
+      .comp-off-add-form-container-wrapper {
         width: 100%;
         padding: 20px;
         background-color: #ffffff;
         border-radius: 0 0 10px 10px;
-        .department-add-form-container {
+        .comp-off-add-form-container {
           background-color: rgba(0, 123, 255, 0.06);
           width: 100%;
           border-radius: 10px;
@@ -59,18 +59,18 @@
           gap: 20px;
           padding-bottom: 50px;
   
-          .department-add-form-row {
+          .comp-off-add-form-row {
             display: flex;
             column-gap: 35px;
             row-gap: 30px;
             flex-wrap: wrap;
   
-            .department-add-form-field {
+            .comp-off-add-form-field {
               display: flex;
               flex-direction: column;
               gap: 8px;
               min-width: 232px;
-              width: calc((100% - 35px) / 2);
+              width: calc((100% - 70px) / 3);
   
               .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary {
                 background-color: #ffffff;
@@ -110,7 +110,7 @@
                 }
               }
   
-              .department-add-form-checkbox {
+              .comp-off-add-form-checkbox {
                 margin-top: 15px;
                 display: flex;
                 gap: 50px;
@@ -125,10 +125,6 @@
                   font-weight: 600;
                 }
               }
-            }
-  
-            .department-add-form-field-checkbox {
-              width: 74.3%;
             }
           }
         }
