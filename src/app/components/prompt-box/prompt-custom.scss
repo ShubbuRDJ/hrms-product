@@ -1,0 +1,98 @@
+.dialog-main-container {
+  background: #fff;
+
+  .prompt-dialog-cross-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+
+    .dialog-box-cross-icon {
+      height: 24px;
+      width: 24px;
+      background-color: #e5e5e5;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+
+  .prompt-dialog-content-box {
+    .prompt-dialog-btns {
+      padding: 20px;
+      width: 100%;
+      display: flex;
+      gap: 15px;
+
+      button {
+        height: 46px;
+        width: 170px;
+        border: none;
+        border-radius: 4px;
+        font-size: 18px;
+        line-height: 22px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .prompt-dialog-no-btn {
+        background-color: rgba(220, 38, 38, 0.1);
+        color: #dc2626;
+      }
+      .prompt-dialog-yes-btn {
+        background-color: #219653;
+        color: #ffffff;
+      }
+    }
+
+    .prompt-dialog-text {
+      display: flex;
+      border-bottom: 1px solid #e6eff5;
+      max-width: 355px;
+      padding: 20px;
+      padding-top: 0;
+      padding-bottom: 10px;
+      h4 {
+        color: #000000;
+        font-size: 20px;
+        line-height: 26px;
+        font-weight: 700;
+        // max-width: 364px;
+        text-align: justify;
+      }
+    }
+  }
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation24.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthXs.MuiDialog-paperFullWidth {
+  width: unset;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation24.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthMd.MuiDialog-paperFullWidth {
+  border-radius: 10px;
+}
+
+.prompt-dialog-textarea {
+    width: 100%;
+    margin-top: 10px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+  textarea {
+    width: 100%;
+    border: 1px solid #e9cfff;
+    min-height: 222px;
+    border-radius: 8px;
+    outline: none;
+    padding: 15px 10px;
+    max-width: 355px;
+
+    &::placeholder {
+      color: #919499;
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 400;
+    }
+  }
+}

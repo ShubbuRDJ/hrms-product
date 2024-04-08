@@ -15,6 +15,7 @@ import restrictedLeaveIcon from '../../../../assets/leaves/walk.svg';
 import compOffLeaveIcon from '../../../../assets/leaves/travel.svg';
 import paternityLeaveIcon from '../../../../assets/leaves/father-and-son.svg';
 import maternityLeaveIcon from '../../../../assets/leaves/mother.svg';
+import PromptCustom from '../../../components/prompt-box/PromptCustom'
 
 
 const tableLimitArr = ['10', '25', '50', '100']
@@ -114,7 +115,7 @@ const MyLeave = () => {
     const actionKey = [
         {
             actionName: 'view',
-            // navigateAddress: '/role-management/edit-role'
+            navigateAddress: '/my-leaves/view-leave'
         },
         {
             actionName: 'chat',
@@ -248,7 +249,7 @@ const MyLeave = () => {
             </Grid>
 
             {
-                openConfirmationBox && <ConfirmationDialog heading={'Are you sure to you want to Roll back your leave Request?'} open={openConfirmationBox} setOpen={setOpenConfirmationBox} />
+                openConfirmationBox && <PromptCustom heading={'Are you sure to you want to Roll back your leave Request?'} open={openConfirmationBox} setOpen={setOpenConfirmationBox} />
             }
         </>
     )

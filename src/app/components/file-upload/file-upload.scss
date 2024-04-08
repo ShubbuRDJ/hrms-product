@@ -1,0 +1,35 @@
+.file-upload-main-btn{
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  height: 46px;
+  border: 1px solid #e9cfff;
+  border-radius: 8px;
+  outline: none;
+  padding: 0 9px;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+
+  .file-upload-btn {
+    height: 34px;
+    background-color: rgba(0, 123, 255, 0.1);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    span {
+      color: #1b1c57;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 16px;
+    }
+  }
+
+  span {
+    color: #919499;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+  }
+}
