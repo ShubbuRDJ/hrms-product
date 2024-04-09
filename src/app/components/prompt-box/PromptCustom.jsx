@@ -4,17 +4,40 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import './prompt-custom.scss';
 import { Grid } from '@mui/material';
+import { useFormik } from 'formik';
+import * as Yup from "yup";
 
 
+const initialValues = {
+    comment: ''
+}
 
-function PromptCustom({ open, setOpen, heading }) {
+function PromptCustom({ open, setOpen, heading,setPromptMsg }) {
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+
+    const promptCommentValidation = Yup.object({
+        comment: Yup.string()
+            .required("Please enter the comment to move ahead"),
+    });
+
+    const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
+        useFormik({
+            initialValues,
+            validationSchema: promptCommentValidation,
+            onSubmit: (values, action) => {
+                handleSave(values);
+            },
+        });
+
+    const handleSave = async (credentials) => {
+        setPromptMsg(credentials)
+        setOpen(!open)
+    }
 
     const handleClose = () => {
         setOpen(false);
     };
-
 
     return (
         <Dialog
@@ -29,35 +52,41 @@ function PromptCustom({ open, setOpen, heading }) {
 
                 <Grid className='prompt-dialog-cross-button'>
                     <Grid onClick={() => setOpen(!open)} className='dialog-box-cross-icon'>
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 4.66688L10.6669 0L12 1.33312L7.33312 6L12 10.6669L10.6669 12L6 7.33312L1.33312 12L0 10.6669L4.66688 6L0 1.33312L1.33312 0L6 4.66688Z" fill="#4F4F4F" />
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.01172 14.9891L8.00239 7.99848L14.9931 14.9891M14.9931 1.00781L8.00105 7.99848L1.01172 1.00781" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </Grid>
 
 
                 </Grid>
 
-                <Grid className='prompt-dialog-content-box'>
+                <form className='prompt-dialog-content-box' onSubmit={handleSubmit}>
 
                     <Grid className='prompt-dialog-text'>
                         <h4>{heading}</h4>
                     </Grid>
 
                     <Grid className='prompt-dialog-textarea'>
-                        <textarea id="add-leave-leave_reason" name="leave_reason" rows="4" cols="50"
-                            placeholder='Type ....'
+                        <textarea id="prompt-comment" name="comment" rows="4" cols="50"
+                            placeholder='Add a comment'
+                            onChange={handleChange}
+                            value={values?.comment}
+                            onBlur={handleBlur}
                         >
                         </textarea>
+                        {errors.comment && touched.comment ? (
+                            <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.comment.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.comment}</p></Grid>
+                        ) : null}
                     </Grid>
 
 
 
                     <Grid className='prompt-dialog-btns'>
                         <button onClick={() => setOpen(!open)} className='prompt-dialog-no-btn' type="button">No</button>
-                        <button onClick={() => setOpen(!open)} className='prompt-dialog-yes-btn' type="button">Yes</button>
+                        <button className='prompt-dialog-yes-btn' type="submit">Yes</button>
                     </Grid>
 
-                </Grid>
+                </form>
             </Grid>
         </Dialog>
     );

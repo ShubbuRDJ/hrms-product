@@ -6,7 +6,6 @@ import FilterTableLimit from '../../../components/filter-custom/FilterTableLimit
 import TableCustom from '../../../components/tableCustom/TableCustom'
 import PaginationCustom from '../../../components/pagination/PaginationCustom'
 import { useNavigate } from 'react-router-dom'
-import ConfirmationDialog from '../../../components/ConfirmationDialog./ConfirmationDialog'
 import LeaveCard from '../../../components/leaves-card/LeaveCard'
 import casualLeaveIcon from '../../../../assets/leaves/door.svg';
 import earnLeaveIcon from '../../../../assets/leaves/dollar.svg';
@@ -111,6 +110,7 @@ const MyLeave = () => {
     const navigate = useNavigate();
     const [searchKey, setSearchKey] = useState('');
     const [openConfirmationBox, setOpenConfirmationBox] = useState(false);
+    const [promptMsg, setPromptMsg] = useState('');
 
     const actionKey = [
         {
@@ -126,6 +126,8 @@ const MyLeave = () => {
             setOpen: setOpenConfirmationBox
         },
     ]
+
+    console.log(promptMsg,'vdsbsifew34')
 
     console.log(searchKey, 'vdvnfeiwodweidwedo')
     return (
@@ -249,7 +251,7 @@ const MyLeave = () => {
             </Grid>
 
             {
-                openConfirmationBox && <PromptCustom heading={'Are you sure to you want to Roll back your leave Request?'} open={openConfirmationBox} setOpen={setOpenConfirmationBox} />
+                openConfirmationBox && <PromptCustom heading={'Are you sure to you want to Roll back your leave Request?'} open={openConfirmationBox} setOpen={setOpenConfirmationBox} setPromptMsg = {setPromptMsg} />
             }
         </>
     )
