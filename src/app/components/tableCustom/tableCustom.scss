@@ -74,6 +74,10 @@
   svg {
     cursor: pointer;
   }
+  .MuiButtonBase-root{
+    height: 24px;
+    padding: 0;
+  }
 }
 
 
@@ -108,6 +112,10 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+  }
+  .rollbackBtn-btn{
+    background-color: rgba(0, 109, 132, 0.6);
+    width: 118px;
   }
 
 }

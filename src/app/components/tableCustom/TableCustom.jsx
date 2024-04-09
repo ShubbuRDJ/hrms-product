@@ -6,7 +6,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import './tableCustom.scss'
 import { useNavigate } from 'react-router-dom';
-import { Grid } from '@mui/material';
+import { Grid, IconButton } from '@mui/material';
 
 export default function TableCustom({ columns, datas, dataKey, actionKey, align, tableContainerMaxHeight }) {
   const handleActionButton = (action, data) => {
@@ -88,8 +88,9 @@ export default function TableCustom({ columns, datas, dataKey, actionKey, align,
                         else if (key === 'final_approval') {
                           return (<TableCell align={align} key={index + 1000}>
                             <Grid className='table-custom-approval-container'>
-                              <AmApprove approve={data[key]?.am} />
-                              <HrApprove approve={data[key]?.hr} />
+                              <AmApprove approve={data[key]?.am} display={!data[key]?.rollback} />
+                              <HrApprove approve={data[key]?.hr} display={!data[key]?.rollback} />
+                              <RollbackBtn display={data[key]?.rollback} />
                             </Grid>
                           </TableCell>)
                         }
@@ -139,10 +140,12 @@ export default function TableCustom({ columns, datas, dataKey, actionKey, align,
                                   </svg>)
                                 }
                                 else if (action?.actionName === 'back') {
-                                  return (<svg onClick={()=>handleDeleteAction(action)} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="24" height="24" rx="4" fill="#006D84" fill-opacity="0.1" />
-                                    <path d="M17.9526 13.3333C17.792 14.444 17.2366 15.4597 16.3882 16.1944C15.5397 16.929 14.4549 17.3333 13.3326 17.3333H7.66597V16H13.3326C14.2167 16 15.0645 15.6488 15.6897 15.0236C16.3148 14.3985 16.666 13.5507 16.666 12.6666C16.666 11.7826 16.3148 10.9347 15.6897 10.3096C15.0645 9.68448 14.2167 9.33329 13.3326 9.33329H8.60864L10.2753 11L9.33264 11.9426L6.05664 8.66662L9.33264 5.39062L10.2753 6.33329L8.60864 7.99996H13.3326C14.5703 7.99996 15.7573 8.49162 16.6325 9.36679C17.5076 10.242 17.9993 11.4289 17.9993 12.6666V13.3333H17.9526Z" fill="#006D84" />
-                                  </svg>)
+                                  return (<IconButton disableRipple disabled={(data['final_approval']?.rollback) ? true : false} >
+                                    <svg onClick={() => handleDeleteAction(action)} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <rect width="24" height="24" rx="4" fill="#006D84" fill-opacity="0.1" />
+                                      <path d="M17.9526 13.3333C17.792 14.444 17.2366 15.4597 16.3882 16.1944C15.5397 16.929 14.4549 17.3333 13.3326 17.3333H7.66597V16H13.3326C14.2167 16 15.0645 15.6488 15.6897 15.0236C16.3148 14.3985 16.666 13.5507 16.666 12.6666C16.666 11.7826 16.3148 10.9347 15.6897 10.3096C15.0645 9.68448 14.2167 9.33329 13.3326 9.33329H8.60864L10.2753 11L9.33264 11.9426L6.05664 8.66662L9.33264 5.39062L10.2753 6.33329L8.60864 7.99996H13.3326C14.5703 7.99996 15.7573 8.49162 16.6325 9.36679C17.5076 10.242 17.9993 11.4289 17.9993 12.6666V13.3333H17.9526Z" fill="#006D84" />
+                                    </svg>
+                                  </IconButton>)
                                 }
                                 else if (action?.actionName === 'view') {
                                   return (<svg onClick={() => handleActionButton(action, data)} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -194,9 +197,9 @@ export default function TableCustom({ columns, datas, dataKey, actionKey, align,
 
 
 
-const AmApprove = ({ approve }) => {
+const AmApprove = ({ approve, display }) => {
   return (
-    <button type="button" style={{ backgroundColor: `${approve ? '#05CD99' : '#FFFAE9'}`, color: `${approve ? '#FFFFFF' : '#E8BD20'}` }}>
+    <button type="button" style={{ backgroundColor: `${approve ? '#05CD99' : '#FFFAE9'}`, color: `${approve ? '#FFFFFF' : '#E8BD20'}`, display: `${!display ? 'none' : ''}` }}>
       <span>AM</span>
       {
         approve ?
@@ -211,9 +214,9 @@ const AmApprove = ({ approve }) => {
   )
 }
 
-const HrApprove = ({ approve }) => {
+const HrApprove = ({ approve, display }) => {
   return (
-    <button type="button" style={{ backgroundColor: `${approve ? '#05CD99' : '#FFFAE9'}`, color: `${approve ? '#FFFFFF' : '#E8BD20'}` }}>
+    <button type="button" style={{ backgroundColor: `${approve ? '#05CD99' : '#FFFAE9'}`, color: `${approve ? '#FFFFFF' : '#E8BD20'}`, display: `${!display ? 'none' : ''}` }}>
       <span>HR</span>
       {
         approve ?
@@ -224,6 +227,17 @@ const HrApprove = ({ approve }) => {
             <path d="M10.334 1.22529C11.3395 1.80586 12.1759 2.63898 12.7605 3.64216C13.3451 4.64534 13.6576 5.78381 13.6669 6.94485C13.6763 8.1059 13.3823 9.24926 12.814 10.2618C12.2457 11.2743 11.4228 12.1208 10.4268 12.7175C9.43081 13.3142 8.29623 13.6405 7.13538 13.664C5.97454 13.6875 4.82768 13.4074 3.80835 12.8515C2.78902 12.2955 1.93256 11.483 1.32376 10.4943C0.714959 9.50563 0.374924 8.3751 0.337318 7.21463L0.333984 6.99863L0.337318 6.78263C0.374653 5.63129 0.709683 4.50927 1.30974 3.52595C1.90981 2.54264 2.75442 1.73159 3.76125 1.17188C4.76807 0.612168 5.90275 0.322891 7.05465 0.332251C8.20656 0.341612 9.33639 0.649291 10.334 1.22529ZM7.00065 2.99863C6.83736 2.99865 6.67976 3.0586 6.55774 3.1671C6.43571 3.27561 6.35776 3.42513 6.33865 3.58729L6.33398 3.66529V6.99863L6.33998 7.08596C6.35518 7.20162 6.40047 7.31128 6.47132 7.40396L6.52932 7.47063L8.52932 9.47063L8.59198 9.52529C8.7089 9.616 8.85267 9.66524 9.00065 9.66524C9.14863 9.66524 9.2924 9.616 9.40932 9.52529L9.47198 9.46996L9.52732 9.40729C9.61803 9.29038 9.66726 9.1466 9.66726 8.99863C9.66726 8.85065 9.61803 8.70687 9.52732 8.58996L9.47198 8.52729L7.66732 6.72196V3.66529L7.66265 3.58729C7.64355 3.42513 7.56559 3.27561 7.44357 3.1671C7.32154 3.0586 7.16394 2.99865 7.00065 2.99863Z" fill="#E8BD20" />
           </svg>
       }
+    </button>
+  )
+}
+
+const RollbackBtn = ({ approve, display }) => {
+  return (
+    <button type="button" className='rollbackBtn-btn' style={{ display: `${!display ? 'none' : ''}` }}>
+      <span>Rolled Back</span>
+      <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.9536 8.33329C11.793 9.44404 11.2376 10.4597 10.3891 11.1944C9.54066 11.929 8.45592 12.3333 7.33362 12.3333H1.66695V11H7.33362C8.21767 11 9.06552 10.6488 9.69064 10.0236C10.3158 9.39853 10.6669 8.55068 10.6669 7.66662C10.6669 6.78257 10.3158 5.93472 9.69064 5.3096C9.06552 4.68448 8.21767 4.33329 7.33362 4.33329H2.60962L4.27628 5.99996L3.33362 6.94262L0.0576172 3.66662L3.33362 0.390625L4.27628 1.33329L2.60962 2.99996H7.33362C8.57129 2.99996 9.75828 3.49162 10.6334 4.36679C11.5086 5.24196 12.0003 6.42895 12.0003 7.66662V8.33329H11.9536Z" fill="white" />
+      </svg>
     </button>
   )
 }

@@ -35,6 +35,9 @@ import LeavesToAcknowledge from "../app/modules/leaves/leaves to acknowledge/Lea
 import LeavesToApprove from "../app/modules/leaves/leaves to approve/LeavesToApprove";
 import AddCompOff from "../app/modules/leaves/comp off management/AddCompOff";
 import ViewLeave from "../app/components/view-leave-common/ViewLeave";
+import MyWFH from "../app/modules/wfh/my-wfh/MyWFH";
+import AddWFH from "../app/modules/wfh/my-wfh/AddWFH";
+import RestrictedLeave from "../app/modules/leaves/restricted leaves/RestrictedLeave";
 
 function MainRoute() {
   return (
@@ -83,6 +86,7 @@ function MainRoute() {
         <Route path="my-leaves" element={<MyLeave/>} />
         <Route path="my-leaves/add-leave" element={<AddLeave type={'add'}/>} />
         <Route path="my-leaves/leave-details" element={<ViewLeave type={'leave'}/>} />
+        <Route path="restricted-leaves" element={<RestrictedLeave/>} />
         <Route path="comp-off-management" element={<CompOffManagement/>} />
         <Route path="comp-off-management/add-comp-off" element={<AddCompOff type={'add'}/>} />
         <Route path="comp-off-management/edit-comp-off" element={<AddCompOff type={'edit'}/>} />
@@ -90,6 +94,10 @@ function MainRoute() {
         <Route path="leaves-to-acknowledge/leave-details" element={<ViewLeave type={'leave'}/>} />
         <Route path="leaves-to-approve" element={<LeavesToApprove/>} />
         <Route path="leaves-to-approve/leave-details" element={<ViewLeave type={'leave'} approveRejectAction={true}/>} />
+        <Route path="my-wfh" element={<MyWFH/>} />
+        <Route path="my-wfh/add-wfh" element={<AddWFH/>} />
+        <Route path="my-wfh/view-wfh-details" element={<ViewLeave type = {'wfh'}/>} />
+
         <Route path="*" element={<Navigate to={'/dashboard'} />} />
 
       </Route>

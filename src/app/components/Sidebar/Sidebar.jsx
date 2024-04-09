@@ -23,6 +23,7 @@ const Sidebar = () => {
   const [openOrganisation, setOpenOrganisation] = useState(false);
   const [openTimesheet, setOpenTimesheet] = useState(false);
   const [openLeave, setOpenLeave] = useState(false);
+  const [openWFH, setOpenWFH] = useState(false);
 
   const sidebarMenuItems = [
     {
@@ -161,8 +162,23 @@ const Sidebar = () => {
     {
       iconPath: wfhIcon,
       menuName: 'Work From Home',
-      isArrow: false,
-      navigateAddress: '/wfh'
+      isArrow: true,
+      open: openWFH,
+      setOpen: setOpenWFH,
+      subMenu: [
+        {
+          menuName: 'My WFH',
+          navigateAddress: '/my-wfh'
+        },
+        {
+          menuName: 'WFH to Approve',
+          navigateAddress: '/wfh-to-approve'
+        },
+        {
+          menuName: 'WFH to Acknowledge',
+          navigateAddress: '/wfh-to-acknowledge'
+        },
+      ]
     },
     {
       iconPath: dsrIcon,
