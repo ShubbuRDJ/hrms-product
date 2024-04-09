@@ -42,7 +42,8 @@ const dummyData = [
         leave_duration: '05-Feb-2024 - 05-Feb-2024',
         final_approval: {
             am: false,
-            hr: false
+            hr: false,
+            rollback: true,
         },
     },
     {
@@ -52,7 +53,8 @@ const dummyData = [
         leave_duration: '05-Feb-2024 - 05-Feb-2024',
         final_approval: {
             am: false,
-            hr: false
+            hr: false,
+            rollback: false,
         },
     },
     {
@@ -62,7 +64,8 @@ const dummyData = [
         leave_duration: '05-Feb-2024 - 05-Feb-2024',
         final_approval: {
             am: false,
-            hr: false
+            hr: false,
+            rollback: false,
         },
     },
     {
@@ -72,7 +75,8 @@ const dummyData = [
         leave_duration: '05-Feb-2024 - 05-Feb-2024',
         final_approval: {
             am: false,
-            hr: false
+            hr: false,
+            rollback: true,
         },
     },
     {
@@ -82,7 +86,8 @@ const dummyData = [
         leave_duration: '05-Feb-2024 - 05-Feb-2024',
         final_approval: {
             am: false,
-            hr: false
+            hr: false,
+            rollback: false,
         },
     },
     {
@@ -92,7 +97,8 @@ const dummyData = [
         leave_duration: '05-Feb-2024 - 05-Feb-2024',
         final_approval: {
             am: false,
-            hr: false
+            hr: false,
+            rollback: true,
         },
     },
     {
@@ -102,7 +108,8 @@ const dummyData = [
         leave_duration: '05-Feb-2024 - 05-Feb-2024',
         final_approval: {
             am: false,
-            hr: false
+            hr: false,
+            rollback: false,
         },
     },
     {
@@ -112,7 +119,19 @@ const dummyData = [
         leave_duration: '05-Feb-2024 - 05-Feb-2024',
         final_approval: {
             am: false,
-            hr: false
+            hr: false,
+            rollback: true,
+        },
+    },
+    {
+        emp_name: 'Prabhash Mishra',
+        leave_type: 'Earned Leave',
+        applied_on: '05-Feb-2024',
+        leave_duration: '05-Feb-2024 - 05-Feb-2024',
+        final_approval: {
+            am: false,
+            hr: false,
+            rollback: true,
         },
     },
 ]
@@ -128,11 +147,11 @@ const LeavesToAcknowledge = () => {
 
                 <Grid className='leave-to-ack-list-main-container'>
 
-                    <Grid className='list-heading-export-btn-container' style={{border:'none'}}>
+                    <Grid className='list-heading-export-btn-container' style={{ border: 'none' }}>
                         <h4>Leaves to Acknowledge</h4>
                     </Grid>
 
-                    <Grid className='add-new-employee-filter-container' style={{marginTop:'-15px'}}>
+                    <Grid className='add-new-employee-filter-container' style={{ marginTop: '-15px' }}>
                         <Grid className='add-new-employee-filter-wrapper'>
                             <Grid className='add-new-employee-filter'>
                                 <p>Leave Type</p>

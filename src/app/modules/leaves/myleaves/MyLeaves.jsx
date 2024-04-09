@@ -38,7 +38,8 @@ const dummyData = [
         leave_duration: '05-Feb-2024 - 05-Feb-2024',
         final_approval: {
             am: true,
-            hr: false
+            hr: false,
+            rollback: true,
         },
     },
     {
@@ -47,7 +48,8 @@ const dummyData = [
         leave_duration: '05-Feb-2024 - 05-Feb-2024',
         final_approval: {
             am: true,
-            hr: false
+            hr: false,
+            rollback: false,
         },
     },
     {
@@ -56,7 +58,8 @@ const dummyData = [
         leave_duration: '05-Feb-2024 - 05-Feb-2024',
         final_approval: {
             am: true,
-            hr: false
+            hr: false,
+            rollback: false,
         },
     },
     {
@@ -65,7 +68,8 @@ const dummyData = [
         leave_duration: '05-Feb-2024 - 05-Feb-2024',
         final_approval: {
             am: true,
-            hr: false
+            hr: false,
+            rollback: true,
         },
     },
     {
@@ -74,7 +78,8 @@ const dummyData = [
         leave_duration: '05-Feb-2024 - 05-Feb-2024',
         final_approval: {
             am: true,
-            hr: false
+            hr: false,
+            rollback: false,
         },
     },
     {
@@ -83,7 +88,8 @@ const dummyData = [
         leave_duration: '05-Feb-2024 - 05-Feb-2024',
         final_approval: {
             am: true,
-            hr: false
+            hr: false,
+            rollback: true,
         },
     },
     {
@@ -92,7 +98,8 @@ const dummyData = [
         leave_duration: '05-Feb-2024 - 05-Feb-2024',
         final_approval: {
             am: true,
-            hr: false
+            hr: false,
+            rollback: true,
         },
     },
     {
@@ -101,7 +108,8 @@ const dummyData = [
         leave_duration: '05-Feb-2024 - 05-Feb-2024',
         final_approval: {
             am: true,
-            hr: false
+            hr: false,
+            rollback: false,
         },
     },
 ]
