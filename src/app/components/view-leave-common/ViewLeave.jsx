@@ -1,12 +1,20 @@
 import { Grid } from '@mui/material'
 import './view-leave.scss';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import PromptCustom from '../prompt-box/PromptCustom';
 
 
 
 
-const ViewLeave = ({ type }) => {
+const ViewLeave = ({ type, approveRejectAction }) => {
     const navigate = useNavigate();
+    const [rejectPromptOpen, setRejectPromptOpen] = useState(false)
+    const [rejectPromptMsg, setRejectPromptMsg] = useState('')
+    const [approvePromptOpen, setApprovePromptOpen] = useState(false)
+    const [approvePromptMsg, setApprovePromptMsg] = useState('')
+
+    console.log(rejectPromptMsg, approvePromptMsg, 'dfwewwow3eo3e3e')
 
     return (
         <>
@@ -25,11 +33,36 @@ const ViewLeave = ({ type }) => {
                                     </clipPath>
                                 </defs>
                             </svg>
-                            <span>Leave Details</span>
+                            <span>{(type === 'leave') ? 'Leave Details' : (type === 'wfh') ? 'WFH Details' : ''}</span>
                         </h4>
 
                         <Grid className='view-leave-btns'>
-                            <button className='view-leave-chat-btn' onClick={() => navigate(-1)} type="button">
+
+                            <button
+                                className='view-leave-reject-btn'
+                                style={{ display: `${!approveRejectAction ? 'none' : ''}` }}
+                                type="button"
+                                onClick={() => setRejectPromptOpen(!rejectPromptOpen)}
+                            >
+                                <span>Reject</span>
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8.99935 0.667969C4.39102 0.667969 0.666016 4.39297 0.666016 9.0013C0.666016 13.6096 4.39102 17.3346 8.99935 17.3346C13.6077 17.3346 17.3327 13.6096 17.3327 9.0013C17.3327 4.39297 13.6077 0.667969 8.99935 0.667969ZM13.166 11.993L11.991 13.168L8.99935 10.1763L6.00768 13.168L4.83268 11.993L7.82435 9.0013L4.83268 6.00963L6.00768 4.83464L8.99935 7.8263L11.991 4.83464L13.166 6.00963L10.1743 9.0013L13.166 11.993Z" fill="#DC2626" />
+                                </svg>
+                            </button>
+
+                            <button
+                                className='view-leave-approve-btn'
+                                style={{ display: `${!approveRejectAction ? 'none' : ''}` }}
+                                type="button"
+                                onClick={()=>setApprovePromptOpen(!approvePromptOpen)}
+                            >
+                                <span>Approve</span>
+                                <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.25 8.00125L15.42 5.91625L15.675 3.15625L12.9675 2.54125L11.55 0.15625L9 1.25125L6.45 0.15625L5.0325 2.54125L2.325 3.14875L2.58 5.90875L0.75 8.00125L2.58 10.0863L2.325 12.8538L5.0325 13.4688L6.45 15.8538L9 14.7512L11.55 15.8462L12.9675 13.4613L15.675 12.8462L15.42 10.0863L17.25 8.00125ZM7.5 11.7513L4.5 8.75125L5.5575 7.69375L7.5 9.62875L12.4425 4.68625L13.5 5.75125L7.5 11.7513Z" fill="white" />
+                                </svg>
+                            </button>
+
+                            <button className='view-leave-chat-btn' type="button">
                                 <span>Chat</span>
                                 <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M18 8C18 12.3492 13.9703 15.875 9 15.875C8.10856 15.877 7.22076 15.7612 6.35962 15.5308C5.70262 15.8638 4.194 16.5028 1.656 16.919C1.431 16.955 1.26 16.721 1.34888 16.5117C1.74713 15.5712 2.10713 14.318 2.21513 13.175C0.837 11.7913 0 9.98 0 8C0 3.65075 4.02975 0.125 9 0.125C13.9703 0.125 18 3.65075 18 8ZM5.625 8C5.625 7.70163 5.50647 7.41548 5.2955 7.2045C5.08452 6.99353 4.79837 6.875 4.5 6.875C4.20163 6.875 3.91548 6.99353 3.7045 7.2045C3.49353 7.41548 3.375 7.70163 3.375 8C3.375 8.29837 3.49353 8.58452 3.7045 8.7955C3.91548 9.00647 4.20163 9.125 4.5 9.125C4.79837 9.125 5.08452 9.00647 5.2955 8.7955C5.50647 8.58452 5.625 8.29837 5.625 8ZM10.125 8C10.125 7.70163 10.0065 7.41548 9.7955 7.2045C9.58452 6.99353 9.29837 6.875 9 6.875C8.70163 6.875 8.41548 6.99353 8.2045 7.2045C7.99353 7.41548 7.875 7.70163 7.875 8C7.875 8.29837 7.99353 8.58452 8.2045 8.7955C8.41548 9.00647 8.70163 9.125 9 9.125C9.29837 9.125 9.58452 9.00647 9.7955 8.7955C10.0065 8.58452 10.125 8.29837 10.125 8ZM13.5 9.125C13.7984 9.125 14.0845 9.00647 14.2955 8.7955C14.5065 8.58452 14.625 8.29837 14.625 8C14.625 7.70163 14.5065 7.41548 14.2955 7.2045C14.0845 6.99353 13.7984 6.875 13.5 6.875C13.2016 6.875 12.9155 6.99353 12.7045 7.2045C12.4935 7.41548 12.375 7.70163 12.375 8C12.375 8.29837 12.4935 8.58452 12.7045 8.7955C12.9155 9.00647 13.2016 9.125 13.5 9.125Z" fill="#007BFF" />
@@ -45,9 +78,9 @@ const ViewLeave = ({ type }) => {
 
                     <Grid className='view-leave-form-container-wrapper'>
                         <Grid className='view-leave-left-part'>
-                            <h4>Profile</h4>
+                            <h4>{`Prabhash’s ${(type==='leave')?'Leave':(type==='wfh')?'WFH':''} Detail`}</h4>
                             <ul>
-                                <li>
+                                <li style={{ display: `${(type === 'wfh') ? 'none' : ''}` }}>
                                     <span>Leave Type</span>
                                     <p>Casual Leave</p>
                                 </li>
@@ -74,7 +107,7 @@ const ViewLeave = ({ type }) => {
                                     </Grid>
                                 </li>
 
-                                <li>
+                                <li style={{ display: `${(type === 'wfh') ? 'none' : ''}` }}>
                                     <span>Leave Reason</span>
                                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
                                 </li>
@@ -127,6 +160,12 @@ const ViewLeave = ({ type }) => {
                 </Grid>
 
             </Grid>
+            {
+                rejectPromptOpen && <PromptCustom open={rejectPromptOpen} setOpen={setRejectPromptOpen} heading={'Do you want to reject this leave?'} setPromptMsg={setRejectPromptMsg} />
+            }
+            {
+                approvePromptOpen && <PromptCustom open={approvePromptOpen} setOpen={setApprovePromptOpen} heading={'Do you want to approve this leave?'} setPromptMsg={setApprovePromptMsg} />
+            }
         </>
     )
 }

@@ -26,7 +26,7 @@ const dataKey = ['serialNum', 'emp_name', 'leave_type', 'applied_on', 'leave_dur
 const actionKey = [
     {
         actionName: 'view',
-        // navigateAddress: '/leave-to-approve/edit-employee'
+        navigateAddress: '/leaves-to-approve/leave-details'
     },
     {
         actionName: 'chat'

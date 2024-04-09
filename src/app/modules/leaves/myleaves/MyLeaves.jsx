@@ -115,7 +115,7 @@ const MyLeave = () => {
     const actionKey = [
         {
             actionName: 'view',
-            navigateAddress: '/my-leaves/view-leave'
+            navigateAddress: '/my-leaves/leave-details'
         },
         {
             actionName: 'chat',

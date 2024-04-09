@@ -34,7 +34,7 @@ import CompOffManagement from "../app/modules/leaves/comp off management/CompOff
 import LeavesToAcknowledge from "../app/modules/leaves/leaves to acknowledge/LeavesToAcknowledge";
 import LeavesToApprove from "../app/modules/leaves/leaves to approve/LeavesToApprove";
 import AddCompOff from "../app/modules/leaves/comp off management/AddCompOff";
-import ViewLeave from "../app/modules/leaves/myleaves/ViewLeave";
+import ViewLeave from "../app/components/view-leave-common/ViewLeave";
 
 function MainRoute() {
   return (
@@ -82,12 +82,14 @@ function MainRoute() {
         <Route path="holiday-management/edit-holiday" element={<AddHoliday type={'edit'}/>} />
         <Route path="my-leaves" element={<MyLeave/>} />
         <Route path="my-leaves/add-leave" element={<AddLeave type={'add'}/>} />
-        <Route path="my-leaves/view-leave" element={<ViewLeave/>} />
+        <Route path="my-leaves/leave-details" element={<ViewLeave type={'leave'}/>} />
         <Route path="comp-off-management" element={<CompOffManagement/>} />
         <Route path="comp-off-management/add-comp-off" element={<AddCompOff type={'add'}/>} />
         <Route path="comp-off-management/edit-comp-off" element={<AddCompOff type={'edit'}/>} />
         <Route path="leaves-to-acknowledge" element={<LeavesToAcknowledge/>} />
+        <Route path="leaves-to-acknowledge/leave-details" element={<ViewLeave type={'leave'}/>} />
         <Route path="leaves-to-approve" element={<LeavesToApprove/>} />
+        <Route path="leaves-to-approve/leave-details" element={<ViewLeave type={'leave'} approveRejectAction={true}/>} />
         <Route path="*" element={<Navigate to={'/dashboard'} />} />
 
       </Route>

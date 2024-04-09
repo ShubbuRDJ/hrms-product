@@ -34,8 +34,8 @@
         gap: 20px;
 
         button {
-          width: 106px;
           height: 40px;
+          padding: 0 21px;
           border: 1px solid rgba(0, 0, 0, 0.15);
           border-radius: 4px;
           background-color: rgba(0, 123, 255, 0.1);
@@ -70,6 +70,15 @@
               font-weight: 600;
             }
           }
+        }
+
+        .view-leave-reject-btn{
+          background-color: rgba(255, 0, 0, 0.1);
+          color: #DC2626;
+        }
+        .view-leave-approve-btn{
+          background-color: #219653;
+          color: #ffffff;
         }
       }
     }
