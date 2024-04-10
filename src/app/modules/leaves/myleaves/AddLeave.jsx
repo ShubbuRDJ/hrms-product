@@ -14,6 +14,8 @@ import maternityLeaveIcon from '../../../../assets/leaves/mother.svg';
 import DatePickerCustom from '../../../components/date_picker/DatePickerCustom';
 import FileUpload from '../../../components/file-upload/FileUpload';
 import { useState } from 'react';
+import FlipLeaveCard from '../../../components/flipLeaveCard/FlipLeaveCard';
+import LeaveCardValidity from '../../../components/leaves-card/LeaveCardValidity';
 
 const initialValues = {
     date: '',
@@ -49,6 +51,11 @@ const AddLeave = ({ type }) => {
 
     console.log(checkboxChecked, 'vdfjvfei4r4r');
 
+    const compOffValidityArray = [
+        'One is valid till May,2024',
+        'One is valid till May,2024',
+        'One is valid till May,2024',
+    ]
     return (
         <>
             <Grid className='add-leave-main-container'>
@@ -90,12 +97,15 @@ const AddLeave = ({ type }) => {
                         cardRowLimit={4}
                         cardGap={20}
                     />
-                    <LeaveCard
-                        leaveType={'Complimentary off'}
-                        leave={2}
-                        totalLeave={10}
-                        iconColor={'#D1FAE5'}
-                        icon={compOffLeaveIcon}
+                    <FlipLeaveCard
+                        frontComponent={<LeaveCard
+                            leaveType={'Complimentary off'}
+                            leave={2}
+                            totalLeave={10}
+                            iconColor={'#D1FAE5'}
+                            icon={compOffLeaveIcon}
+                        />}
+                        backComponent={<LeaveCardValidity itemArray={compOffValidityArray} />}
                         cardRowLimit={4}
                         cardGap={20}
                     />
