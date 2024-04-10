@@ -7,7 +7,7 @@ import PromptCustom from '../prompt-box/PromptCustom';
 
 
 
-const ViewLeave = ({ type, approveRejectAction }) => {
+const ViewLeave = ({ type, approveRejectAction,rejectPromptMSg,approvePromptMSg }) => {
     const navigate = useNavigate();
     const [rejectPromptOpen, setRejectPromptOpen] = useState(false)
     const [rejectPromptMsg, setRejectPromptMsg] = useState('')
@@ -161,10 +161,10 @@ const ViewLeave = ({ type, approveRejectAction }) => {
 
             </Grid>
             {
-                rejectPromptOpen && <PromptCustom open={rejectPromptOpen} setOpen={setRejectPromptOpen} heading={'Do you want to reject this leave?'} setPromptMsg={setRejectPromptMsg} />
+                rejectPromptOpen && <PromptCustom open={rejectPromptOpen} setOpen={setRejectPromptOpen} heading={rejectPromptMSg} setPromptMsg={setRejectPromptMsg} />
             }
             {
-                approvePromptOpen && <PromptCustom open={approvePromptOpen} setOpen={setApprovePromptOpen} heading={'Do you want to approve this leave?'} setPromptMsg={setApprovePromptMsg} />
+                approvePromptOpen && <PromptCustom open={approvePromptOpen} setOpen={setApprovePromptOpen} heading={approvePromptMSg} setPromptMsg={setApprovePromptMsg} />
             }
         </>
     )
