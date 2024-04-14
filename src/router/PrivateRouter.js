@@ -1,6 +1,7 @@
 import React from "react";
 import MainLayout from "../app/layouts/main-layout/MainLayout";
 import { Navigate, Outlet } from "react-router-dom";
+import routerConstants from "../constants/routerConstants";
 
 export default function PrivateRouter() {
   const isLoggedIn = localStorage.getItem("ACCESS_TOKEN");
@@ -11,7 +12,7 @@ export default function PrivateRouter() {
           <Outlet />
         </MainLayout>
       ) : (
-        <Navigate to={"/login"} />
+        <Navigate to={routerConstants?.loginRoute} />
       )}
     </>
   );

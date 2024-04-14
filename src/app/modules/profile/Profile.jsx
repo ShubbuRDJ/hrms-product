@@ -8,6 +8,7 @@ import ProfilePicture from './profile-picture/ProfilePicture'
 import Shift from './shift/Shift'
 import Qualification from './qualification/Qualification'
 import QualificationListing from '../staff-management/employee-management/employee-management-sub-screen/QualificationListing'
+import routerConstants from '../../../constants/routerConstants'
 
 const Profile = () => {
 
@@ -17,23 +18,23 @@ const Profile = () => {
     const profileSidebar = [
         {
             menuName: 'Basic Information',
-            navigateAddress: '/profile',
+            navigateAddress: `/${routerConstants?.profileRoute}`,
         },
         {
             menuName: 'Profile Picture',
-            navigateAddress: '/profile/profile-picture',
+            navigateAddress: `/${routerConstants?.profileRoute}/${routerConstants?.profilePictureRoute}`,
         },
         {
             menuName: 'Qualifications',
-            navigateAddress: '/profile/qualifications',
+            navigateAddress: `/${routerConstants?.profileRoute}/${routerConstants?.qualificationRoute}`,
         },
         {
             menuName: 'Shift',
-            navigateAddress: '/profile/shift',
+            navigateAddress: `/${routerConstants?.profileRoute}/${routerConstants?.profileShiftRoute}`,
         },
         {
             menuName: 'Change Password',
-            navigateAddress: '/profile/change-password',
+            navigateAddress: `/${routerConstants?.profileRoute}/${routerConstants?.changePasswordRoute}`,
         },
     ]
 
@@ -93,13 +94,13 @@ const Profile = () => {
                         <Grid className='profile-main-content-wrapper'>
                             <Routes>
                                 <Route index element={<BasicInfo />} />
-                                <Route path="profile-picture" element={<ProfilePicture />} />
-                                <Route path="change-password" element={<ChangePassword />} />
-                                <Route path="shift" element={<Shift />} />
-                                <Route path="qualifications" element={<QualificationListing editNavigateAddress={'/profile/qualifications/edit-qualification'} addNavigateAddress={'/profile/qualifications/add-qualification'} />} />
-                                <Route path="qualifications/add-qualification" element={<Qualification heading={'Add New Qualification'} />} />
-                                <Route path="qualifications/edit-qualification" element={<Qualification heading={'Edit New Qualification'} />} />
-                                <Route path="*" element={<Navigate to={'/profile'} />} />
+                                <Route path={routerConstants?.profilePictureRoute} element={<ProfilePicture />} />
+                                <Route path={routerConstants?.changePasswordRoute} element={<ChangePassword />} />
+                                <Route path={routerConstants?.profileShiftRoute} element={<Shift />} />
+                                <Route path={routerConstants?.qualificationRoute} element={<QualificationListing editNavigateAddress={`/${routerConstants?.profileRoute}/${routerConstants?.qualificationRoute}/${routerConstants?.editQualificationRoute}`} addNavigateAddress={`/${routerConstants?.profileRoute}/${routerConstants?.qualificationRoute}/${routerConstants?.addQualificationRoute}`} />} />
+                                <Route path={`${routerConstants?.qualificationRoute}/${routerConstants?.addQualificationRoute}`} element={<Qualification heading={'Add New Qualification'} />} />
+                                <Route path={`${routerConstants?.qualificationRoute}/${routerConstants?.editQualificationRoute}`} element={<Qualification heading={'Edit New Qualification'} />} />
+                                <Route path="*" element={<Navigate to={`/${routerConstants?.profileRoute}`} />} />
                             </Routes>
                         </Grid>
                     </Grid>

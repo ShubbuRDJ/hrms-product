@@ -8,6 +8,7 @@ import ChangePassword from '../../profile/change-password/ChangePassword'
 import Qualification from '../../profile/qualification/Qualification'
 import Leave from './employee-management-sub-screen/Leave'
 import QualificationListing from './employee-management-sub-screen/QualificationListing'
+import routerConstants from '../../../../constants/routerConstants'
 
 const ViewEditEmployee = () => {
 
@@ -17,23 +18,23 @@ const ViewEditEmployee = () => {
     const profileSidebar = [
         {
             menuName: 'Basic Information',
-            navigateAddress: '/employee-management/edit-employee',
+            navigateAddress: `${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}`,
         },
         {
             menuName: 'Profile Picture',
-            navigateAddress: '/employee-management/edit-employee/profile-picture',
+            navigateAddress: `${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}/${routerConstants?.profilePictureRoute}`,
         },
         {
             menuName: 'Qualifications',
-            navigateAddress: '/employee-management/edit-employee/qualifications',
+            navigateAddress: `${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}/${routerConstants?.qualificationRoute}`,
         },
         {
             menuName: 'Change Password',
-            navigateAddress: '/employee-management/edit-employee/change-password',
+            navigateAddress: `${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}/${routerConstants?.changePasswordRoute}`,
         },
         {
             menuName: 'Leave',
-            navigateAddress: '/employee-management/edit-employee/leave',
+            navigateAddress: `${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}/${routerConstants?.employeeLeaveRoute}`,
         },
     ]
 
@@ -60,13 +61,13 @@ const ViewEditEmployee = () => {
                     <Grid className='employee-edit-main-content-wrapper'>
                         <Routes>
                             <Route index element={<BasicDetailsEmp />} />
-                            <Route path="profile-picture" element={<ProfilePicture />} />
-                            <Route path="change-password" element={<ChangePassword />} />
-                            <Route path="leave" element={<Leave />} />
-                            <Route path="qualifications" element={<QualificationListing tableHeighLimit={385} editNavigateAddress={'/employee-management/edit-employee/qualifications/edit-qualification'} addNavigateAddress={'/employee-management/edit-employee/qualifications/add-qualification'} />} />
-                            <Route path="qualifications/add-qualification" element={<Qualification heading = {'Add New Qualification'} />} />
-                            <Route path="qualifications/edit-qualification" element={<Qualification heading={'Edit New Qualification'} />} />
-                            <Route path="*" element={<Navigate to={'/employee-management'} />} />
+                            <Route path={routerConstants?.profilePictureRoute} element={<ProfilePicture />} />
+                            <Route path={routerConstants?.changePasswordRoute} element={<ChangePassword />} />
+                            <Route path={routerConstants?.employeeLeaveRoute} element={<Leave />} />
+                            <Route path={routerConstants?.qualificationRoute} element={<QualificationListing tableHeighLimit={385} editNavigateAddress={`/${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}/${routerConstants?.qualificationRoute}/${routerConstants?.editQualificationRoute}`} addNavigateAddress={`/${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}/${routerConstants?.qualificationRoute}/${routerConstants?.addQualificationRoute}`} />} />
+                            <Route path={`${routerConstants?.qualificationRoute}/${routerConstants?.addQualificationRoute}`} element={<Qualification heading = {'Add New Qualification'} />} />
+                            <Route path={`${routerConstants?.qualificationRoute}/${routerConstants?.editQualificationRoute}`} element={<Qualification heading={'Edit New Qualification'} />} />
+                            <Route path="*" element={<Navigate to={`/${routerConstants?.employeeManagementRoute}`} />} />
                         </Routes>
                     </Grid>
                 </Grid>
