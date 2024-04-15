@@ -56,6 +56,11 @@ const routerConstants = {
     viewWfhDetailsRoute:'view-wfh-details',
     wfhToApproveRoute:'wfh-to-approve',
     wfhToAcknowledgeRoute:'wfh-to-acknowledge',
+    myDSRRoute:'my-dsr',
+    addDSRRoute:'my-dsr/add-dsr',
+    viewDSRRoute:'my-dsr/view-dsr',
+    employeeDSRRoute:'employee-dsr',
+    nonSubmittedDSRRoute:'non-submitted-dsr',
 }
 
 export default routerConstants

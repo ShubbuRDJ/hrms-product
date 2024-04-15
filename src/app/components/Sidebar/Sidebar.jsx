@@ -24,6 +24,7 @@ const Sidebar = () => {
   const [openTimesheet, setOpenTimesheet] = useState(false);
   const [openLeave, setOpenLeave] = useState(false);
   const [openWFH, setOpenWFH] = useState(false);
+  const [openDSR, setOpenDSR] = useState(false);
 
   const sidebarMenuItems = [
     {
@@ -183,8 +184,23 @@ const Sidebar = () => {
     {
       iconPath: dsrIcon,
       menuName: 'DSR',
-      isArrow: false,
-      navigateAddress: '/dsr'
+      isArrow: true,
+      open: openDSR,
+      setOpen: setOpenDSR,
+      subMenu: [
+        {
+          menuName: 'My DSR',
+          navigateAddress: '/my-dsr'
+        },
+        {
+          menuName: 'Employee DSR',
+          navigateAddress: '/employee-dsr'
+        },
+        {
+          menuName: 'Non Submitted DSR',
+          navigateAddress: '/non-submitted-dsr'
+        },
+      ]
     },
   ]
 

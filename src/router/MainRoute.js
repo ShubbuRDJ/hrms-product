@@ -41,6 +41,9 @@ import RestrictedLeave from "../app/modules/leaves/restricted leaves/RestrictedL
 import WFHApprove from "../app/modules/wfh/wfh-to-approve/WFHApprove";
 import WFHAcknowledge from "../app/modules/wfh/wfh-to-acknowledge/WFHAcknowledge";
 import routerConstants from "../constants/routerConstants";
+import MyDsr from "../app/modules/dsr/my-dsr/MyDsr";
+import AddDsr from "../app/modules/dsr/my-dsr/AddDsr";
+import ViewDsr from "../app/modules/dsr/my-dsr/ViewDsr";
 
 function MainRoute() {
   return (
@@ -117,6 +120,10 @@ function MainRoute() {
         <Route path={routerConstants?.wfhToAcknowledgeRoute} element={<WFHAcknowledge />} />
         <Route path={`${routerConstants?.wfhToAcknowledgeRoute}/${routerConstants?.viewWfhDetailsRoute}`} element={<ViewLeave type={'wfh'} />}
         />
+        <Route path={routerConstants?.myDSRRoute} element={<MyDsr/>}/>
+        <Route path={routerConstants?.addDSRRoute} element={<AddDsr/>}/>
+        <Route path={routerConstants?.viewDSRRoute} element={<ViewDsr/>}/>
+
 
         <Route path="*" element={<Navigate to={routerConstants?.dashboardRoute} />} />
 
