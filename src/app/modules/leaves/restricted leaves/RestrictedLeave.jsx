@@ -25,6 +25,9 @@ const RestrictedLeave = ({ type }) => {
                     </Grid>
 
                     <Grid className='restricted-leave-form-container-wrapper'>
+                        <Grid className='restricted-leave-limit-msg'>
+                            <p>Only 2 leaves can be availed. Please select accordingly.</p>
+                        </Grid>
                         <AdvanceTableCustom/>
                     </Grid>
                 </Grid>

@@ -5,6 +5,7 @@
   
     .restricted-leave-main-wrapper {
       width: 100%;
+      height: 100%;
   
       .restricted-leave-top-btn-container {
         display: flex;
@@ -46,142 +47,23 @@
   
       .restricted-leave-form-container-wrapper {
         width: 100%;
-        padding: 20px;
+        height: calc(100% - 60px);
         background-color: #ffffff;
         border-radius: 0 0 10px 10px;
-        .restricted-leave-form-container {
-          background-color: rgba(0, 123, 255, 0.06);
-          width: 100%;
-          border-radius: 10px;
-          padding: 30px 40px;
+
+        .restricted-leave-limit-msg{
+          height: 60px;
+          border-bottom: 1px solid #e6eff5;
           display: flex;
-          flex-direction: column;
-          gap: 20px;
-  
-          .restricted-leave-form-row {
-            display: flex;
-            column-gap: 35px;
-            row-gap: 30px;
-            flex-wrap: wrap;
-  
-            .restricted-leave-form-field {
-              display: flex;
-              flex-direction: column;
-              gap: 8px;
-              min-width: 232px;
-              width: calc((100% - 105px) / 4);
-  
-              .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary {
-                background-color: #ffffff;
-  
-                input {
-                  &::placeholder {
-                    color: #919499;
-                    font-size: 14px;
-                    line-height: 16px;
-                    font-weight: 400;
-                    opacity: 1;
-                  }
-                }
-              }
-  
-              p {
-                color: #111827;
-                font-size: 14px;
-                font-weight: 600;
-              }
-  
-              .add-employee-form-input-tag {
-                padding: 0 20px;
-                height: 46px;
-                border: 1px solid #e9cfff;
-                border-radius: 8px;
-                outline: none;
-                font-size: 14px;
-                font-weight: 500;
-                color: #212121;
-  
-                &::placeholder {
-                  color: #919499;
-                  font-size: 14px;
-                  line-height: 16px;
-                  font-weight: 400;
-                }
-              }
-  
-              .restricted-leave-form-checkbox {
-                margin-top: 15px;
-                display: flex;
-                gap: 50px;
-  
-                .MuiFormControlLabel-root {
-                  margin: 0;
-                }
-  
-                .MuiTypography-root {
-                  color: #787c82;
-                  font-size: 14px;
-                  font-weight: 600;
-                }
-              }
-            }
-  
-            .restricted-leave-form-field-second {
-              width: calc((100% - 35px) / 2);
-            }
-  
-            .restricted-leave-field-container-wrapper {
-              display: flex;
-            }
-  
-            .restricted-leave-form-field-textarea {
-              width: 100%;
-              textarea {
-                border: 1px solid #e9cfff;
-                height: 93px;
-                border-radius: 8px;
-                outline: none;
-                padding: 15px 10px;
-  
-                &::placeholder {
-                  color: #919499;
-                  font-size: 14px;
-                  line-height: 16px;
-                  font-weight: 400;
-                }
-              }
-            }
+          align-items: center;
+          padding: 0 20px;
+          p{
+            font-size: 14px;
+            color: #111827;
+            font-weight: 600;
           }
         }
       }
-    }
-  }
-  
-  .restricted-leave-checkbox-field {
-    .MuiFormGroup-root.MuiFormGroup-row {
-      height: 30px;
-  
-      .MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd {
-        height: 100%;
-  
-        .MuiTypography-root {
-          color: #111827;
-          font-size: 12px;
-          font-weight: 400;
-        }
-      }
-    }
-  
-    .MuiButtonBase-root.MuiCheckbox-root.MuiCheckbox-colorPrimary.MuiCheckbox-sizeMedium.PrivateSwitchBase-root.MuiCheckbox-root.MuiCheckbox-colorPrimary.MuiCheckbox-sizeMedium.MuiCheckbox-root.MuiCheckbox-colorPrimary.MuiCheckbox-sizeMedium {
-      padding: unset;
-      padding-left: 10px;
-      &:hover {
-        background-color: unset;
-      }
-    }
-  
-    .MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd {
-      width: 32px;
     }
   }
   
