@@ -3,15 +3,16 @@
 
     .main-container{
         width: calc(100% - 260px);
-        height: auto;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         
 
         .mainLayout-main-content{
             width: 100%;
+            height: calc(100vh - 84px);
             background: #FFFFFF;
-            overflow-y: auto;
+            overflow-y: auto !important;
         }
     }
 }

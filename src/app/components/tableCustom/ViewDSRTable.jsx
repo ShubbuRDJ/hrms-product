@@ -194,7 +194,8 @@ export default function ViewDSRTable({
                                                                 />
                                                             </svg>
                                                         );
-                                                    } else if (action?.actionName === "birthday") {
+                                                    }
+                                                    else if (action?.actionName === "birthday") {
                                                         return (
                                                             <svg
                                                                 width="24"
@@ -228,7 +229,8 @@ export default function ViewDSRTable({
                                                                 </defs>
                                                             </svg>
                                                         );
-                                                    } else if (action?.actionName === "chat") {
+                                                    }
+                                                    else if (action?.actionName === "chat") {
                                                         return (
                                                             <svg
                                                                 width="24"
@@ -264,7 +266,20 @@ export default function ViewDSRTable({
                                                                 />
                                                             </svg>
                                                         );
-                                                    } else if (action?.actionName === "back") {
+                                                    }
+                                                    else if (action?.actionName === 'approve') {
+                                                        return (<svg onClick={() => handleDeleteAction(action)} style={{ cursor: 'pointer' }} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <rect width="24" height="24" rx="4" fill="#10B981" fill-opacity="0.1" />
+                                                            <path d="M19.3337 12.0007L17.707 10.1473L17.9337 7.69401L15.527 7.14734L14.267 5.02734L12.0003 6.00068L9.73366 5.02734L8.47366 7.14734L6.06699 7.68734L6.29366 10.1407L4.66699 12.0007L6.29366 13.854L6.06699 16.314L8.47366 16.8607L9.73366 18.9807L12.0003 18.0007L14.267 18.974L15.527 16.854L17.9337 16.3073L17.707 13.854L19.3337 12.0007ZM10.667 15.334L8.00033 12.6673L8.94033 11.7273L10.667 13.4473L15.0603 9.05401L16.0003 10.0007L10.667 15.334Z" fill="#10B981" />
+                                                        </svg>)
+                                                    }
+                                                    else if (action?.actionName === 'reject') {
+                                                        return (<svg onClick={() => handleDeleteAction(action)} style={{ cursor: 'pointer' }} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <rect width="24" height="24" rx="4" fill="#FF0000" fill-opacity="0.1" />
+                                                            <path d="M8.50586 15.4946L12.0012 11.9992L15.4965 15.4946M15.4965 8.50391L12.0005 11.9992L8.50586 8.50391" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>)
+                                                    }
+                                                    else if (action?.actionName === "back") {
                                                         return (
                                                             <IconButton
                                                                 disableRipple
@@ -296,7 +311,8 @@ export default function ViewDSRTable({
                                                                 </svg>
                                                             </IconButton>
                                                         );
-                                                    } else if (action?.actionName === "view") {
+                                                    }
+                                                    else if (action?.actionName === "view") {
                                                         return (
                                                             <svg
                                                                 onClick={() => handleActionButton(action, data)}
@@ -323,7 +339,8 @@ export default function ViewDSRTable({
                                                                 />
                                                             </svg>
                                                         );
-                                                    } else if (action?.actionName === "edit") {
+                                                    }
+                                                    else if (action?.actionName === "edit") {
                                                         return (
                                                             <svg
                                                                 onClick={() => handleActionButton(action, data)}
@@ -365,7 +382,8 @@ export default function ViewDSRTable({
                                                                 />
                                                             </svg>
                                                         );
-                                                    } else if (action?.actionName === "delete") {
+                                                    }
+                                                    else if (action?.actionName === "delete") {
                                                         return (
                                                             <svg
                                                                 onClick={() => handleDeleteAction(action)}
@@ -388,7 +406,8 @@ export default function ViewDSRTable({
                                                                 />
                                                             </svg>
                                                         );
-                                                    } else if (action?.actionName === "work") {
+                                                    }
+                                                    else if (action?.actionName === "work") {
                                                         return (
                                                             <svg
                                                                 width="24"

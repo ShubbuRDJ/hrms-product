@@ -1,7 +1,6 @@
 import { Grid } from '@mui/material'
-import './view-dsr.scss'
+import './view-employee-dsr.scss'
 import ViewDSRTable from '../../../components/tableCustom/ViewDSRTable';
-import routerConstants from '../../../../constants/routerConstants';
 import { useState } from 'react';
 import PromptCustom from '../../../components/prompt-box/PromptCustom';
 import moduleConstants from '../../../../constants/moduleConstants';
@@ -42,30 +41,32 @@ const dummyData = [
     },
 ]
 
-const ViewDsr = () => {
+const ViewEmployeeDsr = () => {
     // const navigate = useNavigate();
-    const [openPrompt,setOpenPrompt] = useState(false);
+    const [openApprovePrompt,setOpenApprovePrompt] = useState(false);
+    const [openRejectPrompt,setOpenRejectPrompt] = useState(false);
 
     const actionKey = [
         {
-            actionName: 'edit',
-            navigateAddress: `/${routerConstants?.editDSRRoute}`
+            actionName: 'approve',
+            open:openApprovePrompt,
+            setOpen:setOpenApprovePrompt,
+        },
+        {
+            actionName: 'reject',
+            open:openRejectPrompt,
+            setOpen:setOpenRejectPrompt,
         },
         {
             actionName: 'chat',
-        },
-        {
-            actionName: 'delete',
-            open:openPrompt,
-            setOpen:setOpenPrompt
         },
     ]
 
     return (
         <>
-            <Grid className='view-dsr-main-container'>
+            <Grid className='view-employee-dsr-main-container'>
 
-                <Grid className='view-dsr-list-main-container'>
+                <Grid className='view-employee-dsr-list-main-container'>
 
                     <Grid className='list-heading-export-btn-container'>
                         <h4>DSR Details</h4>
@@ -76,12 +77,12 @@ const ViewDsr = () => {
                             <span>Export</span>
                         </button>
                     </Grid>
-                    <Grid className='view-dsr-empName-date'>
+                    <Grid className='view-employee-dsr-empName-date'>
                         <p>EMP Name&nbsp;<span>:&nbsp;Prabhash Mishra</span></p>
                         <button type="button">27/March/2024</button>
                     </Grid>
 
-                    <Grid className='view-dsr-table-container'>
+                    <Grid className='view-employee-dsr-table-container'>
                         <ViewDSRTable
                             columns={columns}
                             datas={dummyData}
@@ -95,10 +96,13 @@ const ViewDsr = () => {
 
             </Grid>
             {
-                openPrompt && <PromptCustom open={openPrompt} setOpen={setOpenPrompt} heading={moduleConstants?.DELETE_DSR_PROMPT_MSG}/>
+                openApprovePrompt && <PromptCustom open={openApprovePrompt} setOpen={setOpenApprovePrompt} heading={moduleConstants?.APPROVE_DSR_PROMPT_MSG}/>
+            }
+            {
+                openRejectPrompt && <PromptCustom open={openRejectPrompt} setOpen={setOpenRejectPrompt} heading={moduleConstants?.REJECT_DSR_PROMPT_MSG}/>
             }
         </>
     )
 }
 
-export default ViewDsr
+export default ViewEmployeeDsr

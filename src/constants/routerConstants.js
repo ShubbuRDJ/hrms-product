@@ -58,8 +58,10 @@ const routerConstants = {
     wfhToAcknowledgeRoute:'wfh-to-acknowledge',
     myDSRRoute:'my-dsr',
     addDSRRoute:'my-dsr/add-dsr',
+    editDSRRoute:'my-dsr/edit-dsr',
     viewDSRRoute:'my-dsr/view-dsr',
     employeeDSRRoute:'employee-dsr',
+    viewEmployeeDSRRoute:'employee-dsr/view-dsr',
     nonSubmittedDSRRoute:'non-submitted-dsr',
 }
 

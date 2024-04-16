@@ -39,10 +39,10 @@ const AddDsr = ({ type }) => {
 
                 <form className='add-dsr-main-wrapper' onSubmit={handleSubmit}>
                     <Grid className='add-dsr-top-btn-container'>
-                        <h4>Create New DSR</h4>
+                        <h4>{(type==='add')?'Create New DSR':'Edit DSR'}</h4>
 
                         <Grid className='add-new-employee-btns'>
-                            <button type="submit">Save</button>
+                            <button type="submit">{(type==='add')?'Save':'Update'}</button>
                             <button onClick={() => navigate(-1)} type="button">Cancel</button>
                         </Grid>
 

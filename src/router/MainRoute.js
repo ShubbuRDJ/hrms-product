@@ -44,6 +44,9 @@ import routerConstants from "../constants/routerConstants";
 import MyDsr from "../app/modules/dsr/my-dsr/MyDsr";
 import AddDsr from "../app/modules/dsr/my-dsr/AddDsr";
 import ViewDsr from "../app/modules/dsr/my-dsr/ViewDsr";
+import EmployeeDSR from "../app/modules/dsr/employee-dsr/EmployeeDSR";
+import NonSubmittedDsr from "../app/modules/dsr/non-submitted-dsr/NonSubmittedDsr";
+import ViewEmployeeDsr from "../app/modules/dsr/employee-dsr/ViewEmployeeDsr";
 
 function MainRoute() {
   return (
@@ -121,8 +124,12 @@ function MainRoute() {
         <Route path={`${routerConstants?.wfhToAcknowledgeRoute}/${routerConstants?.viewWfhDetailsRoute}`} element={<ViewLeave type={'wfh'} />}
         />
         <Route path={routerConstants?.myDSRRoute} element={<MyDsr/>}/>
-        <Route path={routerConstants?.addDSRRoute} element={<AddDsr/>}/>
+        <Route path={routerConstants?.addDSRRoute} element={<AddDsr type={'add'}/>}/>
+        <Route path={routerConstants?.editDSRRoute} element={<AddDsr type={'edit'}/>}/>
         <Route path={routerConstants?.viewDSRRoute} element={<ViewDsr/>}/>
+        <Route path={routerConstants?.employeeDSRRoute} element={<EmployeeDSR/>}/>
+        <Route path={routerConstants?.viewEmployeeDSRRoute} element={<ViewEmployeeDsr/>}/>
+        <Route path={routerConstants?.nonSubmittedDSRRoute} element={<NonSubmittedDsr/>}/>
 
 
         <Route path="*" element={<Navigate to={routerConstants?.dashboardRoute} />} />
