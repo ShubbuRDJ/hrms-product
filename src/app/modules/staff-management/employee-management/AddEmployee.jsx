@@ -119,11 +119,6 @@ const AddEmployee = () => {
                                     ) : null}
                                 </Grid>
 
-
-                            </Grid>
-
-                            <Grid className='employee-add-form-row'>
-
                                 <Grid className="employee-add-form-field">
                                     <p>Username</p>
                                     <input
@@ -186,11 +181,6 @@ const AddEmployee = () => {
                                     ) : null}
                                 </Grid>
 
-
-                            </Grid>
-
-                            <Grid className='employee-add-form-row'>
-
                                 <Grid className="employee-add-form-field">
                                     <p>Contact Number</p>
                                     <input
@@ -238,11 +228,6 @@ const AddEmployee = () => {
                                         <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors?.dob?.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors?.dob}</p></Grid>
                                     ) : null}
                                 </Grid>
-
-
-                            </Grid>
-
-                            <Grid className='employee-add-form-row'>
 
                                 <Grid className="employee-add-form-field">
                                     <p>Department</p>
@@ -299,12 +284,6 @@ const AddEmployee = () => {
                                         <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.location.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.location}</p></Grid>
                                     ) : null}
                                 </Grid>
-
-
-
-                            </Grid>
-
-                            <Grid className='employee-add-form-row'>
 
                                 <Grid className="employee-add-form-field">
                                     <p>Experience (Years)</p>
@@ -374,10 +353,6 @@ const AddEmployee = () => {
                                     ) : null}
                                 </Grid>
 
-                            </Grid>
-
-                            <Grid className='employee-add-form-row'>
-
                                 <Grid className="employee-add-form-field">
                                     <p>Password</p>
                                     <FormControl
@@ -444,7 +419,7 @@ const AddEmployee = () => {
                                     ) : null}
                                 </Grid>
 
-                                <Grid className="employee-add-form-field" style={{width:'48.78%'}}>
+                                <Grid className="employee-add-form-field" style={{width:'calc((100% - 35px) / 2)'}}>
                                     <p>Experience (Months)</p>
                                     <input
                                         type='text'
@@ -460,11 +435,6 @@ const AddEmployee = () => {
                                         <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.location.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.location}</p></Grid>
                                     ) : null}
                                 </Grid>
-
-                            </Grid>
-
-
-                            <Grid className='employee-add-form-row'>
 
                                 <Grid className="employee-add-form-field">
                                     <p>Office Shift</p>
@@ -530,10 +500,7 @@ const AddEmployee = () => {
                                 </Grid>
 
 
-
-
                             </Grid>
-
 
 
                         </Grid>

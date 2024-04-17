@@ -17,10 +17,10 @@ const columns = [
     { id: 'column2', label: 'ID', minWidth: 150 },
     { id: 'column3', label: 'Name', minWidth: 150 },
     { id: 'column3', label: 'Email', minWidth: 100 },
-    { id: 'column3', label: 'Account Manager', minWidth: 100 },
+    { id: 'column3', label: 'Account Manager', minWidth: 180 },
     { id: 'column3', label: 'Role', minWidth: 100 },
-    { id: 'column3', label: 'Designation', minWidth: 100 },
-    { id: 'column3', label: 'Employee Type', minWidth: 100 },
+    { id: 'column3', label: 'Designation', minWidth: 180 },
+    { id: 'column3', label: 'Employee Type', minWidth: 180 },
     { id: 'column3', label: 'Status', minWidth: 100 },
 ];
 
@@ -197,7 +197,7 @@ const EmployeeManagement = () => {
                             dataKey={dataKey}
                             actionKey={actionKey}
                             align="center"
-                            tableContainerMaxHeight={385}
+                            tableContainerMaxHeight={320}
                         />
                     </Grid>
                     <Grid className='employee-management-pagination-container'>

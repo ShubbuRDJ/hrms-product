@@ -90,6 +90,19 @@
         width: calc(100% - 233px);
         background-color: #ffffff;
         overflow-y: auto;
+        &::-webkit-scrollbar {
+          width: 3px;
+          height: 3px;
+        }
+  
+        &::-webkit-scrollbar-track {
+          background: #f1f1f1;
+        }
+  
+        &::-webkit-scrollbar-thumb {
+          background: #858586;
+          border-radius: 6px;
+        }
       }
     }
   }

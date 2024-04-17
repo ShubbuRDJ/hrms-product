@@ -137,7 +137,7 @@ const Designation = () => {
                             dataKey={dataKey}
                             actionKey={actionKey}
                             align="center"
-                            tableContainerMaxHeight={385}
+                            tableContainerMaxHeight={330}
                         />
                     </Grid>
                     <Grid className='organisation-designation-pagination-container'>

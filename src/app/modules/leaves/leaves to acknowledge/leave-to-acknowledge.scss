@@ -1,6 +1,5 @@
 .leave-to-ack-main-container {
     padding: 10px;
-    height:calc(100vh - 84px);
     display: flex;
     flex-direction: column !important;
     gap: 10px;
@@ -62,6 +61,7 @@
           flex-direction: column;
           gap: 8px;
           min-width: 288px;
+          width: calc((100% - 140px)/5);
   
           p {
             color: #111827;

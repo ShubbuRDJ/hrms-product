@@ -1,6 +1,6 @@
 .add-new-role-main-container {
   padding: 10px;
-  height: calc(100vh - 84px);
+  height: 100%;
   background-color: #f4efff;
 
   .add-new-role-main-wrapper {
@@ -190,7 +190,7 @@
 
         .add-new-role-checkbox {
           width: 30%;
-          max-height: 500px;
+          max-height: 450px;
           display: flex;
           flex-direction: column;
           gap: 10px;
