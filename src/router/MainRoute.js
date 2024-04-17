@@ -47,6 +47,7 @@ import ViewDsr from "../app/modules/dsr/my-dsr/ViewDsr";
 import EmployeeDSR from "../app/modules/dsr/employee-dsr/EmployeeDSR";
 import NonSubmittedDsr from "../app/modules/dsr/non-submitted-dsr/NonSubmittedDsr";
 import ViewEmployeeDsr from "../app/modules/dsr/employee-dsr/ViewEmployeeDsr";
+import EmployeeDirectory from "../app/modules/employee-directory/EmployeeDirectory";
 
 function MainRoute() {
   return (
@@ -63,6 +64,7 @@ function MainRoute() {
       <Route path="/" element={<PrivateRouter />}>
         <Route index element={<Dashboard />} />
         <Route path={routerConstants?.profileSubRoute} element={<Profile />} />
+        <Route path={routerConstants?.employeeDirectoryRoute} element={<EmployeeDirectory />} />
         <Route path={routerConstants?.employeeManagementRoute} element={<EmployeeManagement />} />
         <Route path={`${routerConstants?.employeeManagementRoute}/${routerConstants?.addEmployeeManagementRoute}`} element={<AddEmployee />} />
         <Route path={`${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementSubRoute}`} element={<ViewEditEmployee />} />

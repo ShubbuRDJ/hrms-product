@@ -11,6 +11,7 @@ const routerConstants = {
     qualificationRoute:'qualifications',
     editQualificationRoute:'edit-qualification',
     addQualificationRoute:'add-qualification',
+    employeeDirectoryRoute:'employee-directory',
     employeeManagementRoute:'employee-management',
     addEmployeeManagementRoute:'add-employee',
     editEmployeeManagementSubRoute:'edit-employee/*',
