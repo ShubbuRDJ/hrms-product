@@ -14,13 +14,14 @@ import { useNavigate } from "react-router-dom";
 import { signInWithPopup } from 'firebase/auth'
 import { auth, google } from "../../../services/firebase/firebase";
 import toaster from "../../../utility/toaster/toaster";
+import { postRequest } from "../../../services/axios-api-request/axios_api_Request";
+import { apiurl } from "../../../constants/apiURLsConstants";
 
 const initialValues = {
   email: "",
   password: "",
-  device_token: "aaa",
-  device_id: "abc",
-  device_type: "Laptop"
+  device_id: "asasdasd",
+  device_token: "dsadasd"
 };
 
 export default function Login() {
@@ -38,30 +39,30 @@ export default function Login() {
       validationSchema: loginSchema,
       onSubmit: (values, action) => {
         handleLogin(values);
-        // action.resetForm();
       },
     });
 
   const handleLogin = async (credentials) => {
-    console.log('Login success');
+    const res = await postRequest(apiurl?.LOGIN_URL,credentials);
+    console.log(res?.data,'cinwiewewiew34')
   }
 
 
-  const googleLogin = async ()=>{
+  const googleLogin = async () => {
     try {
-      const result = await signInWithPopup(auth,google);
-      localStorage.setItem('ACCESS_TOKEN',result?.user?.accessToken)
-      toaster('success','Login successful!')
-      setTimeout(()=>{
+      const result = await signInWithPopup(auth, google);
+      localStorage.setItem('ACCESS_TOKEN', result?.user?.accessToken)
+      toaster('success', 'Login successful!')
+      setTimeout(() => {
         navigate('/')
-      },[1000])
+      }, [1000])
 
     } catch (error) {
       if (error?.message.includes('refuses to grant permission')) {
-        toaster('error','User refuses to grant permission')
+        toaster('error', 'User refuses to grant permission')
       }
       if ('popup-closed-by-user') {
-        toaster('error','Popup closed by user')
+        toaster('error', 'Popup closed by user')
       }
     }
   }
@@ -100,46 +101,46 @@ export default function Login() {
                     value={values.email}
                   />
                   {errors.email && touched.email ? (
-                  <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%',marginTop:`${(errors.email.length<=60)?'-5px':'8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.email}</p></Grid>
-                ) : null}
+                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.email.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.email}</p></Grid>
+                  ) : null}
                 </Grid>
 
                 <Grid className="login-form-input-field">
                   <label className="form-label" htmlFor="password-login-form-control">Password</label>
-                <FormControl
-                  id="password-login-form-control"
-                  variant="outlined"
-                >
-                  <OutlinedInput
-                    name="password"
-                    placeholder="Enter password"
-                    id="outlined-adornment-password"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.password}
-                    type={showPassword ? "text" : "password"}
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <IconButton
-                          aria-label="toggle password visibility"
-                          onClick={handleClickShowPassword}
-                          onMouseDown={handleMouseDownPassword}
-                          edge="end"
-                        >
-                          {showPassword ? <VisibilityOff /> : <Visibility />}
-                        </IconButton>
-                      </InputAdornment>
-                    }
-                  />
-                </FormControl>
-                {errors.password && touched.password ? (
-                  <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%',marginTop:`${(errors.password.length<=60)?'-5px':'8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.password}</p></Grid>
-                ) : null}
+                  <FormControl
+                    id="password-login-form-control"
+                    variant="outlined"
+                  >
+                    <OutlinedInput
+                      name="password"
+                      placeholder="Enter password"
+                      id="outlined-adornment-password"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.password}
+                      type={showPassword ? "text" : "password"}
+                      endAdornment={
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowPassword}
+                            onMouseDown={handleMouseDownPassword}
+                            edge="end"
+                          >
+                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                          </IconButton>
+                        </InputAdornment>
+                      }
+                    />
+                  </FormControl>
+                  {errors.password && touched.password ? (
+                    <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '1rem', width: '100%', marginTop: `${(errors.password.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.password}</p></Grid>
+                  ) : null}
                 </Grid>
 
                 <Grid className="login-remember-forgot">
-                {/* <FormControlLabel control={<Checkbox  icon={<img src={checkboxLogo} alt="google" />}  />} label="Remember me" /> */}
-                <p onClick={()=>navigate('/forgot')}>Forgot password?</p>
+                  {/* <FormControlLabel control={<Checkbox  icon={<img src={checkboxLogo} alt="google" />}  />} label="Remember me" /> */}
+                  <p onClick={() => navigate('/forgot')}>Forgot password?</p>
                 </Grid>
 
                 <button className="login-login-button" type="submit">Login</button>
@@ -147,7 +148,7 @@ export default function Login() {
                 <button onClick={googleLogin} className="login-google-button" type="button">
                   <img src={googleLogo} alt="google" />
                   <span>Or sign-in with google</span>
-                  </button>
+                </button>
 
               </Grid>
             </form>

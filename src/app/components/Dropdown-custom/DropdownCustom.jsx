@@ -51,11 +51,11 @@ const DropDownArrow = ({ open, setOpen, disabledOption }) => (
     {!disabledOption &&
       !open ?
       <svg className="dropdown-svg-rotate" onClick={() => setOpen(true)} width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10.5 0.75L6 5.25L1.5 0.75" stroke="#919499" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M10.5 0.75L6 5.25L1.5 0.75" stroke="#919499" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg> :
       !disabledOption &&
       <svg className="dropdown-svg-rotate dropdown-svg-rotate-2" onClick={() => setOpen(true)} width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10.5 0.75L6 5.25L1.5 0.75" stroke="#919499" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M10.5 0.75L6 5.25L1.5 0.75" stroke="#919499" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     }
   </>
