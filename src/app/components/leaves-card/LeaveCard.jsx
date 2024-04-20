@@ -1,22 +1,33 @@
 import React from 'react';
 import './leaves-card.scss';
 import { Grid } from '@mui/material';
+import PropTypes from 'prop-types';
 
-const LeaveCard = ({leaveType,leave,totalLeave,iconColor,icon,cardRowLimit,cardGap}) => {
+const LeaveCard = ({ leaveType, leave, totalLeave, iconColor, icon, cardRowLimit, cardGap }) => {
   return (
     <>
-      <Grid className='leaves-card-container' style={{width:`calc((100% - ${cardGap*(cardRowLimit-1)}px)/${cardRowLimit})`}}>
-        <Grid className='leaves-card-icon-container' style={{backgroundColor:`${iconColor}`}}>
-            <img src={icon} alt="icon" />
+      <Grid className='leaves-card-container' style={{ width: `calc((100% - ${cardGap * (cardRowLimit - 1)}px)/${cardRowLimit})` }}>
+        <Grid className='leaves-card-icon-container' style={{ backgroundColor: `${iconColor}` }}>
+          <img src={icon} alt="icon" />
         </Grid>
         <Grid className='leaves-card-text'>
-            <h4>{leaveType}</h4>
-            <p><span>{leave}</span>/<span>{totalLeave}</span></p>
+          <h4>{leaveType}</h4>
+          <p><span>{leave}</span>/<span>{totalLeave}</span></p>
         </Grid>
 
       </Grid>
     </>
   )
 }
+
+LeaveCard.propTypes = {
+  leaveType: PropTypes.string.isRequired,
+  leave: PropTypes.number.isRequired,
+  totalLeave: PropTypes.number.isRequired,
+  iconColor: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  cardRowLimit: PropTypes.number.isRequired,
+  cardGap: PropTypes.number.isRequired,
+};
 
 export default LeaveCard

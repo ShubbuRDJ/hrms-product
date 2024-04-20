@@ -3,6 +3,7 @@ import './view-leave.scss';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import PromptCustom from '../prompt-box/PromptCustom';
+import PropTypes from 'prop-types';
 
 
 
@@ -169,5 +170,12 @@ const ViewLeave = ({ type, approveRejectAction,rejectPromptMSg,approvePromptMSg 
         </>
     )
 }
+
+ViewLeave.propTypes = {
+    type: PropTypes.string.isRequired,
+    approveRejectAction: PropTypes.bool.isRequired,
+    rejectPromptMsg: PropTypes.string,
+    approvePromptMsg: PropTypes.string,
+};
 
 export default ViewLeave

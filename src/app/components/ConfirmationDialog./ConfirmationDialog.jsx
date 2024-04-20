@@ -1,4 +1,5 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import Dialog from '@mui/material/Dialog';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
@@ -53,5 +54,12 @@ function ConfirmationDialog({ open, setOpen, heading }) {
         </Dialog>
     );
 }
+
+
+ConfirmationDialog.propTypes = {
+    open: PropTypes.bool.isRequired, // Validate 'open' prop as boolean and required
+    setOpen: PropTypes.func.isRequired, // Validate 'setOpen' prop as function and required
+    heading: PropTypes.string.isRequired, // Validate 'heading' prop as string and required
+};
 
 export default React.memo(ConfirmationDialog)

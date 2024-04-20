@@ -7,15 +7,9 @@ import TableRow from "@mui/material/TableRow";
 import "./view-dsr-table.scss";
 import { useNavigate } from "react-router-dom";
 import { Grid, IconButton } from "@mui/material";
+import PropTypes from 'prop-types';
 
-export default function ViewDSRTable({
-    columns,
-    datas,
-    dataKey,
-    actionKey,
-    align,
-    tableContainerMaxHeight,
-}) {
+const ViewDSRTable = ({ columns, datas, dataKey, actionKey, align, tableContainerMaxHeight })=> {
     const handleActionButton = (action, data) => {
         if (action?.navigateAddress) {
             navigate(action?.navigateAddress);
@@ -443,3 +437,33 @@ export default function ViewDSRTable({
         </>
     );
 }
+
+ViewDSRTable.propTypes = {
+    columns: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        minWidth: PropTypes.number.isRequired,
+        filter: PropTypes.bool
+      })
+    ).isRequired,
+    datas: PropTypes.arrayOf(
+      PropTypes.object.isRequired
+    ).isRequired,
+    dataKey: PropTypes.arrayOf(
+      PropTypes.string.isRequired
+    ).isRequired,
+    actionKey: PropTypes.arrayOf(
+      PropTypes.shape({
+        actionName: PropTypes.string.isRequired,
+        navigateAddress: PropTypes.string,
+        setOpen: PropTypes.func,
+        open: PropTypes.bool,
+        setCallback: PropTypes.func
+      })
+    ),
+    align: PropTypes.string.isRequired,
+    tableContainerMaxHeight: PropTypes.number.isRequired
+  };
+
+
+  export default ViewDSRTable

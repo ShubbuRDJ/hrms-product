@@ -2,8 +2,9 @@ import { Search } from "@mui/icons-material";
 import { FormControl, Grid, InputAdornment, OutlinedInput } from "@mui/material";
 import React from "react";
 import './search-custom.scss';
+import PropTypes from 'prop-types';
 
-export default function SearchCustom({ setSearchKey }) {
+const SearchCustom = ({ setSearchKey })=> {
   // *******************************about props****************************************
   // 1. setSearchKey => This is a setter metthod of state variable for receive the search key in parent component
   return (
@@ -32,3 +33,10 @@ export default function SearchCustom({ setSearchKey }) {
     </Grid>
   );
 }
+
+SearchCustom.propTypes = {
+  setSearchKey: PropTypes.func.isRequired,
+};
+
+
+export default SearchCustom

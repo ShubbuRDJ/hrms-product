@@ -2,6 +2,7 @@ import React from 'react';
 import './time-picker-custom.scss';
 import { LocalizationProvider, TimePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import PropTypes from 'prop-types';
 
 const TimePickerCustom = ({ placeholder, name, id }) => {
     return (
@@ -12,12 +13,18 @@ const TimePickerCustom = ({ placeholder, name, id }) => {
                     closeOnSelect={false}
                     slotProps={{ textField: { placeholder: `${placeholder}`, name: { name }, id: { id } } }}
                     slots={{ openPickerIcon: TimePickerCustomIcon }}
-                    // PopperProps={{ style: { width: 'fit-content', maxHeight: 'none' } }}
+                // PopperProps={{ style: { width: 'fit-content', maxHeight: 'none' } }}
                 />
             </LocalizationProvider>
         </>
     )
 }
+
+TimePickerCustom.propTypes = {
+    placeholder: PropTypes.string,
+    name: PropTypes.string,
+    id: PropTypes.string
+};
 
 export default TimePickerCustom
 

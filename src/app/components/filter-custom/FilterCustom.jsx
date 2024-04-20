@@ -3,8 +3,9 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import { MenuItem, Select } from "@mui/material";
 import './filterCustom.scss';
+import PropTypes from 'prop-types';
 
-export default function FilterCustom({ filterListArray, filterKeysArray, setFilterKey, filterKey, label }) {
+const FilterCustom = ({ filterListArray, filterKeysArray, setFilterKey, filterKey, label }) =>{
 
   const [open, setOpen] = useState(false);
   return (
@@ -42,6 +43,17 @@ export default function FilterCustom({ filterListArray, filterKeysArray, setFilt
   );
 }
 
+FilterCustom.propTypes = {
+  filterListArray: PropTypes.array.isRequired,
+  filterKeysArray: PropTypes.array,
+  setFilterKey: PropTypes.func.isRequired,
+  filterKey: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+};
+
+export default FilterCustom;
+
+
 // custom arrow in dropdown 
 
 const DropDownArrow = ({ open, setOpen }) => (
@@ -56,4 +68,9 @@ const DropDownArrow = ({ open, setOpen }) => (
     }
   </>
 )
+
+DropDownArrow.propTypes = {
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
+};
 

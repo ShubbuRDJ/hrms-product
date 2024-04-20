@@ -3,8 +3,9 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import { MenuItem, Select } from "@mui/material";
 import './dropdown-custom.scss';
+import PropTypes from 'prop-types';
 
-export default function DropownCustom({ dropdownListArray, dropdownKeysArray, handleChange, value, label, name, handleBlur, disabledOption }) {
+const DropownCustom = ({ dropdownListArray, dropdownKeysArray, handleChange, value, label, name, handleBlur, disabledOption }) =>{
 
   const [open, setOpen] = useState(false);
   return (
@@ -44,6 +45,19 @@ export default function DropownCustom({ dropdownListArray, dropdownKeysArray, ha
   );
 }
 
+DropownCustom.propTypes = {
+  dropdownListArray: PropTypes.array.isRequired,
+  dropdownKeysArray: PropTypes.array,
+  handleChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  handleBlur: PropTypes.func.isRequired,
+  disabledOption: PropTypes.bool.isRequired,
+};
+
+export default DropownCustom
+
 // custom arrow in dropdown 
 
 const DropDownArrow = ({ open, setOpen, disabledOption }) => (
@@ -60,4 +74,10 @@ const DropDownArrow = ({ open, setOpen, disabledOption }) => (
     }
   </>
 )
+
+DropDownArrow.propTypes = {
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
+  disabledOption: PropTypes.bool.isRequired,
+};
 

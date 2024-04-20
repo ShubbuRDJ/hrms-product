@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './text-editor.scss';
+import PropTypes from 'prop-types';
 
 const TextEditor = ({ placeholder }) => {
     const [value, setValue] = useState('');
@@ -51,5 +52,9 @@ const TextEditor = ({ placeholder }) => {
         </>
     )
 }
+
+TextEditor.propTypes = {
+    placeholder: PropTypes.string
+};
 
 export default TextEditor

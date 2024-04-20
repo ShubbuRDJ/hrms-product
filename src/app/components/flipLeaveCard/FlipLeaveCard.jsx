@@ -1,4 +1,5 @@
 import './flip-leave-card.scss'
+import PropTypes from 'prop-types';
 
 const FlipLeaveCard = ({ frontComponent, backComponent, cardRowLimit, cardGap }) => {
 
@@ -17,5 +18,14 @@ const FlipLeaveCard = ({ frontComponent, backComponent, cardRowLimit, cardGap })
         </>
     )
 }
+
+
+FlipLeaveCard.propTypes = {
+    frontComponent: PropTypes.element.isRequired,
+    backComponent: PropTypes.element.isRequired,
+    cardRowLimit: PropTypes.number.isRequired,
+    cardGap: PropTypes.number.isRequired,
+  };
+  
 
 export default FlipLeaveCard

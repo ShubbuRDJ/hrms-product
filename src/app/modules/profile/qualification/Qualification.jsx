@@ -47,7 +47,9 @@ const Qualification = ({heading}) => {
     };
 
     const handleMoreQualification = () => {
-        setQualificationFormCount([...qualificationFormCount, Math.random()]);
+        // Generate a cryptographically secure random number
+        const secureRandom = window.crypto.getRandomValues(new Uint32Array(1))[0];
+        setQualificationFormCount([...qualificationFormCount, secureRandom]);
     }
 
     const reduceQualificationCount = () => {
@@ -82,7 +84,7 @@ const Qualification = ({heading}) => {
 
                         {
                             qualificationFormCount.map((item, index) => (
-                                <Grid key={index} className='profile-qualification-form-container'>
+                                <Grid key={`profile-qualification-${index+1}`} className='profile-qualification-form-container'>
 
                                     <Grid className='profile-qualification-form-row'>
 

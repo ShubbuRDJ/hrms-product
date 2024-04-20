@@ -6,13 +6,14 @@ import './prompt-custom.scss';
 import { Grid } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from "yup";
+import PropTypes from 'prop-types';
 
 
 const initialValues = {
     comment: ''
 }
 
-function PromptCustom({ open, setOpen, heading,setPromptMsg }) {
+function PromptCustom({ open, setOpen, heading, setPromptMsg }) {
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -91,5 +92,12 @@ function PromptCustom({ open, setOpen, heading,setPromptMsg }) {
         </Dialog>
     );
 }
+
+PromptCustom.propTypes = {
+    open: PropTypes.bool.isRequired,
+    setOpen: PropTypes.func.isRequired,
+    heading: PropTypes.string.isRequired,
+    setPromptMsg: PropTypes.func.isRequired,
+};
 
 export default React.memo(PromptCustom)

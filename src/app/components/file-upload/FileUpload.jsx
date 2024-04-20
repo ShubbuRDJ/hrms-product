@@ -1,6 +1,7 @@
 import { Grid } from '@mui/material'
 import React from 'react'
 import './file-upload.scss'
+import PropTypes from 'prop-types';
 
 const FileUpload = ({ handleChange, id }) => {
     const openFileInput = () => {
@@ -24,5 +25,10 @@ const FileUpload = ({ handleChange, id }) => {
         </>
     )
 }
+
+FileUpload.propTypes = {
+    handleChange: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
+};
 
 export default FileUpload

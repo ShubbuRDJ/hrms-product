@@ -3,13 +3,14 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import { Grid, MenuItem, Select } from "@mui/material";
 import './filter-table-limit.scss';
+import PropTypes from 'prop-types';
 
-export default function FilterTableLimit({ filterListArray, filterKeysArray, setFilterKey, filterKey, label }) {
+const FilterTableLimit = ({ filterListArray, filterKeysArray, setFilterKey, filterKey, label }) => {
 
     const [open, setOpen] = useState(false);
     return (
         <Grid className="filter-table-limit-container">
-            <FormControl sx={{ width: '100%',  border: 'none' }} >
+            <FormControl sx={{ width: '100%', border: 'none' }} >
                 {!filterKey && <InputLabel className="dropdown-label" shrink={false} id="demo-multiple-name-label">{label}</InputLabel>}
                 <Select
 
@@ -20,7 +21,7 @@ export default function FilterTableLimit({ filterListArray, filterKeysArray, set
                     id="demo-multiple-name"
                     value={filterKey}
                     onChange={(e) => setFilterKey(e.target.value)}
-                    style={{ backgroundColor: '#ffffff', cursor: 'pointer',height:'30px', }}
+                    style={{ backgroundColor: '#ffffff', cursor: 'pointer', height: '30px', }}
                     IconComponent={() => <DropDownArrow open={open} setOpen={setOpen} />}
                     MenuProps={{
                         classes: {
@@ -44,6 +45,16 @@ export default function FilterTableLimit({ filterListArray, filterKeysArray, set
     );
 }
 
+FilterTableLimit.propTypes = {
+    filterListArray: PropTypes.array.isRequired,
+    filterKeysArray: PropTypes.array,
+    setFilterKey: PropTypes.func.isRequired,
+    filterKey: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+};
+
+export default FilterTableLimit
+
 // custom arrow in dropdown 
 
 const DropDownArrow = ({ open, setOpen }) => (
@@ -58,4 +69,9 @@ const DropDownArrow = ({ open, setOpen }) => (
         }
     </>
 )
+
+DropDownArrow.propTypes = {
+    open: PropTypes.bool.isRequired,
+    setOpen: PropTypes.func.isRequired,
+};
 

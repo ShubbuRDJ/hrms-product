@@ -7,8 +7,10 @@ import TableRow from '@mui/material/TableRow';
 import './tableCustom.scss'
 import { useNavigate } from 'react-router-dom';
 import { Grid, IconButton } from '@mui/material';
+import PropTypes from 'prop-types';
 
-export default function TableCustom({ columns, datas, dataKey, actionKey, align, tableContainerMaxHeight }) {
+
+const TableCustom = ({ columns, datas, dataKey, actionKey, align, tableContainerMaxHeight }) => {
   const handleActionButton = (action, data) => {
     if (action?.navigateAddress) {
       navigate(action?.navigateAddress)
@@ -195,6 +197,35 @@ export default function TableCustom({ columns, datas, dataKey, actionKey, align,
   );
 }
 
+TableCustom.propTypes = {
+  columns: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      minWidth: PropTypes.number.isRequired,
+      filter: PropTypes.bool
+    })
+  ).isRequired,
+  datas: PropTypes.arrayOf(
+    PropTypes.object.isRequired
+  ).isRequired,
+  dataKey: PropTypes.arrayOf(
+    PropTypes.string.isRequired
+  ).isRequired,
+  actionKey: PropTypes.arrayOf(
+    PropTypes.shape({
+      actionName: PropTypes.string.isRequired,
+      navigateAddress: PropTypes.string,
+      setOpen: PropTypes.func,
+      open: PropTypes.bool,
+      setCallback: PropTypes.func
+    })
+  ),
+  align: PropTypes.string.isRequired,
+  tableContainerMaxHeight: PropTypes.number.isRequired
+};
+
+export default TableCustom
+
 
 
 const AmApprove = ({ approve, display }) => {
@@ -214,6 +245,11 @@ const AmApprove = ({ approve, display }) => {
   )
 }
 
+AmApprove.propTypes = {
+  approve: PropTypes.bool.isRequired,
+  display: PropTypes.bool.isRequired,
+};
+
 const HrApprove = ({ approve, display }) => {
   return (
     <button type="button" style={{ backgroundColor: `${approve ? '#05CD99' : '#FFFAE9'}`, color: `${approve ? '#FFFFFF' : '#E8BD20'}`, display: `${!display ? 'none' : ''}` }}>
@@ -231,6 +267,11 @@ const HrApprove = ({ approve, display }) => {
   )
 }
 
+HrApprove.propTypes = {
+  approve: PropTypes.bool.isRequired,
+  display: PropTypes.bool.isRequired,
+};
+
 const RollbackBtn = ({ approve, display }) => {
   return (
     <button type="button" className='rollbackBtn-btn' style={{ display: `${!display ? 'none' : ''}` }}>
@@ -241,3 +282,8 @@ const RollbackBtn = ({ approve, display }) => {
     </button>
   )
 }
+
+RollbackBtn.propTypes = {
+  approve: PropTypes.bool.isRequired,
+  display: PropTypes.bool.isRequired,
+};

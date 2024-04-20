@@ -5,8 +5,9 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Grid } from '@mui/material';
 import dayjs from 'dayjs';
 import './date-picker.scss';
+import PropTypes from 'prop-types';
 
-export default function DatePickerCustom({ handleChange, value, name, id, placeholder, type }) {
+const DatePickerCustom = ({ handleChange, value, name, id, placeholder, type })=> {
 
   const formatDate = (date) => {
     const originalDate = new Date(date);
@@ -33,3 +34,14 @@ export default function DatePickerCustom({ handleChange, value, name, id, placeh
     </LocalizationProvider>
   );
 }
+
+DatePickerCustom.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  value: PropTypes.instanceOf(Date), // Assuming value is a Date object
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+};
+
+export default DatePickerCustom

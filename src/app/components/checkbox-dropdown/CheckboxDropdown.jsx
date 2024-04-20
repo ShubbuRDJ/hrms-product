@@ -1,8 +1,9 @@
 import { Checkbox, Collapse, FormControlLabel, Grid } from "@mui/material";
 import './checkbox-dropdown.scss';
 import { useEffect, useState } from "react";
+import PropTypes from 'prop-types';
 
-const CheckboxDropdown = ({ handleChange,name,value,label,subCheckboxArray }) => {
+const CheckboxDropdown = ({ handleChange, name, value, label, subCheckboxArray }) => {
 
     const [open, setOpen] = useState(false);
     const [parentChecked, setParentChecked] = useState(false);
@@ -25,7 +26,7 @@ const CheckboxDropdown = ({ handleChange,name,value,label,subCheckboxArray }) =>
 
     useEffect(() => {
         childCheckboxUpdate();
-    // eslint-disable-next-line
+        // eslint-disable-next-line
     }, [open])
 
 
@@ -72,6 +73,14 @@ const CheckboxDropdown = ({ handleChange,name,value,label,subCheckboxArray }) =>
         </>
     )
 }
+
+CheckboxDropdown.propTypes = {
+    handleChange: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    subCheckboxArray: PropTypes.array.isRequired,
+};
 
 export default CheckboxDropdown
 

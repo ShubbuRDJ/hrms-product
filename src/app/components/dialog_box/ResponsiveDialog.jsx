@@ -4,6 +4,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import './responsive_dialog.scss';
 import { Grid } from '@mui/material';
+import PropTypes from 'prop-types';
 
 
 
@@ -56,5 +57,18 @@ function ResponsiveDialog({ open, setOpen, dialogArray, heading }) {
     </Dialog>
   );
 }
+
+
+ResponsiveDialog.propTypes = {
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
+  dialogArray: PropTypes.arrayOf(
+    PropTypes.shape({
+      heading: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+    })
+  ),
+  heading: PropTypes.string.isRequired,
+};
 
 export default React.memo(ResponsiveDialog)

@@ -2,10 +2,9 @@ import axios from "axios";
 
 // create axios instance with baseURL and x-Api-key
 const axiosInstance = axios.create({
-  baseURL: "http://13.202.7.201:3000/api/v1/",
+  baseURL: process.env.REACT_APP_BASE_URL_PROD,
   headers: {
-    "X-API-KEY":
-      "kjghfhdfsshgndcljdjsflsdfljuy575itjkshkjoujoiuhjdjkjkjshskkjkjhsjkhjkhjkshkjA",
+    "X-API-KEY":process.env.REACT_APP_API_KEY,
   },
 });
 
