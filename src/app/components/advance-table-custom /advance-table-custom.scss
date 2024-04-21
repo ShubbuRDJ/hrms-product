@@ -93,4 +93,22 @@
     line-height: 16px;
     font-weight: 700;
   }
+
+
+  .MuiDataGrid-columnHeader.MuiDataGrid-columnHeader--alignCenter.MuiDataGrid-withBorderColor.MuiDataGrid-columnHeaderCheckbox{
+    &:focus-within{
+      outline: none;
+    }
+  }
+
+  .MuiButtonBase-root.MuiCheckbox-root.MuiCheckbox-colorPrimary.MuiCheckbox-sizeMedium.PrivateSwitchBase-root.MuiCheckbox-root.MuiCheckbox-colorPrimary.MuiCheckbox-sizeMedium.MuiCheckbox-root.MuiCheckbox-colorPrimary.MuiCheckbox-sizeMedium.MuiDataGrid-checkboxInput{
+    &:hover{
+      background-color: unset;
+    }
+  }
+
+
+  .MuiTouchRipple-root{
+    display: none;
+  }
 }
