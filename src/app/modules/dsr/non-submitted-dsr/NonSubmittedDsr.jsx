@@ -121,6 +121,15 @@ const NonSubmittedDsr = () => {
         },
     ];
 
+    const sortModel = [
+        {
+            field:'empName',
+        },
+        {
+            field:'date',
+        },
+    ]
+
 
     console.log(searchKey, 'vdvnfeiwodweidwedo')
     return (
@@ -198,6 +207,7 @@ const NonSubmittedDsr = () => {
                             columns={columns}
                             rows={rows}
                             checkboxSelection={false}
+                            sortModel={sortModel}
                         />
                     </Grid>
                     <Grid className='non-submitted-dsr-pagination-container'>

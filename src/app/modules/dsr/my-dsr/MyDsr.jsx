@@ -15,12 +15,12 @@ const tableLimitArr = ['10', '25', '50', '100']
 
 
 const columns = [
-    { id: 'column1', label: 'S No.', minWidth: 100 },
-    { id: 'column2', label: 'Employee Name', minWidth: 150 },
-    { id: 'column3', label: 'Email id', minWidth: 150 },
-    { id: 'column3', label: 'Date', minWidth: 100 },
-    { id: 'column3', label: 'Total(Logged Hr)', minWidth: 100 },
-    { id: 'column3', label: 'Final Approval', minWidth: 100 },
+    { id: 'serialNum', label: 'S No.', minWidth: 100 },
+    { id: 'emp_name', label: 'Employee Name', minWidth: 150,filter:true },
+    { id: 'email', label: 'Email id', minWidth: 150 },
+    { id: 'date', label: 'Date', minWidth: 100,filter:true },
+    { id: 'logged_hrs', label: 'Total(Logged Hr)', minWidth: 100 },
+    { id: 'final_approval', label: 'Final Approval', minWidth: 100 },
 ];
 
 const dataKey = ['serialNum', 'emp_name', 'email', 'date', 'logged_hrs', 'final_approval'];
@@ -35,7 +35,7 @@ const actionKey = [
 
 const dummyData = [
     {
-        emp_name: 'Prabhash Mishra',
+        emp_name: 'Sanjay Yadav',
         date: '05-Feb-2024',
         email: 'prabhash@appventurez.com',
         logged_hrs: '7:51',
@@ -47,6 +47,17 @@ const dummyData = [
     },
     {
         emp_name: 'Prabhash Mishra',
+        date: '06-Feb-2024',
+        email: 'prabhash@appventurez.com',
+        logged_hrs: '7:51',
+        final_approval: {
+            am: true,
+            hr: false,
+            rollback: false,
+        },
+    },
+    {
+        emp_name: 'Akash Dubey',
         date: '05-Feb-2024',
         email: 'prabhash@appventurez.com',
         logged_hrs: '7:51',
@@ -57,18 +68,7 @@ const dummyData = [
         },
     },
     {
-        emp_name: 'Prabhash Mishra',
-        date: '05-Feb-2024',
-        email: 'prabhash@appventurez.com',
-        logged_hrs: '7:51',
-        final_approval: {
-            am: true,
-            hr: false,
-            rollback: false,
-        },
-    },
-    {
-        emp_name: 'Prabhash Mishra',
+        emp_name: 'Vijay Singh',
         date: '05-Feb-2024',
         email: 'prabhash@appventurez.com',
         logged_hrs: '7:51',

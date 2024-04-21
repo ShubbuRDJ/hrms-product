@@ -13,11 +13,11 @@ const tableLimitArr = ['10', '25', '50', '100']
 
 
 const columns = [
-    { id: 'column1', label: 'S No.', minWidth: 100 },
-    { id: 'column2', label: 'Role Id', minWidth: 150, filter: true },
-    { id: 'column3', label: 'Role Name', minWidth: 150, filter: true },
-    { id: 'column3', label: 'Menu Permission', minWidth: 100 },
-    { id: 'column3', label: 'Added Date', minWidth: 100 },
+    { id: 'serialNum', label: 'S No.', minWidth: 100 },
+    { id: 'role_id', label: 'Role Id', minWidth: 180, filter: true },
+    { id: 'role_name', label: 'Role Name', minWidth: 180, filter: true },
+    { id: 'menu_permission', label: 'Menu Permission', minWidth: 100 },
+    { id: 'added_date', label: 'Added Date', minWidth: 100 },
 ];
 
 const dataKey = ['serialNum', 'role_id', 'role_name', 'menu_permission', 'added_date'];
@@ -31,37 +31,37 @@ const dummyData = [
         added_date: 'Feb 16, 2023',
     },
     {
-        role_id: '21',
+        role_id: '11',
+        role_name: 'Acquisition Talent',
+        menu_permission: 'Custom Menu Access',
+        added_date: 'Feb 16, 2023',
+    },
+    {
+        role_id: '25',
+        role_name: 'React Developer',
+        menu_permission: 'Custom Menu Access',
+        added_date: 'Feb 16, 2023',
+    },
+    {
+        role_id: '18',
+        role_name: 'Back end Developer',
+        menu_permission: 'Custom Menu Access',
+        added_date: 'Feb 16, 2023',
+    },
+    {
+        role_id: '31',
         role_name: 'Talent Acquisition',
         menu_permission: 'Custom Menu Access',
         added_date: 'Feb 16, 2023',
     },
     {
-        role_id: '21',
+        role_id: '45',
         role_name: 'Talent Acquisition',
         menu_permission: 'Custom Menu Access',
         added_date: 'Feb 16, 2023',
     },
     {
-        role_id: '21',
-        role_name: 'Talent Acquisition',
-        menu_permission: 'Custom Menu Access',
-        added_date: 'Feb 16, 2023',
-    },
-    {
-        role_id: '21',
-        role_name: 'Talent Acquisition',
-        menu_permission: 'Custom Menu Access',
-        added_date: 'Feb 16, 2023',
-    },
-    {
-        role_id: '21',
-        role_name: 'Talent Acquisition',
-        menu_permission: 'Custom Menu Access',
-        added_date: 'Feb 16, 2023',
-    },
-    {
-        role_id: '21',
+        role_id: '76',
         role_name: 'Talent Acquisition',
         menu_permission: 'Custom Menu Access',
         added_date: 'Feb 16, 2023',

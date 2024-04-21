@@ -23,35 +23,35 @@ const rows = [
         }
     },
     {
-        id: 2, empName: 'Prabhash Mishra', email: 'prabhash@appventurez.com', date: '11th Apr, 2024', logged_hrs: '7:50', final_approval: {
+        id: 2, empName: 'Sanjay Yadav', email: 'sanjay@appventurez.com', date: '13th Feb, 2024', logged_hrs: '7:50', final_approval: {
             am: false,
             hr: false,
             rollback: false
         }
     },
     {
-        id: 3, empName: 'Prabhash Mishra', email: 'prabhash@appventurez.com', date: '11th Apr, 2024', logged_hrs: '7:50', final_approval: {
+        id: 3, empName: 'Anuj Rawat', email: 'anuj@appventurez.com', date: '21th Jan, 2024', logged_hrs: '7:50', final_approval: {
             am: true,
             hr: false,
             rollback: false
         }
     },
     {
-        id: 4, empName: 'Prabhash Mishra', email: 'prabhash@appventurez.com', date: '11th Apr, 2024', logged_hrs: '7:50', final_approval: {
+        id: 4, empName: 'Gabbar Singh', email: 'gabbar@appventurez.com', date: '11th Apr, 2024', logged_hrs: '7:50', final_approval: {
             am: true,
             hr: false,
             rollback: false
         }
     },
     {
-        id: 5, empName: 'Prabhash Mishra', email: 'prabhash@appventurez.com', date: '11th Apr, 2024', logged_hrs: '7:50', final_approval: {
+        id: 5, empName: 'Anjali Dubey', email: 'anjali@appventurez.com', date: '11th Apr, 2024', logged_hrs: '7:50', final_approval: {
             am: true,
             hr: false,
             rollback: false
         }
     },
     {
-        id: 6, empName: 'Prabhash Mishra', email: 'prabhash@appventurez.com', date: '11th Apr, 2024', logged_hrs: '7:50', final_approval: {
+        id: 6, empName: 'Vikas Mishra', email: 'vikas@appventurez.com', date: '11th Apr, 2024', logged_hrs: '7:50', final_approval: {
             am: true,
             hr: false,
             rollback: false
@@ -163,6 +163,15 @@ const EmployeeDSR = () => {
         },
     ];
 
+    const sortModel = [
+        {
+            field:'empName',
+        },
+        {
+            field:'date',
+        },
+    ]
+
 
     console.log(searchKey, 'vdvnfeiwodweidwedo')
     return (
@@ -246,6 +255,7 @@ const EmployeeDSR = () => {
                             columns={columns}
                             rows={rows}
                             checkboxSelection={true}
+                            sortModel = {sortModel}
                         />
                     </Grid>
                     <Grid className='employee-dsr-pagination-container'>
