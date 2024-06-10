@@ -173,7 +173,7 @@ const ViewLeave = ({ type, approveRejectAction,rejectPromptMSg,approvePromptMSg 
 
 ViewLeave.propTypes = {
     type: PropTypes.string.isRequired,
-    approveRejectAction: PropTypes.bool.isRequired,
+    approveRejectAction: PropTypes.bool,
     rejectPromptMsg: PropTypes.string,
     approvePromptMsg: PropTypes.string,
 };

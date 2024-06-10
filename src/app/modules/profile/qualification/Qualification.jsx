@@ -133,10 +133,6 @@ const Qualification = ({heading}) => {
                                             ) : null}
                                         </Grid>
 
-                                    </Grid>
-
-                                    <Grid className='profile-qualification-form-row'>
-
                                         <Grid className='profile-qualification-form-input-container'>
                                             <label htmlFor="qualification-form-control-4">Time Period</label>
                                             <input

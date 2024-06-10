@@ -119,6 +119,7 @@ const dummyData = [
 const MyLeave = () => {
     const navigate = useNavigate();
     const [searchKey, setSearchKey] = useState('');
+    const [tableFilterKey, setTableFilterKey] = useState('');
     const [openConfirmationBox, setOpenConfirmationBox] = useState(false);
     const [promptMsg, setPromptMsg] = useState('');
 
@@ -241,6 +242,8 @@ const MyLeave = () => {
                                     filterListArray={tableLimitArr}
                                     filterKeysArray={tableLimitArr}
                                     label={'Select'}
+                                    setFilterKey={setTableFilterKey}
+                                    filterKey={tableFilterKey}
                                 />
                             </Grid>
                             <span>Entries</span>

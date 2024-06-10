@@ -2,12 +2,19 @@
   width: 100%;
 
   .profile-qualification-heading-btn-container {
-    height: 52px;
-    padding: 0 20px;
+    padding: 6px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #e6eff5;
+
+    @media screen and (max-width: 1128px) {
+      flex-direction: column;
+      align-items: flex-start;
+      row-gap: 15px;
+    }
+
+
 
     h4 {
       color: #007bff;
@@ -57,7 +64,6 @@
     row-gap: 15px;
     padding: 10px 15px;
 
-
     .profile-qualification-form-container {
       width: 100%;
       border: 1px solid #e9cfff;
@@ -79,6 +85,13 @@
           width: calc((100% - 70px) / 3);
           min-width: 260px;
           gap: 8px;
+
+          @media screen and (max-width: 1553px) {
+            flex-basis: calc((100% - 35px) / 2);
+          }
+          @media screen and (max-width: 1192px) {
+            flex-basis: 100%;
+          }
 
           label {
             color: #111827;

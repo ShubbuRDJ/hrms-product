@@ -60,6 +60,7 @@ const rows = [
 const NonSubmittedDsr = () => {
     const [locationFilter, setLocationFilter] = useState('');
     const [searchKey, setSearchKey] = useState('');
+    const [tableFilterKey, setTableFilterKey] = useState('');
 
 
     const actionKey = [
@@ -185,6 +186,8 @@ const NonSubmittedDsr = () => {
                                     filterListArray={tableLimitArr}
                                     filterKeysArray={tableLimitArr}
                                     label={'Select'}
+                                    setFilterKey={setTableFilterKey}
+                                    filterKey={tableFilterKey}
                                 />
                             </Grid>
                             <span>Entries</span>

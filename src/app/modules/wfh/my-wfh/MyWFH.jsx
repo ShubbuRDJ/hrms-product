@@ -110,6 +110,7 @@ const MyWFH = () => {
     const navigate = useNavigate();
     const [openConfirmationBox, setOpenConfirmationBox] = useState(false);
     const [promptMsg, setPromptMsg] = useState('');
+    const [tableFilterKey, setTableFilterKey] = useState('');
 
 
     const actionKey = [
@@ -154,6 +155,8 @@ const MyWFH = () => {
                                     filterListArray={tableLimitArr}
                                     filterKeysArray={tableLimitArr}
                                     label={'Select'}
+                                    setFilterKey={setTableFilterKey}
+                                    filterKey={tableFilterKey}
                                 />
                             </Grid>
                             <span>Entries</span>

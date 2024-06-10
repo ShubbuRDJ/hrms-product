@@ -1,6 +1,6 @@
 .employee-management-main-container {
   padding: 10px;
-  // height: 100%;
+  padding-bottom: 25px;
   display: flex;
   flex-direction: column !important;
   gap: 10px;
@@ -10,7 +10,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
+    height: 66px;
     background-color: #ffffff;
     border-radius: 10px;
     padding: 0 25px;
@@ -39,29 +39,31 @@
   }
 
   .add-new-employee-filter-container {
-    height: 170px;
+    width: 100%;
     background-color: #ffffff;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 21px;
+    padding: 21px;
 
     .add-new-employee-filter-wrapper {
       width: 100%;
-      height: 128px;
-      border: 1px solid #e9cfff;
+      border: 1px solid rgba(0, 123, 255, 0.16);
       border-radius: 10px;
       display: flex;
-      gap: 30px;
-      padding: 0 45px;
+      column-gap: 30px;
+      row-gap: 10px;
+      padding: 35px 45px;
       align-items: center;
+      flex-wrap: wrap;
 
       .add-new-employee-filter {
         display: flex;
         flex-direction: column;
         gap: 8px;
         min-width: 288px;
+        width: calc((100% - 140px) / 5);
 
         p {
           color: #111827;
@@ -99,7 +101,10 @@
 
   .employee-management-list-main-container {
     background-color: #ffffff;
+    background-color: #ffffff;
     border-radius: 10px;
+    width: 100%;
+    // height: calc(100% - 66px);
 
     .list-heading-export-btn-container {
       height: 66px;
@@ -138,11 +143,11 @@
         align-items: center;
         gap: 10px;
 
-        span{
-            color: #2B3674;
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 24px;
+        span {
+          color: #2b3674;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 24px;
         }
 
         .employee-management-table-limit-filter {
@@ -152,11 +157,16 @@
         }
       }
 
-      .list-search-box {
-        width: 225px;
-        height: 44px;
-        background-color: #f4efff;
-        border-radius: 8px;
+      .list-search-box-and-export {
+        display: flex;
+        gap: 20px;
+
+        .list-search-box {
+          width: 225px;
+          height: 44px;
+          background-color: #f4efff;
+          border-radius: 8px;
+        }
       }
     }
 
@@ -178,8 +188,8 @@
         font-weight: 500;
         line-height: 24px;
 
-        span{
-            color: #2B3674;
+        span {
+          color: #2b3674;
         }
       }
     }

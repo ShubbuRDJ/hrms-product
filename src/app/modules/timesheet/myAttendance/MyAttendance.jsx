@@ -6,6 +6,7 @@ import FilterTableLimit from '../../../components/filter-custom/FilterTableLimit
 import TableCustom from '../../../components/tableCustom/TableCustom'
 import PaginationCustom from '../../../components/pagination/PaginationCustom'
 import DatePickerCustom from '../../../components/date_picker/DatePickerCustom'
+import { useState } from 'react'
 
 
 const tableLimitArr = ['10', '25', '50', '100']
@@ -84,7 +85,7 @@ const dummyData = [
 ]
 
 const MyAttendance = () => {
-    // const [searchKey, setSearchKey] = useState('');
+    const [tableFilterKey, setTableFilterKey] = useState('');
 
     return (
         <>
@@ -130,6 +131,8 @@ const MyAttendance = () => {
                                     filterListArray={tableLimitArr}
                                     filterKeysArray={tableLimitArr}
                                     label={'Select'}
+                                    setFilterKey={setTableFilterKey}
+                                    filterKey={tableFilterKey}
                                 />
                             </Grid>
                             <span>Entries</span>

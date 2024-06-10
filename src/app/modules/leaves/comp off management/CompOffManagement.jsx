@@ -69,6 +69,7 @@ const dummyData = [
 const CompOffManagement = () => {
     const navigate = useNavigate();
     const [searchKey, setSearchKey] = useState('');
+    const [tableFilterKey, setTableFilterKey] = useState('');
     const [openConfirmationBox, setOpenConfirmationBox] = useState(false);
 
 
@@ -111,6 +112,8 @@ const CompOffManagement = () => {
                                     filterListArray={tableLimitArr}
                                     filterKeysArray={tableLimitArr}
                                     label={'Select'}
+                                    setFilterKey={setTableFilterKey}
+                                    filterKey={tableFilterKey}
                                 />
                             </Grid>
                             <span>Entries</span>

@@ -21,11 +21,19 @@
   .MuiSelect-select.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input {
     color: #404040;
     font-family: Poppins;
-    font-size: 1.125rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     padding: 0;
+    z-index: 11;
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 13px;
+    margin-left: 10px;
+    // background-color: red;
   }
 
   .dropdown-svg-rotate-2 {
@@ -36,7 +44,7 @@
     cursor: pointer;
     width: 100%;
     margin-right: 0;
-    margin-top: 10px;
+    margin-top: 13px;
     z-index: 11;
   }
 
@@ -45,7 +53,7 @@
     line-height: 16px !important;
     color: #1b1c57 !important;
     font-weight: 400 !important;
-    margin-top: -4px;
+    margin-top: -3px;
     margin-left: -5px;
   }
 
@@ -74,3 +82,5 @@
     padding: unset !important;
   }
 }
+
+

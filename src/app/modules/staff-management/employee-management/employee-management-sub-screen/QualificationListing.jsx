@@ -77,6 +77,7 @@ const QualificationListing = ({ tableHeighLimit, editNavigateAddress, addNavigat
     ]
     const navigate = useNavigate();
     const [searchKey, setSearchKey] = useState('');
+    const [tableFilterKey, setTableFilterKey] = useState('');
 
     console.log(searchKey, 'vdvnfeiwodweidwedo')
     return (
@@ -105,6 +106,8 @@ const QualificationListing = ({ tableHeighLimit, editNavigateAddress, addNavigat
                                 filterListArray={tableLimitArr}
                                 filterKeysArray={tableLimitArr}
                                 label={'Select'}
+                                setFilterKey={setTableFilterKey}
+                                filterKey={tableFilterKey}
                             />
                         </Grid>
                         <span>Entries</span>

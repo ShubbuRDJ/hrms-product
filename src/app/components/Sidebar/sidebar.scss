@@ -116,6 +116,10 @@
 
       .sidebar-sub-menu-item {
         height: 44px;
+
+        .sidebar-sub-menu-icon {
+          background-image: url("../../../assets/sidebar/circle.svg");
+        }
         &:hover {
           background-color: unset;
           border-left: unset;
@@ -136,18 +140,18 @@
       .active {
         .sidebar-sub-menu-item {
           height: 44px;
+
           background-color: unset;
           border-left: unset;
           padding-left: 15px;
 
+          .sidebar-sub-menu-icon {
+            background-image: url("../../../assets/sidebar/circle_bold.svg");
+          }
           .sidebar-menu-item-logo-text {
             p {
               font-weight: 700;
             }
-          }
-
-          .sidebar-sub-menu-icon {
-            background-image: url("../../../assets/sidebar/circle_bold.svg");
           }
         }
       }
@@ -185,8 +189,4 @@
 
 .sidebar-sub-menu-container {
   background-color: #0571e5;
-}
-
-.sidebar-sub-menu-icon {
-  background-image: url("../../../assets/sidebar/circle.svg");
 }

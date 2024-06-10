@@ -62,6 +62,7 @@ const rows = [
 const EmployeeDSR = () => {
     const [locationFilter, setLocationFilter] = useState('');
     const [searchKey, setSearchKey] = useState('');
+    const [tableFilterKey, setTableFilterKey] = useState('');
 
     const navigate = useNavigate();
 
@@ -136,20 +137,20 @@ const EmployeeDSR = () => {
                     {
                         actionKey?.map((action) => {
                             if (action?.actionName === 'view') {
-                                return (<svg style={{cursor:'pointer'}} onClick={()=>handleDeleteAction(action)} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                return (<svg style={{ cursor: 'pointer' }} onClick={() => handleDeleteAction(action)} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="24" height="24" rx="4" fill="#1565C0" fillOpacity="0.1" />
                                     <path d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z" stroke="#1565C0" />
                                     <path d="M17.4596 11.2893C17.7183 11.604 17.8476 11.7607 17.8476 12C17.8476 12.2393 17.7183 12.396 17.4596 12.7107C16.513 13.86 14.425 16 12.001 16C9.57696 16 7.48896 13.86 6.5423 12.7107C6.28363 12.396 6.1543 12.2393 6.1543 12C6.1543 11.7607 6.28363 11.604 6.5423 11.2893C7.48896 10.14 9.57696 8 12.001 8C14.425 8 16.513 10.14 17.4596 11.2893Z" stroke="#1565C0" />
                                 </svg>)
                             }
                             else if (action?.actionName === 'approve') {
-                                return (<svg style={{cursor:'pointer'}} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                return (<svg style={{ cursor: 'pointer' }} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="24" height="24" rx="4" fill="#10B981" fillOpacity="0.1" />
                                     <path d="M19.3337 12.0007L17.707 10.1473L17.9337 7.69401L15.527 7.14734L14.267 5.02734L12.0003 6.00068L9.73366 5.02734L8.47366 7.14734L6.06699 7.68734L6.29366 10.1407L4.66699 12.0007L6.29366 13.854L6.06699 16.314L8.47366 16.8607L9.73366 18.9807L12.0003 18.0007L14.267 18.974L15.527 16.854L17.9337 16.3073L17.707 13.854L19.3337 12.0007ZM10.667 15.334L8.00033 12.6673L8.94033 11.7273L10.667 13.4473L15.0603 9.05401L16.0003 10.0007L10.667 15.334Z" fill="#10B981" />
                                 </svg>)
                             }
                             else if (action?.actionName === 'reject') {
-                                return (<svg style={{cursor:'pointer'}} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                return (<svg style={{ cursor: 'pointer' }} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="24" height="24" rx="4" fill="#FF0000" fillOpacity="0.1" />
                                     <path d="M8.50586 15.4946L12.0012 11.9992L15.4965 15.4946M15.4965 8.50391L12.0005 11.9992L8.50586 8.50391" stroke="#FF0000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>)
@@ -165,10 +166,10 @@ const EmployeeDSR = () => {
 
     const sortModel = [
         {
-            field:'empName',
+            field: 'empName',
         },
         {
-            field:'date',
+            field: 'date',
         },
     ]
 
@@ -233,6 +234,8 @@ const EmployeeDSR = () => {
                                     filterListArray={tableLimitArr}
                                     filterKeysArray={tableLimitArr}
                                     label={'Select'}
+                                    setFilterKey={setTableFilterKey}
+                                    filterKey={tableFilterKey}
                                 />
                             </Grid>
                             <span>Entries</span>
@@ -255,7 +258,7 @@ const EmployeeDSR = () => {
                             columns={columns}
                             rows={rows}
                             checkboxSelection={true}
-                            sortModel = {sortModel}
+                            sortModel={sortModel}
                         />
                     </Grid>
                     <Grid className='employee-dsr-pagination-container'>

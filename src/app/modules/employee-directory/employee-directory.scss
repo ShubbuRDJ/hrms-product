@@ -131,6 +131,11 @@
       background-color: rgba(0, 123, 255, 0.06);
       padding: 30px 40px;
 
+      @media screen and (max-width: 864px) {
+        padding: 50px 80px;
+      }
+
+
       .employee-directory-cards-row {
         width: 100%;
         display: flex;
@@ -151,11 +156,12 @@
           flex-direction: column;
           justify-content: space-between;
 
-          @media screen and (max-width: 864px) {
-            width: 100% !important;
-          }
           @media screen and (max-width: 1046px) {
             width: calc((100% - 21px) / 2) !important;
+          }
+
+          @media screen and (max-width: 864px) {
+            width: 100% !important;
           }
 
           @media screen and (max-width: 1250px) {

@@ -116,6 +116,7 @@ const dummyData = [
 const HolidayManagement = () => {
     const navigate = useNavigate();
     const [searchKey, setSearchKey] = useState('');
+    const [tableFilterKey, setTableFilterKey] = useState('');
     const [openViewHoliday, setOpenViewHoliday] = useState(false);
     const [openConfirmationBox, setOpenConfirmationBox] = useState(false);
     const [viewHolidayCallback, setViewHolidayCallback] = useState('');
@@ -166,6 +167,8 @@ const HolidayManagement = () => {
                                     filterListArray={tableLimitArr}
                                     filterKeysArray={tableLimitArr}
                                     label={'Select'}
+                                    setFilterKey={setTableFilterKey}
+                                    filterKey={tableFilterKey}
                                 />
                             </Grid>
                             <span>Entries</span>

@@ -8,7 +8,8 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 
 const initialValues = {
-    location: ''
+    location: '',
+    address: '',
 }
 
 
@@ -39,7 +40,6 @@ const AddEmployee = () => {
     return (
         <>
             <Grid className='employee-add-main-container'>
-
                 <form className='employee-add-main-wrapper' onSubmit={handleSubmit}>
                     <Grid className='employee-add-top-btn-container'>
                         <h4>Add New Employee</h4>
@@ -419,23 +419,6 @@ const AddEmployee = () => {
                                     ) : null}
                                 </Grid>
 
-                                <Grid className="employee-add-form-field" style={{width:'calc((100% - 35px) / 2)'}}>
-                                    <p>Experience (Months)</p>
-                                    <input
-                                        type='text'
-                                        className='add-employee-form-input-tag'
-                                        name="specialization"
-                                        id="qualification-form-control-3"
-                                        placeholder="Exp (Month)"
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                        value={values.specialization}
-                                    />
-                                    {errors.location && touched.location ? (
-                                        <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.location.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.location}</p></Grid>
-                                    ) : null}
-                                </Grid>
-
                                 <Grid className="employee-add-form-field">
                                     <p>Office Shift</p>
                                     <DropownCustom
@@ -447,6 +430,23 @@ const AddEmployee = () => {
                                     />
                                     {errors.location && touched.location ? (
                                         <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.location.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.location}</p></Grid>
+                                    ) : null}
+                                </Grid>
+
+                                <Grid className="employee-add-form-field  employee-add-form-address-field">
+                                    <p>Address</p>
+                                    <input
+                                        type='text'
+                                        className='add-employee-form-input-tag'
+                                        name="address"
+                                        id="qualification-form-control-3"
+                                        placeholder="Address"
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        value={values.address}
+                                    />
+                                    {errors.address && touched.address ? (
+                                        <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.address.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.address}</p></Grid>
                                     ) : null}
                                 </Grid>
 

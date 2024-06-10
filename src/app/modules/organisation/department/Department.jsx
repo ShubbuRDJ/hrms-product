@@ -67,6 +67,7 @@ const dummyData = [
 const Department = () => {
     const navigate = useNavigate();
     const [searchKey, setSearchKey] = useState('');
+    const [tableFilterKey, setTableFilterKey] = useState('');
     const [openConfirmationBox, setOpenConfirmationBox] = useState(false);
 
     const actionKey = [
@@ -108,6 +109,8 @@ const Department = () => {
                                     filterListArray={tableLimitArr}
                                     filterKeysArray={tableLimitArr}
                                     label={'Select'}
+                                    setFilterKey={setTableFilterKey}
+                                    filterKey={tableFilterKey}
                                 />
                             </Grid>
                             <span>Entries</span>

@@ -127,6 +127,7 @@ const dummyData = [
 const MyDsr = () => {
     const [locationFilter, setLocationFilter] = useState('');
     const [searchKey, setSearchKey] = useState('');
+    const [tableFilterKey, setTableFilterKey] = useState('');
     const navigate = useNavigate();
 
     console.log(searchKey, 'vdvnfeiwodweidwedo')
@@ -199,6 +200,8 @@ const MyDsr = () => {
                                     filterListArray={tableLimitArr}
                                     filterKeysArray={tableLimitArr}
                                     label={'Select'}
+                                    setFilterKey={setTableFilterKey}
+                                    filterKey={tableFilterKey}
                                 />
                             </Grid>
                             <span>Entries</span>

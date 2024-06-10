@@ -7,7 +7,7 @@ import dayjs from 'dayjs';
 import './date-picker.scss';
 import PropTypes from 'prop-types';
 
-const DatePickerCustom = ({ handleChange, value, name, id, placeholder, type })=> {
+const DatePickerCustom = ({ handleChange, value, name, id, placeholder, type }) => {
 
   const formatDate = (date) => {
     const originalDate = new Date(date);
@@ -25,11 +25,11 @@ const DatePickerCustom = ({ handleChange, value, name, id, placeholder, type })=
           openTo={type}
           views={['year', 'month', 'day']}
           onChange={(value) => handleChange(name, formatDate(new Date(value)), true)}
-          slotProps={{ textField: { placeholder: `${placeholder}`, name: { name } } }} /> : <DatePicker
+          slotProps={{ textField: { placeholder: `${placeholder}`, name: name, id: id } }} /> : <DatePicker
           onChange={(value) => handleChange(name, formatDate(new Date(value)), true)}
           openTo={type}
           views={['year', 'month', 'day']}
-          slotProps={{ textField: { placeholder: `${placeholder}`, name: { name }, id: { id } } }} />}
+          slotProps={{ textField: { placeholder: `${placeholder}`, name: name, id: id } }} />}
       </Grid>
     </LocalizationProvider>
   );
@@ -37,11 +37,11 @@ const DatePickerCustom = ({ handleChange, value, name, id, placeholder, type })=
 
 DatePickerCustom.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  value: PropTypes.instanceOf(Date), // Assuming value is a Date object
+  // value: PropTypes.instanceOf(Date),
   name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  placeholder: PropTypes.string,
+  type: PropTypes.string,
 };
 
 export default DatePickerCustom

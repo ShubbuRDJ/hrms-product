@@ -18,23 +18,23 @@ const ViewEditEmployee = () => {
     const profileSidebar = [
         {
             menuName: 'Basic Information',
-            navigateAddress: `${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}`,
+            navigateAddress: `/${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}`,
         },
         {
             menuName: 'Profile Picture',
-            navigateAddress: `${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}/${routerConstants?.profilePictureRoute}`,
+            navigateAddress: `/${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}/${routerConstants?.profilePictureRoute}`,
         },
         {
             menuName: 'Qualifications',
-            navigateAddress: `${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}/${routerConstants?.qualificationRoute}`,
+            navigateAddress: `/${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}/${routerConstants?.qualificationRoute}`,
         },
         {
             menuName: 'Change Password',
-            navigateAddress: `${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}/${routerConstants?.changePasswordRoute}`,
+            navigateAddress: `/${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}/${routerConstants?.changePasswordRoute}`,
         },
         {
             menuName: 'Leave',
-            navigateAddress: `${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}/${routerConstants?.employeeLeaveRoute}`,
+            navigateAddress: `/${routerConstants?.employeeManagementRoute}/${routerConstants?.editEmployeeManagementRoute}/${routerConstants?.employeeLeaveRoute}`,
         },
     ]
 
@@ -50,7 +50,7 @@ const ViewEditEmployee = () => {
                     <Grid className='employee-edit-sidebar'>
                         {
                             profileSidebar?.map((menu, index) => (
-                                <Grid key={index} onClick={() => navigate(menu?.navigateAddress)} className={`employee-edit-sidebar-menu ${(location.pathname === menu.navigateAddress || location.pathname.includes(menu?.menuName?.toLowerCase())) ? 'employee-edit-active' : ''}`}>
+                                <Grid key={index} onClick={() => navigate(menu?.navigateAddress)} className={`employee-edit-sidebar-menu ${(location?.pathname === menu?.navigateAddress || location?.pathname?.includes(menu?.menuName?.toLowerCase())) ? 'employee-edit-active' : ''}`}>
                                     <Grid className='employee-edit-sidebar-menu-item'>
                                         <p>{menu?.menuName}</p>
                                     </Grid>

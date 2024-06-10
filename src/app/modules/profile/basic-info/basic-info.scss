@@ -25,8 +25,15 @@
         display: flex;
         flex-direction: column;
         width: calc((100% - 80px) / 3);
-        min-width: 260px;
+        min-width: 293.2px;
         gap: 8px;
+
+        @media screen and (max-width: 1545px) {
+          flex-basis: calc((100% - 40px) / 2);
+        }
+        @media screen and (max-width: 1212px) {
+          flex-basis: 100%;
+        }
 
         label {
           color: #111827;
@@ -55,11 +62,23 @@
 
       .profile-basic-info-input-field-second {
         width: calc((100% - 120px) / 4);
-        min-width: 190px;
+        min-width: 210px;
+        @media screen and (max-width: 1545px) {
+          flex-basis: calc((100% - 40px) / 2);
+        }
+
+        @media screen and (max-width: 1045px) {
+          flex-basis: 100%;
+          &:nth-child(even){
+            margin-top: -25px;
+          }
+        }
+
+        
       }
 
       .profile-basic-info-textarea {
-        width: 100%;
+        flex-basis: 100%;
 
         textarea {
           border: 1px solid #e9cfff;

@@ -72,6 +72,16 @@
             min-width: 232px;
             width: calc((100% - 105px) / 4);
 
+            @media screen and (max-width: 1436px) {
+              width: calc((100% - 70px) / 3);
+            }
+            @media screen and (max-width: 1168px) {
+              width: calc((100% - 35px) / 2);
+            }
+            @media screen and (max-width: 901px) {
+              width: 100%;
+            }
+
             .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary {
               background-color: #ffffff;
 
@@ -113,7 +123,12 @@
             .employee-add-form-checkbox {
               margin-top: 15px;
               display: flex;
-              gap: 50px;
+              column-gap: 50px;
+              row-gap: 10px;
+
+              @media screen and (max-width: 1114px) {
+                flex-wrap: wrap;
+              }
 
               .MuiFormControlLabel-root {
                 margin: 0;
@@ -127,8 +142,23 @@
             }
           }
 
+          .employee-add-form-address-field {
+            width: calc((100% - 35px) / 2);
+
+            @media screen and (max-width: 1436px) {
+              width: calc((100% - 356px));
+            }
+            @media screen and (max-width: 1168px) {
+              width: 100%;
+            }
+          }
+
           .employee-add-form-field-checkbox {
             width: 74.3%;
+
+            @media screen and (max-width: 1114px) {
+              width: 100%;
+            }
           }
         }
       }

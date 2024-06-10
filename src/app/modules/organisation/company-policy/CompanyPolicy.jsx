@@ -82,6 +82,7 @@ const CompanyPolicy = () => {
     const [openViewPolicy, setOpenViewPolicy] = useState(false);
     const [openViewPolicyCallback, setOpenViewPolicyCallback] = useState('');
     const [searchKey, setSearchKey] = useState('');
+    const [tableFilterKey, setTableFilterKey] = useState('');
     const [openConfirmationBox, setOpenConfirmationBox] = useState(false);
 
 
@@ -130,6 +131,8 @@ const CompanyPolicy = () => {
                                     filterListArray={tableLimitArr}
                                     filterKeysArray={tableLimitArr}
                                     label={'Select'}
+                                    setFilterKey={setTableFilterKey}
+                                    filterKey={tableFilterKey}
                                 />
                             </Grid>
                             <span>Entries</span>
