@@ -26,6 +26,13 @@
           min-width: 232px;
           width: calc((100% - 70px) / 3);
 
+          @media screen and (max-width: 1401px) {
+            width: calc((100% - 35px) / 2);
+          }
+          @media screen and (max-width: 1134px) {
+            width: 100%;
+          }
+
           .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary {
             background-color: #ffffff;
 
@@ -67,7 +74,9 @@
           .employee-edit-basic-detail-checkbox {
             margin-top: 15px;
             display: flex;
-            gap: 50px;
+            column-gap: 50px;
+            row-gap: 10px;
+            flex-wrap: wrap;
 
             .MuiFormControlLabel-root {
               margin: 0;
@@ -78,6 +87,17 @@
               font-size: 14px;
               font-weight: 600;
             }
+          }
+        }
+
+        .employee-edit-address-field {
+          width: calc((100% - 470px));
+
+          @media screen and (max-width: 1401px) {
+            width: calc((100% - 35px) / 2);
+          }
+          @media screen and (max-width: 1134px) {
+            width: 100%;
           }
         }
 

@@ -31,6 +31,7 @@ const BasicDetailsEmp = () => {
 
 
                     <Grid className='employee-edit-basic-detail-row'>
+
                         <Grid className="employee-edit-basic-detail-field">
                             <p>First Name</p>
                             <input
@@ -78,10 +79,6 @@ const BasicDetailsEmp = () => {
                                 <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.location.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.location}</p></Grid>
                             ) : null}
                         </Grid>
-
-                    </Grid>
-
-                    <Grid className='employee-edit-basic-detail-row'>
 
                         <Grid className="employee-edit-basic-detail-field">
                             <p>Employee ID</p>
@@ -134,10 +131,6 @@ const BasicDetailsEmp = () => {
                             ) : null}
                         </Grid>
 
-                    </Grid>
-
-                    <Grid className='employee-edit-basic-detail-row'>
-
                         <Grid className="employee-edit-basic-detail-field">
                             <p>Date of Birth</p>
                             <DatePickerCustom
@@ -180,10 +173,6 @@ const BasicDetailsEmp = () => {
                             ) : null}
                         </Grid>
 
-                    </Grid>
-
-                    <Grid className='employee-edit-basic-detail-row'>
-
                         <Grid className="employee-edit-basic-detail-field">
                             <p>Department</p>
                             <DropownCustom
@@ -225,10 +214,6 @@ const BasicDetailsEmp = () => {
                                 <Grid style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: 'auto', width: '100%', marginTop: `${(errors.location.length <= 60) ? '-5px' : '8px'}` }}><p style={{ margin: '0', padding: '0' }} className="form-error">{errors.location}</p></Grid>
                             ) : null}
                         </Grid>
-
-                    </Grid>
-
-                    <Grid className='employee-edit-basic-detail-row'>
 
                         <Grid className="employee-edit-basic-detail-field">
                             <p>Experience (Years)</p>
@@ -281,10 +266,6 @@ const BasicDetailsEmp = () => {
                             ) : null}
                         </Grid>
 
-                    </Grid>
-
-                    <Grid className='employee-edit-basic-detail-row'>
-
                         <Grid className="employee-edit-basic-detail-field">
                             <p>Relevant Experience (Months)</p>
                             <input
@@ -330,22 +311,14 @@ const BasicDetailsEmp = () => {
                             ) : null}
                         </Grid>
 
-
-                    </Grid>
-
-
-
-
-                    <Grid className='employee-edit-basic-detail-row'>
-
-                        <Grid className="employee-edit-basic-detail-field" style={{ width: '65.69%' }}>
-                            <p>Address</p>
+                        <Grid className="employee-edit-basic-detail-field">
+                            <p>Employee Shift</p>
                             <input
                                 type='text'
                                 className='add-employee-form-input-tag'
                                 name="specialization"
                                 id="qualification-form-control-3"
-                                placeholder="Address"
+                                placeholder="Employee Shift"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.specialization}
@@ -355,14 +328,14 @@ const BasicDetailsEmp = () => {
                             ) : null}
                         </Grid>
 
-                        <Grid className="employee-edit-basic-detail-field">
-                            <p>Employee Shift</p>
+                        <Grid className="employee-edit-basic-detail-field employee-edit-address-field">
+                            <p>Address</p>
                             <input
                                 type='text'
                                 className='add-employee-form-input-tag'
                                 name="specialization"
                                 id="qualification-form-control-3"
-                                placeholder="Employee Shift~"
+                                placeholder="Address"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.specialization}

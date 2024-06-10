@@ -24,7 +24,7 @@ const columns = [
     { id: 'column3', label: 'Total Work', minWidth: 100 },
 ];
 
-const dataKey = ['serialNum', 'employee','mode_of_work','date', 'clock_in', 'clock_out', 'total_work',];
+const dataKey = ['serialNum', 'employee', 'mode_of_work', 'date', 'clock_in', 'clock_out', 'total_work',];
 
 const dummyData = [
     {
@@ -116,21 +116,25 @@ const AttendanceManagement = () => {
     return (
         <>
             <Grid className='timesheet-attendance-management-main-container'>
+                <Grid className='add-new-employee-btn-container'>
+                    <h4>Add New Attendance</h4>
+                    <button type="button" onClick={() => navigate(`/attendance-management/add-attendance`)}>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path opacity="0.8" d="M15 7H9V1C9 0.4 8.6 0 8 0C7.4 0 7 0.4 7 1V7H1C0.4 7 0 7.4 0 8C0 8.6 0.4 9 1 9H7V15C7 15.6 7.4 16 8 16C8.6 16 9 15.6 9 15V9H15C15.6 9 16 8.6 16 8C16 7.4 15.6 7 15 7Z" fill="#C7D2FE" />
+                        </svg>
+                        <span>Add New</span>
+                    </button>
+                </Grid>
 
                 <Grid className='timesheet-attendance-management-list-main-container'>
-                    <Grid className='add-new-employee-btn-container'>
-                        <h4>Add New Attendance</h4>
-                        <button type="button" onClick={() => navigate('/attendance-management/add-attendance')}>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path opacity="0.8" d="M15 7H9V1C9 0.4 8.6 0 8 0C7.4 0 7 0.4 7 1V7H1C0.4 7 0 7.4 0 8C0 8.6 0.4 9 1 9H7V15C7 15.6 7.4 16 8 16C8.6 16 9 15.6 9 15V9H15C15.6 9 16 8.6 16 8C16 7.4 15.6 7 15 7Z" fill="#C7D2FE" />
-                            </svg>
-                            <span>Add New</span>
-                        </button>
 
+                    <Grid className='list-heading-export-btn-container' style={{ border: 'none' }}>
+                        <h4>All Attendance List</h4>
                     </Grid>
 
-                    <Grid className='list-heading-export-btn-container' style={{ height: 'unset', flexDirection: 'column', alignItems: 'flex-start', gap: '30px' }} >
+                    <Grid className='add-new-employee-filter-container' style={{ marginTop: '-15px' }}>
                         <Grid className='add-new-employee-filter-wrapper'>
+
                             <Grid className='add-new-employee-filter'>
                                 <p>From Date</p>
                                 <DatePickerCustom
@@ -139,7 +143,6 @@ const AttendanceManagement = () => {
                                     id={'attendance-management-date'}
                                 />
                             </Grid>
-
                             <Grid className='add-new-employee-filter'>
                                 <p>To Date</p>
                                 <DatePickerCustom
@@ -148,7 +151,6 @@ const AttendanceManagement = () => {
                                     id={'attendance-management-date'}
                                 />
                             </Grid>
-
                             <Grid className='add-new-employee-filter'>
                                 <p>Select Employee</p>
                                 <FilterCustom
@@ -163,7 +165,6 @@ const AttendanceManagement = () => {
                                 <button type="button">Reset</button>
                             </Grid>
                         </Grid>
-
                     </Grid>
 
                     <Grid className='list-heading-export-btn-container'>
@@ -198,9 +199,9 @@ const AttendanceManagement = () => {
                             columns={columns}
                             datas={dummyData}
                             dataKey={dataKey}
-                            align="center"
                             actionKey={actionKey}
-                            tableContainerMaxHeight={385}
+                            align="center"
+                            tableContainerMaxHeight={320}
                         />
                     </Grid>
                     <Grid className='timesheet-attendance-management-pagination-container'>
@@ -210,6 +211,8 @@ const AttendanceManagement = () => {
                 </Grid>
 
             </Grid>
+
+
 
             {
                 openConfirmationBox && <ConfirmationDialog heading={'Are you sure you want to delete ?'} open={openConfirmationBox} setOpen={setOpenConfirmationBox} />
