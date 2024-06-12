@@ -121,7 +121,7 @@ const AddHoliday = ({ type }) => {
                                     ) : null}
                                 </Grid>
 
-                                <Grid className="new-holiday-add-form-field" style={{width:'calc((100% - 35px) / 2)'}}>
+                                <Grid className="new-holiday-add-form-field new-holiday-add-form-description-field">
                                     <p>Description</p>
                                     <input
                                         type='text'

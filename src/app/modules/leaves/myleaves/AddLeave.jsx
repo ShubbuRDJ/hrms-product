@@ -16,6 +16,8 @@ import FileUpload from '../../../components/file-upload/FileUpload';
 import { useState } from 'react';
 import FlipLeaveCard from '../../../components/flipLeaveCard/FlipLeaveCard';
 import LeaveCardValidity from '../../../components/leaves-card/LeaveCardValidity';
+import useScreenDimensions from '../../../Hooks/useScreenDimensions';
+import { getLeaveCardsRowLimit } from '../../../../utility/common';
 
 const initialValues = {
     date: '',
@@ -56,6 +58,8 @@ const AddLeave = ({ type }) => {
         'One is valid till May,2024',
         'One is valid till May,2024',
     ]
+
+    const dimensions = useScreenDimensions()
     return (
         <>
             <Grid className='add-leave-main-container'>
@@ -67,7 +71,7 @@ const AddLeave = ({ type }) => {
                         totalLeave={10}
                         iconColor={'#E7EDFF'}
                         icon={casualLeaveIcon}
-                        cardRowLimit={4}
+                        cardRowLimit={getLeaveCardsRowLimit(dimensions?.width)}
                         cardGap={20}
                     />
                     <LeaveCard
@@ -76,7 +80,7 @@ const AddLeave = ({ type }) => {
                         totalLeave={10}
                         iconColor={'#FFE0EB'}
                         icon={earnLeaveIcon}
-                        cardRowLimit={4}
+                        cardRowLimit={getLeaveCardsRowLimit(dimensions?.width)}
                         cardGap={20}
                     />
                     <LeaveCard
@@ -85,7 +89,7 @@ const AddLeave = ({ type }) => {
                         totalLeave={10}
                         iconColor={'rgba(21, 101, 192, 0.1)'}
                         icon={shortLeaveIcon}
-                        cardRowLimit={4}
+                        cardRowLimit={getLeaveCardsRowLimit(dimensions?.width)}
                         cardGap={20}
                     />
                     <LeaveCard
@@ -94,7 +98,7 @@ const AddLeave = ({ type }) => {
                         totalLeave={10}
                         iconColor={'#ECFCCB'}
                         icon={restrictedLeaveIcon}
-                        cardRowLimit={4}
+                        cardRowLimit={getLeaveCardsRowLimit(dimensions?.width)}
                         cardGap={20}
                     />
                     <FlipLeaveCard
@@ -106,7 +110,7 @@ const AddLeave = ({ type }) => {
                             icon={compOffLeaveIcon}
                         />}
                         backComponent={<LeaveCardValidity itemArray={compOffValidityArray} />}
-                        cardRowLimit={4}
+                        cardRowLimit={getLeaveCardsRowLimit(dimensions?.width)}
                         cardGap={20}
                     />
                     <LeaveCard
@@ -115,7 +119,7 @@ const AddLeave = ({ type }) => {
                         totalLeave={10}
                         iconColor={'#F3E8FF'}
                         icon={paternityLeaveIcon}
-                        cardRowLimit={4}
+                        cardRowLimit={getLeaveCardsRowLimit(dimensions?.width)}
                         cardGap={20}
                     />
                     <LeaveCard
@@ -124,7 +128,7 @@ const AddLeave = ({ type }) => {
                         totalLeave={10}
                         iconColor={'#FDF2F8'}
                         icon={maternityLeaveIcon}
-                        cardRowLimit={4}
+                        cardRowLimit={getLeaveCardsRowLimit(dimensions?.width)}
                         cardGap={20}
                     />
 
@@ -146,7 +150,7 @@ const AddLeave = ({ type }) => {
 
                             <Grid className='add-leave-form-row'>
 
-                                <Grid className="add-leave-form-field">
+                                <Grid className="add-leave-form-field add-leave-form-field-fullWidth">
                                     <p>Leave Type</p>
                                     <DropownCustom
                                         label={'Select Leave Type'}
@@ -190,7 +194,7 @@ const AddLeave = ({ type }) => {
 
 
                             <Grid className='add-leave-form-row'>
-                                <Grid className="add-leave-form-field">
+                                <Grid className="add-leave-form-field add-leave-form-field-halfWidth">
                                     <p>Start Date</p>
                                     <DatePickerCustom
                                         placeholder={'Select to date'}
@@ -200,7 +204,7 @@ const AddLeave = ({ type }) => {
                                         handleChange={setFieldValue}
                                     />
                                 </Grid>
-                                <Grid className="add-leave-form-field">
+                                <Grid className="add-leave-form-field add-leave-form-field-halfWidth">
                                     <p>End Date</p>
                                     <DatePickerCustom
                                         placeholder={'Select to date'}
@@ -211,7 +215,7 @@ const AddLeave = ({ type }) => {
                                     />
                                 </Grid>
 
-                                <Grid className="add-leave-form-field add-leave-form-field-second">
+                                <Grid className="add-leave-form-field add-leave-form-field-second add-leave-form-field-halfWidth">
                                     <p>Upload Document</p>
                                     <FileUpload
                                         handleChange={handleFileChange}
@@ -220,7 +224,7 @@ const AddLeave = ({ type }) => {
                                     />
                                 </Grid>
 
-                                <Grid className="add-leave-form-field add-leave-form-field-second">
+                                <Grid className="add-leave-form-field add-leave-form-field-second add-leave-form-field-halfWidth">
                                     <p>Subject</p>
                                     <input
                                         type='text'

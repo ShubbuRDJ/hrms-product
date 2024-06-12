@@ -45,7 +45,7 @@ const AddLocation = ({ type }) => {
 
                         <Grid className='add-new-employee-btns'>
                             <button type="submit">{(type === 'add') ? 'Save' : 'Update'}</button>
-                            <button type="button" onClick={()=>navigate(-1)}>Cancel</button>
+                            <button type="button" onClick={() => navigate(-1)}>Cancel</button>
                         </Grid>
 
                     </Grid>
@@ -56,7 +56,7 @@ const AddLocation = ({ type }) => {
 
                             <Grid className='location-add-form-row'>
 
-                                <Grid className="location-add-form-field">
+                                <Grid className="location-add-form-field location-w-100">
                                     <p>Address Line 1</p>
                                     <input
                                         type='text'
@@ -74,7 +74,7 @@ const AddLocation = ({ type }) => {
                                 </Grid>
 
 
-                                <Grid className="location-add-form-field">
+                                <Grid className="location-add-form-field location-w-100">
                                     <Grid className='location-add-form-row'>
 
                                         <Grid className="location-add-form-field">
@@ -115,7 +115,7 @@ const AddLocation = ({ type }) => {
 
                             <Grid className='location-add-form-row'>
 
-                                <Grid className="location-add-form-field">
+                                <Grid className="location-add-form-field location-w-100">
                                     <p>Address Line 2</p>
                                     <input
                                         type='text'
@@ -133,7 +133,7 @@ const AddLocation = ({ type }) => {
                                 </Grid>
 
 
-                                <Grid className="location-add-form-field">
+                                <Grid className="location-add-form-field location-w-100">
                                     <Grid className='location-add-form-row'>
 
                                         <Grid className="location-add-form-field">
@@ -177,7 +177,7 @@ const AddLocation = ({ type }) => {
 
                             <Grid className='location-add-form-row'>
 
-                                <Grid className="location-add-form-field">
+                                <Grid className="location-add-form-field location-w-100">
                                     <Grid className='location-add-form-row'>
                                         <Grid className="location-add-form-field location-add-three-in-row" >
                                             <p>City</p>
@@ -233,7 +233,7 @@ const AddLocation = ({ type }) => {
                                     </Grid>
                                 </Grid>
 
-                                <Grid className="location-add-form-field">
+                                <Grid className="location-add-form-field location-w-100">
                                     <p>Email</p>
                                     <input
                                         type='text'
@@ -254,7 +254,7 @@ const AddLocation = ({ type }) => {
 
                             <Grid className='location-add-form-row'>
 
-                                <Grid className="location-add-form-field">
+                                <Grid className="location-add-form-field location-w-100">
                                     <p>Country</p>
                                     <DropownCustom
                                         label={'Country'}

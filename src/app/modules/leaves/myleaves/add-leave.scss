@@ -134,6 +134,20 @@
             }
           }
 
+          .add-leave-form-field-halfWidth {
+            @media screen and (max-width: 1432px) {
+              width: calc((100% - 35px) / 2) !important;
+            }
+            @media screen and (max-width: 926px) {
+              width: 100% !important;
+            }
+          }
+          .add-leave-form-field-fullWidth {
+            @media screen and (max-width: 1030px) {
+              width: 100% !important;
+            }
+          }
+
           .add-leave-form-field-second {
             width: calc((100% - 35px) / 2);
           }

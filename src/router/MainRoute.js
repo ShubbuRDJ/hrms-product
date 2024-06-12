@@ -81,26 +81,26 @@ function MainRoute() {
         <Route path={`${routerConstants?.designationRoute}/${routerConstants?.addDesignationRoute}`} element={<AddDesigantion type={'add'} />} />
         <Route path={`${routerConstants?.designationRoute}/${routerConstants?.editDesignationRoute}`} element={<AddDesigantion type={'edit'} />} />
         <Route path={routerConstants?.locationRoute} element={<Location />} />
-        <Route path={`${routerConstants?.locationRoute}/${routerConstants?.viewLocationRoute}`} element={<ViewLocation />} />
-        <Route path={`${routerConstants?.locationRoute}/${routerConstants?.addLocationRoute}`} element={<AddLocation type={'add'} />} />
-        <Route path={`${routerConstants?.locationRoute}/${routerConstants?.addLocationRoute}`} element={<AddLocation type={'edit'} />} />
+        <Route path={`${routerConstants?.viewLocationRoute}`} element={<ViewLocation />} />
+        <Route path={`${routerConstants?.addLocationRoute}`} element={<AddLocation type={'add'} />} />
+        <Route path={`${routerConstants?.editLocationRoute}`} element={<AddLocation type={'edit'} />} />
         <Route path={routerConstants?.myAttendanceRoute} element={<MyAttendance />} />
         <Route path={routerConstants?.attendanceManagementRoute} element={<AttendanceManagement />} />
-        <Route path={`${routerConstants?.attendanceManagementRoute}/${routerConstants?.addAttendanceRoute}`} element={<AddAttendance type={'add'} />} />
-        <Route path={`${routerConstants?.attendanceManagementRoute}/${routerConstants?.editAttendanceRoute}`} element={<AddAttendance type={'edit'} />} />
+        <Route path={`${routerConstants?.addAttendanceRoute}`} element={<AddAttendance type={'add'} />} />
+        <Route path={`${routerConstants?.editAttendanceRoute}`} element={<AddAttendance type={'edit'} />} />
         <Route path={routerConstants?.shiftManagementRoute} element={<ShiftManagement />} />
-        <Route path={`${routerConstants?.shiftManagementRoute}/${routerConstants?.addShiftRoute}`} element={<AddShift type={'add'} />} />
-        <Route path={`${routerConstants?.shiftManagementRoute}/${routerConstants?.editShiftRoute}`} element={<AddShift type={'edit'} />} />
+        <Route path={`${routerConstants?.addShiftRoute}`} element={<AddShift type={'add'} />} />
+        <Route path={`${routerConstants?.editShiftRoute}`} element={<AddShift type={'edit'} />} />
         <Route path={routerConstants?.holidayManagementRoute} element={<HolidayManagement />} />
-        <Route path={`${routerConstants?.holidayManagementRoute}/${routerConstants?.addHolidayRoute}`} element={<AddHoliday type={'add'} />} />
-        <Route path={`${routerConstants?.holidayManagementRoute}/${routerConstants?.editHolidayRoute}`}  element={<AddHoliday type={'edit'} />} />
+        <Route path={`${routerConstants?.addHolidayRoute}`} element={<AddHoliday type={'add'} />} />
+        <Route path={`${routerConstants?.editHolidayRoute}`}  element={<AddHoliday type={'edit'} />} />
         <Route path={routerConstants?.myLeavesRoute} element={<MyLeave />} />
-        <Route path={`${routerConstants?.myLeavesRoute}/${routerConstants?.addLeaveRoute}`} element={<AddLeave type={'add'} />} />
+        <Route path={`${routerConstants?.addLeaveRoute}`} element={<AddLeave type={'add'} />} />
         <Route path={`${routerConstants?.myLeavesRoute}/${routerConstants?.leaveDetailsRoute}`} element={<ViewLeave type={'leave'} />} />
         <Route path={routerConstants?.restrictedLeavesRoute} element={<RestrictedLeave />} />
         <Route path={routerConstants?.compOffManagementRoute} element={<CompOffManagement />} />
-        <Route path={`${routerConstants?.compOffManagementRoute}/${routerConstants?.addCompOffRoute}`} element={<AddCompOff type={'add'} />} />
-        <Route path={`${routerConstants?.compOffManagementRoute}/${routerConstants?.editCompOffRoute}`}  element={<AddCompOff type={'edit'} />} />
+        <Route path={`${routerConstants?.addCompOffRoute}`} element={<AddCompOff type={'add'} />} />
+        <Route path={`${routerConstants?.editCompOffRoute}`}  element={<AddCompOff type={'edit'} />} />
         <Route path={routerConstants?.leavesToAcknowledgeRoute} element={<LeavesToAcknowledge />} />
         <Route path={`${routerConstants?.leavesToAcknowledgeRoute}/${routerConstants?.leaveDetailsRoute}`} element={<ViewLeave type={'leave'} />} />
         <Route path={routerConstants?.leavesToApproveRoute} element={<LeavesToApprove />} />
@@ -111,7 +111,7 @@ function MainRoute() {
             approvePromptMSg={'Do you want to approve this leave?'}
           />} />
         <Route path={routerConstants?.myWfhRoute} element={<MyWFH />} />
-        <Route path={`${routerConstants?.myWfhRoute}/${routerConstants?.addWfhRoute}`} element={<AddWFH />} />
+        <Route path={`${routerConstants?.addWfhRoute}`} element={<AddWFH />} />
         <Route path={`${routerConstants?.myWfhRoute}/${routerConstants?.viewWfhDetailsRoute}`} element={<ViewLeave type={'wfh'} />} />
         <Route path={routerConstants?.wfhToApproveRoute} element={<WFHApprove />} />
         <Route path={`${routerConstants?.wfhToApproveRoute}/${routerConstants?.viewWfhDetailsRoute}`}

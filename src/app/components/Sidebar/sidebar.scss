@@ -3,20 +3,6 @@
   width: 260px;
   height: 100vh;
   position: relative;
-  overflow-y: auto;
-  overflow-x: hidden;
-  &::-webkit-scrollbar {
-    width: 0px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #055fbf;
-    border-radius: 0px;
-  }
 
   .sidebar-close-arrow {
     height: 28px;
@@ -31,7 +17,7 @@
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
     position: absolute;
     top: 38px;
-    right: 2px;
+    right: -14px;
     cursor: pointer;
   }
 
@@ -42,13 +28,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 60px;
   }
 
   .sidebar-main-container-wrapper {
     display: flex;
     flex-direction: column;
-    height: calc(100% - 74px);
-    padding-top: 80px;
+    height: calc(100% - 154px);
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #055fbf;
+      border-radius: 0px;
+    }
 
     .sidebar-menu-container {
       width: 100%;
@@ -161,7 +161,7 @@
       width: 100%;
       display: flex;
       justify-content: center;
-      margin-top: 60px;
+      margin-top: 45px;
       margin-bottom: 17px;
 
       button {

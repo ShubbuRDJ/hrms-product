@@ -22,7 +22,7 @@ const ViewLeave = ({ type, approveRejectAction,rejectPromptMSg,approvePromptMSg 
             <Grid className='view-leave-main-container'>
 
                 <Grid className='view-leave-main-wrapper' >
-                    <Grid className='view-leave-top-btn-container'>
+                    <Grid className={`view-leave-top-btn-container ${approveRejectAction?'view-leave-top-Container-with-approve-reject':''}`}>
                         <h4>
                             <svg onClick={() => navigate(-1)} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#clip0_1768_67399)">

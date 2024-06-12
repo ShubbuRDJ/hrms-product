@@ -99,7 +99,7 @@ const AddCompOff = ({ type }) => {
                             </Grid>
 
                             <Grid className='comp-off-add-form-row'>
-                                <Grid className="comp-off-add-form-field" style={{ width: 'calc((100% - 35px) / 2)' }}>
+                                <Grid className="comp-off-add-form-field comp-off-remark-field">
                                     <p>Remarks</p>
                                     <input
                                         type='text'

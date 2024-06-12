@@ -6,6 +6,7 @@ import TableCustom from '../../../components/tableCustom/TableCustom'
 import PaginationCustom from '../../../components/pagination/PaginationCustom'
 import { useNavigate } from 'react-router-dom'
 import PromptCustom from '../../../components/prompt-box/PromptCustom'
+import routerConstants from '../../../../constants/routerConstants'
 
 
 const tableLimitArr = ['10', '25', '50', '100']
@@ -116,7 +117,7 @@ const MyWFH = () => {
     const actionKey = [
         {
             actionName: 'view',
-            navigateAddress: '/my-wfh/view-wfh-details'
+            navigateAddress: `/${routerConstants?.myWfhRoute}/${routerConstants?.viewWfhDetailsRoute}`
         },
         {
             actionName: 'chat'
@@ -135,7 +136,7 @@ const MyWFH = () => {
 
                 <Grid className='add-new-employee-btn-container'>
                     <h4>Add Work From Home</h4>
-                    <button type="button" onClick={() => navigate('/my-wfh/add-wfh')}>
+                    <button type="button" onClick={() => navigate(`${routerConstants?.addWfhRoute}`)}>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path opacity="0.8" d="M15 7H9V1C9 0.4 8.6 0 8 0C7.4 0 7 0.4 7 1V7H1C0.4 7 0 7.4 0 8C0 8.6 0.4 9 1 9H7V15C7 15.6 7.4 16 8 16C8.6 16 9 15.6 9 15V9H15C15.6 9 16 8.6 16 8C16 7.4 15.6 7 15 7Z" fill="#C7D2FE" />
                         </svg>

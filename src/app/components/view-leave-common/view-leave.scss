@@ -1,7 +1,7 @@
 .view-leave-main-container {
   padding: 10px;
-  height: calc(100vh - 84px);
   background-color: #f4efff;
+  padding-bottom: 50px;
 
   .view-leave-main-wrapper {
     width: 100%;
@@ -11,10 +11,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 66px;
       background-color: #ffffff;
       border-radius: 10px 10px 0 0;
-      padding: 0 20px;
+      padding: 12.5px 20px;
       border-bottom: 1px solid #e6eff5;
 
       h4 {
@@ -32,6 +31,7 @@
       .view-leave-btns {
         display: flex;
         gap: 20px;
+        align-self: flex-end;
 
         button {
           height: 40px;
@@ -72,14 +72,22 @@
           }
         }
 
-        .view-leave-reject-btn{
+        .view-leave-reject-btn {
           background-color: rgba(255, 0, 0, 0.1);
-          color: #DC2626;
+          color: #dc2626;
         }
-        .view-leave-approve-btn{
+        .view-leave-approve-btn {
           background-color: #219653;
           color: #ffffff;
         }
+      }
+    }
+
+    .view-leave-top-Container-with-approve-reject {
+      @media screen and (max-width: 930px) {
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 20px;
       }
     }
 
@@ -91,12 +99,21 @@
       border-radius: 0 0 10px 10px;
       display: flex;
 
+      @media screen and (max-width: 1370px) {
+        flex-direction: column;
+        row-gap: 50px;
+      }
+
       .view-leave-left-part {
         width: 55%;
         display: flex;
         flex-direction: column;
         gap: 23px;
         padding-right: 50px;
+
+        @media screen and (max-width: 1370px) {
+          width: 100%;
+        }
 
         h4 {
           color: #1b1c57;
@@ -159,6 +176,10 @@
       .view-leave-right-part {
         width: 45%;
 
+        @media screen and (max-width: 1370px) {
+          width: 100%;
+        }
+
         .view-leave-acknowledge {
           display: flex;
           flex-direction: column;
@@ -166,6 +187,12 @@
           border-left: 1px solid #e6eff5;
           padding-bottom: 30px;
           padding-left: 50px;
+
+          @media screen and (max-width: 1370px) {
+            padding-left: unset;
+            border: unset;
+          }
+
           h4 {
             color: #1b1c57;
             font-size: 16px;
@@ -206,6 +233,10 @@
             background-color: #e6eff5;
             margin-left: -20px;
             margin-top: 10px;
+
+            @media screen and (max-width: 1370px) {
+              visibility: hidden;
+            }
           }
         }
 
@@ -216,6 +247,12 @@
           border-left: 1px solid #e6eff5;
           padding-bottom: 30px;
           padding-left: 50px;
+
+          @media screen and (max-width: 1370px) {
+            padding-left: unset;
+            border: unset;
+          }
+
           h4 {
             color: #1b1c57;
             font-size: 16px;

@@ -72,6 +72,10 @@
             min-width: 232px;
             width: calc((100% - 35px) / 2);
 
+            @media screen and (max-width: 898px) {
+              width: 100% !important;
+            }
+
             .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary {
               background-color: #ffffff;
 
