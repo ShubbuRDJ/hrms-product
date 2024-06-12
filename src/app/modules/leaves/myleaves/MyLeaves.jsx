@@ -29,7 +29,7 @@ const columns = [
     { id: 'column1', label: 'S No.', minWidth: 100 },
     { id: 'column2', label: 'Leave Type', minWidth: 150 },
     { id: 'column3', label: 'Applied On', minWidth: 150 },
-    { id: 'column3', label: 'Leave Duration', minWidth: 100 },
+    { id: 'column3', label: 'Leave Duration', minWidth: 280 },
     { id: 'column3', label: 'Final Approval', minWidth: 100 },
 ];
 

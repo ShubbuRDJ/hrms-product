@@ -14,9 +14,9 @@ const tableLimitArr = ['10', '25', '50', '100']
 
 const columns = [
     { id: 'column1', label: 'S No.', minWidth: 100 },
-    { id: 'column2', label: 'Duration', minWidth: 150 },
+    { id: 'column2', label: 'Duration', minWidth: 280 },
     { id: 'column3', label: 'Requested on', minWidth: 150 },
-    { id: 'column3', label: 'Description', minWidth: 100 },
+    { id: 'column3', label: 'Description', minWidth: 280 },
     { id: 'column3', label: 'Final Approval', minWidth: 100 },
 ];
 

@@ -16,8 +16,8 @@ const columns = [
     { id: 'serialNum', label: 'S No.', minWidth: 100 },
     { id: 'role_id', label: 'Role Id', minWidth: 180, filter: true },
     { id: 'role_name', label: 'Role Name', minWidth: 180, filter: true },
-    { id: 'menu_permission', label: 'Menu Permission', minWidth: 100 },
-    { id: 'added_date', label: 'Added Date', minWidth: 100 },
+    { id: 'menu_permission', label: 'Menu Permission', minWidth: 180 },
+    { id: 'added_date', label: 'Added Date', minWidth: 150 },
 ];
 
 const dataKey = ['serialNum', 'role_id', 'role_name', 'menu_permission', 'added_date'];

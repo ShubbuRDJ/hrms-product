@@ -20,9 +20,9 @@ const columns = [
     { id: 'column2', label: 'Employee', minWidth: 150 },
     { id: 'column3', label: 'Mode Of Work', minWidth: 150 },
     { id: 'column3', label: 'Date', minWidth: 100 },
-    { id: 'column3', label: 'Clock In', minWidth: 100 },
-    { id: 'column3', label: 'Clock Out', minWidth: 100 },
-    { id: 'column3', label: 'Total Work', minWidth: 100 },
+    { id: 'column3', label: 'Clock In', minWidth: 150 },
+    { id: 'column3', label: 'Clock Out', minWidth: 150 },
+    { id: 'column3', label: 'Total Work', minWidth: 150 },
 ];
 
 const dataKey = ['serialNum', 'employee', 'mode_of_work', 'date', 'clock_in', 'clock_out', 'total_work',];

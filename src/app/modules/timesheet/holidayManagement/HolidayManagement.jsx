@@ -19,8 +19,8 @@ const columns = [
     { id: 'column2', label: 'Event Name', minWidth: 150 },
     { id: 'column3', label: 'Holiday Type', minWidth: 150 },
     { id: 'column3', label: 'Status', minWidth: 100 },
-    { id: 'column3', label: 'Start Date', minWidth: 100 },
-    { id: 'column3', label: 'End Date', minWidth: 100 },
+    { id: 'column3', label: 'Start Date', minWidth: 150 },
+    { id: 'column3', label: 'End Date', minWidth: 150 },
 ];
 
 const dataKey = ['serialNum', 'event_name', 'holiday_type', 'holiday_status', 'start_date', 'end_date'];

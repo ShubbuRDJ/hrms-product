@@ -16,10 +16,10 @@ const tableLimitArr = ['10', '25', '50', '100']
 
 const columns = [
     { id: 'serialNum', label: 'S No.', minWidth: 100 },
-    { id: 'emp_name', label: 'Employee Name', minWidth: 150,filter:true },
+    { id: 'emp_name', label: 'Employee Name', minWidth: 200,filter:true },
     { id: 'email', label: 'Email id', minWidth: 150 },
-    { id: 'date', label: 'Date', minWidth: 100,filter:true },
-    { id: 'logged_hrs', label: 'Total(Logged Hr)', minWidth: 100 },
+    { id: 'date', label: 'Date', minWidth: 150,filter:true },
+    { id: 'logged_hrs', label: 'Total(Logged Hr)', minWidth: 180 },
     { id: 'final_approval', label: 'Final Approval', minWidth: 100 },
 ];
 

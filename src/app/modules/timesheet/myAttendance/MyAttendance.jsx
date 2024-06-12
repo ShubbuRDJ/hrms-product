@@ -16,9 +16,9 @@ const columns = [
     { id: 'column1', label: 'S No.', minWidth: 100 },
     { id: 'column2', label: 'Date', minWidth: 150 },
     { id: 'column3', label: 'Clock In', minWidth: 150 },
-    { id: 'column3', label: 'Clock Out', minWidth: 100 },
-    { id: 'column3', label: 'Gross Time', minWidth: 100 },
-    { id: 'column3', label: 'Punch Location', minWidth: 100 },
+    { id: 'column3', label: 'Clock Out', minWidth: 150 },
+    { id: 'column3', label: 'Gross Time', minWidth: 150 },
+    { id: 'column3', label: 'Punch Location', minWidth: 150 },
 ];
 
 const dataKey = ['serialNum', 'date', 'clock_in', 'clock_out', 'gross_time', 'punch_location',];

@@ -14,8 +14,8 @@ const tableLimitArr = ['10', '25', '50', '100']
 
 const columns = [
     { id: 'column1', label: 'S No.', minWidth: 100 },
-    { id: 'column2', label: 'Department Name', minWidth: 150 },
-    { id: 'column3', label: 'Department Head', minWidth: 150 },
+    { id: 'column2', label: 'Department Name', minWidth: 180 },
+    { id: 'column3', label: 'Department Head', minWidth: 180 },
     { id: 'column3', label: 'Email ID', minWidth: 100 },
 ];
 

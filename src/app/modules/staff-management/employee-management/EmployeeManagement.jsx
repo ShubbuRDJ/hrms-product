@@ -122,7 +122,7 @@ const EmployeeManagement = () => {
     const navigate = useNavigate();
     const [locationFilter, setLocationFilter] = useState('');
     const [searchKey, setSearchKey] = useState('');
-    const [tableFilterKey, setTableFilterKey] = useState('');
+    const [tableFilterKey, setTableFilterKey] = useState(10);
 
     console.log(searchKey, 'vdvnfeiwodweidwedo')
     return (
@@ -210,7 +210,7 @@ const EmployeeManagement = () => {
                     </Grid>
                     <Grid className='employee-management-pagination-container'>
                         <p>Showing <span>1</span> to <span>6</span> of <span>6</span> entries</p>
-                        <PaginationCustom totalRecords={100} />
+                        <PaginationCustom totalRecords={100} rowLimit = {tableFilterKey} />
                     </Grid>
                 </Grid>
 

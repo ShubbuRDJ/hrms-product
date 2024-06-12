@@ -17,7 +17,7 @@ const columns = [
     { id: 'column1', label: 'S No.', minWidth: 100 },
     { id: 'column2', label: 'Emp Name', minWidth: 150 },
     { id: 'column3', label: 'No of comp off', minWidth: 150 },
-    { id: 'column3', label: ' Remarks', minWidth: 100 },
+    { id: 'column3', label: ' Remarks', minWidth: 280 },
 ];
 
 const dataKey = ['serialNum', 'emp_name', 'no_of_comp_off', 'remarks',];
